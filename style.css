@@ -1,0 +1,911 @@
+/* ============================================================
+   Thibault Lafaurie — Portfolio
+   style.css
+   ============================================================
+
+   Table des matières :
+   01. Variables & Reset
+   02. Base & Typographie
+   03. Mise en page générale
+   04. Navigation
+   05. Section Hero (01 — index)
+   06. Section À propos (02)
+   07. Section Projets (03)
+   08. Section Atelier (04)
+   09. Marquee stack technique (05)
+   10. Section Parcours & Loisirs (06)
+   11. Section Contact (07)
+   12. Animations
+   13. Responsive — Tablette (< 900px)
+   14. Responsive — Mobile (< 600px)
+   ============================================================ */
+
+
+/* ============================================================
+   01. Variables & Reset
+   ============================================================ */
+
+:root {
+  --font-sans    : 'Inter', system-ui, sans-serif;
+  --font-serif   : 'DM Serif Display', Georgia, serif;
+
+  /* Couleurs principales */
+  --ink          : #1F1A14;   /* texte principal */
+  --ink-light    : #6B6258;   /* texte secondaire */
+  --ink-faint    : #9C9286;   /* texte tertiaire / labels */
+  --cream        : #F5F0E8;   /* fond page */
+  --cream-dark   : #EBE6DD;   /* fond extérieur */
+  --border       : #E5DDD0;   /* lignes de séparation */
+
+  /* Couleur accent */
+  --accent       : #B5341A;   /* terracotta */
+  --accent-dark  : #5C1B0A;
+
+  /* Couleur secondaire */
+  --sage         : #5A7236;   /* vert sauge (statut) */
+  --sage-dark    : #2E3D17;
+
+  /* Typographie */
+  --text-xs   : 10px;
+  --text-sm   : 11px;
+  --text-base : 13px;
+  --text-md   : 14px;
+  --text-lg   : 17px;
+  --text-xl   : 24px;
+  --text-2xl  : 26px;
+  --text-3xl  : 28px;
+  --text-hero : 62px;
+
+  /* Espacements */
+  --section-pad-h : 36px;
+  --section-pad-v : 64px;
+  --section-pad-v-sm : 56px;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family : var(--font-sans);
+  background  : var(--cream-dark);
+  color       : var(--ink);
+  min-height  : 100vh;
+  padding     : 24px;
+  font-weight : 400;
+  line-height : 1.6;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+/* Accessibilité : texte masqué visuellement mais lu par les lecteurs d'écran */
+.sr-only {
+  position   : absolute;
+  width      : 1px;
+  height     : 1px;
+  padding    : 0;
+  overflow   : hidden;
+  clip       : rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border     : 0;
+}
+
+
+/* ============================================================
+   02. Base & Typographie
+   ============================================================ */
+
+.font-serif { font-family: var(--font-serif); }
+
+.text-accent { color: var(--accent); }
+.text-faint  { color: var(--ink-faint); }
+.text-light  { color: var(--ink-light); }
+
+
+/* ============================================================
+   03. Mise en page générale
+   ============================================================ */
+
+/* Cadre extérieur (simule un navigateur, peut être retiré en prod) */
+.browser-frame {
+  background    : var(--cream-dark);
+  border-radius : 12px;
+  padding       : 14px;
+}
+
+.browser-chrome {
+  display        : flex;
+  gap            : 6px;
+  align-items    : center;
+  margin-bottom  : 10px;
+  padding        : 0 6px;
+}
+
+.browser-chrome__dot {
+  width        : 10px;
+  height       : 10px;
+  border-radius: 50%;
+}
+
+.browser-chrome__url {
+  flex        : 1;
+  text-align  : center;
+  font-size   : var(--text-sm);
+  color       : #888780;
+}
+
+/* Contenu principal */
+.page {
+  background    : var(--cream);
+  border-radius : 8px;
+  overflow      : hidden;
+}
+
+/* Séparateurs de section */
+.section {
+  padding: var(--section-pad-v) var(--section-pad-h);
+  border-top: 0.5px solid var(--border);
+}
+
+.section:first-of-type {
+  border-top: none;
+}
+
+/* Ancres de navigation avec offset */
+section[id] {
+  scroll-margin-top: 20px;
+}
+
+/* Label de section (ex : "01 — index") */
+.section__label {
+  font-size      : var(--text-sm);
+  color          : var(--accent);
+  letter-spacing : 0.2em;
+  margin-bottom  : 8px;
+  display        : block;
+}
+
+
+/* ============================================================
+   04. Navigation
+   ============================================================ */
+
+.nav {
+  display         : flex;
+  justify-content : space-between;
+  align-items     : center;
+  padding         : 20px var(--section-pad-h);
+  border-bottom   : 0.5px solid var(--border);
+}
+
+.nav__logo {
+  display    : flex;
+  align-items: center;
+  gap        : 9px;
+  color      : var(--ink);
+  transition : color 0.25s ease;
+}
+
+.nav__logo:hover { color: var(--accent); }
+
+.nav__logo-dot {
+  width        : 8px;
+  height       : 8px;
+  background   : var(--accent);
+  border-radius: 1px;
+  flex-shrink  : 0;
+}
+
+.nav__logo-name {
+  font-size      : 12px;
+  font-weight    : 500;
+  letter-spacing : 0.02em;
+}
+
+.nav__links {
+  display : flex;
+  gap     : 24px;
+  font-size: 12px;
+}
+
+.nav__link {
+  color     : var(--ink-light);
+  transition: color 0.25s ease;
+}
+
+.nav__link:hover { color: var(--accent); }
+
+.nav__status {
+  display    : flex;
+  align-items: center;
+  gap        : 7px;
+}
+
+.nav__status-dot {
+  width        : 6px;
+  height       : 6px;
+  border-radius: 50%;
+  background   : var(--sage);
+  display      : inline-block;
+}
+
+.nav__status-text {
+  font-size: var(--text-sm);
+  color    : var(--sage-dark);
+}
+
+
+/* ============================================================
+   05. Section Hero (01 — index)
+   ============================================================ */
+
+.hero {
+  padding-top   : 80px;
+  padding-bottom: var(--section-pad-v);
+}
+
+.hero__meta-row {
+  display         : flex;
+  justify-content : space-between;
+  align-items     : baseline;
+  margin-bottom   : 48px;
+}
+
+.hero__location {
+  font-size  : var(--text-sm);
+  color      : var(--ink-faint);
+  font-style : italic;
+}
+
+.hero__title {
+  font-family   : var(--font-serif);
+  font-size     : var(--text-hero);
+  line-height   : 0.98;
+  color         : var(--ink);
+  letter-spacing: -0.025em;
+  font-weight   : 400;
+}
+
+.hero__title em {
+  color     : var(--accent);
+  font-style: italic;
+}
+
+.hero__cursor {
+  color  : var(--accent);
+  display: inline-block;
+}
+
+.hero__standfirst {
+  font-family: var(--font-serif);
+  font-size  : var(--text-2xl);
+  font-style : italic;
+  color      : var(--ink);
+  line-height: 1.4;
+  margin-top : 32px;
+  max-width  : 760px;
+}
+
+.hero__body {
+  max-width : 580px;
+  margin-top: 36px;
+}
+
+.hero__body p {
+  font-size  : var(--text-md);
+  color      : var(--ink-light);
+  line-height: 1.7;
+}
+
+.hero__body p + p {
+  margin-top: 16px;
+}
+
+/* Grille de méta-données (depuis / stack / lieu / dispo) */
+.stat-grid {
+  display              : grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap                  : 28px;
+  margin-top           : 60px;
+  padding-top          : 28px;
+  border-top           : 0.5px solid var(--border);
+}
+
+.stat__label {
+  font-size      : var(--text-xs);
+  color          : var(--accent);
+  letter-spacing : 0.22em;
+  margin-bottom  : 9px;
+  display        : block;
+}
+
+.stat__value {
+  font-size  : var(--text-lg);
+  color      : var(--ink);
+  font-weight: 500;
+  display    : block;
+  line-height: 1.2;
+  margin-bottom: 4px;
+}
+
+.stat__sub {
+  font-size : var(--text-sm);
+  color     : var(--ink-faint);
+  font-style: italic;
+  display   : block;
+}
+
+
+/* ============================================================
+   06. Section À propos (02)
+   ============================================================ */
+
+.about {
+  padding-top   : var(--section-pad-v-sm);
+  padding-bottom: var(--section-pad-v-sm);
+}
+
+.about__grid {
+  display              : grid;
+  grid-template-columns: 0.7fr 1.5fr;
+  gap                  : 48px;
+  align-items          : start;
+}
+
+/* Photo */
+.portrait {
+  position    : relative;
+  overflow    : hidden;
+  cursor      : pointer;
+  aspect-ratio: 4 / 5;
+  border-radius: 4px;
+  background  : #EDD8C7;
+  max-width   : 220px;
+}
+
+.portrait__img {
+  position  : absolute;
+  inset     : 0;
+  width     : 100%;
+  height    : 100%;
+  object-fit: cover;
+  transition: opacity 0.45s ease;
+}
+
+/* L'image "surpris" est cachée par défaut */
+.portrait__img--hover {
+  opacity: 0;
+}
+
+/* Au survol : on affiche la 2e photo */
+.portrait:hover .portrait__img--hover  { opacity: 1; }
+.portrait:hover .portrait__img--default { opacity: 0; }
+
+/* Contenu textuel */
+.about__content {
+  /* le label .section__label est utilisé ici */
+}
+
+.about__intro {
+  font-family  : var(--font-serif);
+  font-size    : var(--text-xl);
+  line-height  : 1.35;
+  color        : var(--ink);
+  font-weight  : 400;
+  margin-bottom: 22px;
+}
+
+.about__intro em {
+  color     : var(--accent);
+  font-style: italic;
+}
+
+.about__text {
+  font-size  : var(--text-base);
+  color      : var(--ink-light);
+  line-height: 1.7;
+}
+
+.about__text p + p {
+  margin-top: 14px;
+}
+
+
+/* ============================================================
+   07. Section Projets (03)
+   ============================================================ */
+
+.projects__header {
+  display         : flex;
+  justify-content : space-between;
+  align-items     : baseline;
+  margin-bottom   : 40px;
+}
+
+.projects__title {
+  font-family: var(--font-serif);
+  font-size  : var(--text-3xl);
+  color      : var(--ink);
+  font-weight: 400;
+}
+
+.projects__see-all {
+  font-size : 12px;
+  color     : var(--accent);
+  transition: opacity 0.2s;
+}
+
+.projects__see-all:hover { opacity: 0.7; }
+
+/* Grille de cartes */
+.projects-grid {
+  display              : grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 260px));
+  gap                  : 24px;
+  justify-content      : center;
+}
+
+/* Carte projet individuelle */
+.project-card {
+  width    : 100%;
+  max-width: 260px;
+}
+
+.project-card--link {
+  display   : block;
+  color     : inherit;
+  transition: none;
+}
+
+.project-card--link:hover .project-card__title {
+  color: var(--accent);
+}
+
+.project-card__image {
+  overflow     : hidden;
+  border-radius: 4px;
+  aspect-ratio : 4 / 3;
+}
+
+.project-card__image svg {
+  display: block;
+  width  : 100%;
+  height : 100%;
+}
+
+.project-card__info {
+  margin-top: 16px;
+}
+
+.project-card__meta {
+  display         : flex;
+  justify-content : space-between;
+  font-size       : var(--text-sm);
+  color           : var(--ink-faint);
+  margin-bottom   : 6px;
+}
+
+.project-card__title {
+  font-family  : var(--font-serif);
+  font-size    : 20px;
+  color        : var(--ink);
+  margin-bottom: 6px;
+  transition   : color 0.25s ease;
+}
+
+.project-card__desc {
+  font-size  : 12px;
+  color      : var(--ink-light);
+  line-height: 1.6;
+}
+
+.project-card__link {
+  font-size  : var(--text-sm);
+  color      : var(--accent);
+  margin-top : 8px;
+  display    : block;
+}
+
+/* Cartes skeleton (projets à venir) */
+.project-card--skeleton {
+  opacity: 0.85;
+}
+
+.project-card--skeleton .project-card__title {
+  color     : var(--ink-faint);
+  font-style: italic;
+}
+
+.project-card--skeleton .project-card__link {
+  color     : var(--ink-faint);
+  font-style: italic;
+}
+
+
+/* ============================================================
+   08. Section Atelier (04)
+   ============================================================ */
+
+.atelier {
+  padding-left : 0;
+  padding-right: 0;
+  overflow     : hidden;
+}
+
+.atelier__header {
+  display         : flex;
+  justify-content : space-between;
+  padding         : 0 var(--section-pad-h);
+  margin-bottom   : 24px;
+}
+
+.atelier__subtitle {
+  font-size : var(--text-sm);
+  color     : var(--ink-faint);
+  font-style: italic;
+}
+
+/* La piste défilante */
+.atelier__track {
+  display: flex;
+  gap    : 14px;
+  width  : max-content;
+  padding: 0 var(--section-pad-h);
+}
+
+/* Chaque vignette */
+.atelier__item {
+  width        : 200px;
+  aspect-ratio : 3 / 4;
+  border-radius: 4px;
+  flex-shrink  : 0;
+  overflow     : hidden;
+}
+
+.atelier__item svg {
+  display: block;
+  width  : 100%;
+  height : 100%;
+}
+
+
+/* ============================================================
+   09. Marquee stack technique (05)
+   ============================================================ */
+
+.marquee-section {
+  overflow     : hidden;
+  padding-left : 0;
+  padding-right: 0;
+}
+
+.marquee__track {
+  display     : flex;
+  gap         : 48px;
+  white-space : nowrap;
+  font-family : var(--font-serif);
+  font-size   : 28px;
+  color       : var(--ink);
+  width       : max-content;
+  font-style  : italic;
+  font-weight : 400;
+}
+
+.marquee__dot {
+  color: var(--accent);
+}
+
+
+/* ============================================================
+   10. Section Parcours & Loisirs (06)
+   ============================================================ */
+
+.timeline-section {
+  /* padding hérité de .section */
+}
+
+.timeline-layout {
+  display              : grid;
+  grid-template-columns: 1.5fr 1fr;
+  gap                  : 48px;
+}
+
+/* Colonne parcours */
+.timeline__title {
+  font-size      : var(--text-sm);
+  color          : var(--accent);
+  letter-spacing : 0.2em;
+  margin-bottom  : 24px;
+  display        : block;
+}
+
+.timeline__row {
+  display              : grid;
+  grid-template-columns: 95px 1fr auto;
+  gap                  : 18px;
+  font-size            : var(--text-base);
+  color                : var(--ink);
+  padding              : 14px 0;
+  border-bottom        : 0.5px solid var(--border);
+  align-items          : baseline;
+}
+
+.timeline__row:last-child {
+  border-bottom: none;
+}
+
+.timeline__year {
+  color: var(--ink-faint);
+}
+
+.timeline__company {
+  font-weight: 500;
+}
+
+.timeline__role {
+  color: var(--ink-light);
+}
+
+.timeline__location {
+  color      : var(--ink-faint);
+  font-style : italic;
+  font-size  : var(--text-sm);
+  white-space: nowrap;
+}
+
+/* Colonne loisirs */
+.hobbies__title {
+  font-size      : var(--text-sm);
+  color          : var(--accent);
+  letter-spacing : 0.2em;
+  margin-bottom  : 24px;
+  display        : block;
+}
+
+.hobbies__list {
+  font-family: var(--font-serif);
+  font-size  : 16px;
+  color      : var(--ink);
+  line-height: 1.85;
+  font-weight: 400;
+}
+
+.hobbies__comment {
+  color      : var(--ink-faint);
+  font-style : italic;
+  font-size  : var(--text-base);
+}
+
+.hobbies__link {
+  color      : var(--accent);
+  font-style : italic;
+  transition : opacity 0.2s;
+}
+
+.hobbies__link:hover { opacity: 0.7; }
+
+.hobbies__languages {
+  font-size  : var(--text-sm);
+  color      : var(--ink-faint);
+  font-style : italic;
+  margin-top : 14px;
+}
+
+
+/* ============================================================
+   11. Section Contact (07)
+   ============================================================ */
+
+.contact {
+  background: var(--ink);
+}
+
+.contact__inner {
+  display         : flex;
+  justify-content : space-between;
+  align-items     : flex-end;
+}
+
+.contact__label {
+  font-size      : var(--text-sm);
+  color          : var(--accent);
+  letter-spacing : 0.2em;
+  margin-bottom  : 16px;
+  display        : block;
+}
+
+.contact__cta {
+  font-family: var(--font-serif);
+  font-size  : 42px;
+  color      : var(--cream);
+  line-height: 1;
+  font-weight: 400;
+}
+
+.contact__cta em {
+  color     : var(--accent);
+  font-style: italic;
+}
+
+.contact__email {
+  font-size : var(--text-base);
+  color     : #C9BCA8;
+  margin-top: 20px;
+  display   : block;
+  transition: color 0.25s ease;
+}
+
+.contact__email:hover { color: var(--accent); }
+
+.contact__links {
+  font-size  : 12px;
+  color      : #C9BCA8;
+  line-height: 1.9;
+  text-align : right;
+}
+
+.contact__social-link {
+  display   : block;
+  color     : #C9BCA8;
+  transition: color 0.25s ease;
+}
+
+.contact__social-link:hover { color: var(--accent); }
+
+
+/* ============================================================
+   12. Animations
+   ============================================================ */
+
+/* Point de statut qui pulse */
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50%       { opacity: 0.25; }
+}
+.anim-pulse {
+  animation: pulse 1.8s ease-in-out infinite;
+}
+
+/* Curseur clignotant */
+@keyframes blink {
+  0%, 49% { opacity: 1; }
+  50%, 100% { opacity: 0; }
+}
+.anim-blink {
+  animation: blink 1.05s steps(1) infinite;
+}
+
+/* Défilement de la marquee */
+@keyframes marquee {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
+}
+.anim-marquee {
+  animation: marquee 30s linear infinite;
+}
+
+/* Défilement de la bande atelier */
+@keyframes scroll-left {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
+}
+.anim-scroll {
+  animation: scroll-left 50s linear infinite;
+}
+
+/* Zoom lent Ken Burns sur la photo */
+@keyframes ken-burns {
+  from { transform: scale(1); }
+  to   { transform: scale(1.06); }
+}
+.portrait__zoom {
+  position      : absolute;
+  inset         : 0;
+  animation     : ken-burns 14s ease-in-out infinite alternate;
+  transform-origin: center;
+}
+
+
+/* ============================================================
+   13. Responsive — Tablette (< 900px)
+   ============================================================ */
+
+@media (max-width: 900px) {
+
+  body {
+    padding: 12px;
+  }
+
+  /* La grille 2 colonnes passe en 1 colonne */
+  .about__grid,
+  .timeline-layout {
+    grid-template-columns: 1fr;
+  }
+
+  /* Titre héro plus petit */
+  .hero__title {
+    font-size: 44px;
+  }
+
+  .hero__standfirst {
+    font-size: 20px;
+  }
+
+  /* Méta stats : 2 colonnes au lieu de 4 */
+  .stat-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 24px;
+  }
+
+  /* Contact empilé */
+  .contact__inner {
+    flex-direction: column;
+    align-items   : stretch;
+    gap           : 24px;
+  }
+
+  .contact__links {
+    text-align: left;
+  }
+
+  /* Navigation : on masque les liens du milieu */
+  .nav__links {
+    display: none;
+  }
+}
+
+
+/* ============================================================
+   14. Responsive — Mobile (< 600px)
+   ============================================================ */
+
+@media (max-width: 600px) {
+
+  /* Titres */
+  .hero__title {
+    font-size  : 36px;
+    line-height: 1.05;
+  }
+
+  .hero__standfirst {
+    font-size: 18px;
+  }
+
+  /* Paddings de section */
+  .section,
+  .nav,
+  .atelier__header,
+  .atelier__track {
+    padding-left : 20px;
+    padding-right: 20px;
+  }
+
+  .section {
+    padding-top   : 36px;
+    padding-bottom: 36px;
+  }
+
+  /* Contact */
+  .contact__cta {
+    font-size: 30px;
+  }
+
+  /* Projets : 1 colonne, pleine largeur */
+  .projects-grid {
+    grid-template-columns: 1fr;
+    gap                  : 32px;
+  }
+
+  .project-card {
+    max-width: 100%;
+  }
+}
