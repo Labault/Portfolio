@@ -11,10 +11,9 @@
    05. Section Hero (01 — index)
    06. Section À propos (02)
    07. Section Projets (03)
-   08. Section Atelier (04)
-   09. Marquee stack technique (05)
-   10. Section Parcours & Loisirs (06)
-   11. Section Contact (07)
+   08. Section Stack — Techniques (04)
+   09. Section Parcours & Loisirs (05)
+   10. Section Contact (06)
    12. Animations
    13. Responsive — Tablette (< 900px)
    14. Responsive — Mobile (< 600px)
@@ -130,13 +129,13 @@ a {
   padding        : 0 6px;
 }
 
-.browser-chrome__dot {
+.browser-chrome-dot {
   width        : 10px;
   height       : 10px;
   border-radius: 50%;
 }
 
-.browser-chrome__url {
+.browser-chrome-url {
   flex        : 1;
   text-align  : center;
   font-size   : var(--text-sm);
@@ -166,7 +165,7 @@ section[id] {
 }
 
 /* Label de section (ex : "01 — index") */
-.section__label {
+.section-label {
   font-size      : var(--text-sm);
   color          : var(--accent);
   letter-spacing : 0.2em;
@@ -187,7 +186,7 @@ section[id] {
   border-bottom   : 0.5px solid var(--border);
 }
 
-.nav__logo {
+.nav-logo {
   display    : flex;
   align-items: center;
   gap        : 9px;
@@ -195,9 +194,9 @@ section[id] {
   transition : color 0.25s ease;
 }
 
-.nav__logo:hover { color: var(--accent); }
+.nav-logo:hover { color: var(--accent); }
 
-.nav__logo-dot {
+.nav-logo-dot {
   width        : 8px;
   height       : 8px;
   background   : var(--accent);
@@ -205,32 +204,32 @@ section[id] {
   flex-shrink  : 0;
 }
 
-.nav__logo-name {
+.nav-logo-name {
   font-size      : 12px;
   font-weight    : 500;
   letter-spacing : 0.02em;
 }
 
-.nav__links {
+.nav-links {
   display : flex;
   gap     : 24px;
   font-size: 12px;
 }
 
-.nav__link {
+.nav-link {
   color     : var(--ink-light);
   transition: color 0.25s ease;
 }
 
-.nav__link:hover { color: var(--accent); }
+.nav-link:hover { color: var(--accent); }
 
-.nav__status {
+.nav-status {
   display    : flex;
   align-items: center;
   gap        : 7px;
 }
 
-.nav__status-dot {
+.nav-status-dot {
   width        : 6px;
   height       : 6px;
   border-radius: 50%;
@@ -238,7 +237,7 @@ section[id] {
   display      : inline-block;
 }
 
-.nav__status-text {
+.nav-status-text {
   font-size: var(--text-sm);
   color    : var(--sage-dark);
 }
@@ -253,60 +252,67 @@ section[id] {
   padding-bottom: var(--section-pad-v);
 }
 
-.hero__meta-row {
+.hero-meta-row {
   display         : flex;
   justify-content : space-between;
   align-items     : baseline;
   margin-bottom   : 48px;
 }
 
-.hero__location {
+.hero-location {
   font-size  : var(--text-sm);
   color      : var(--ink-faint);
   font-style : italic;
 }
 
-.hero__title {
+.hero-title {
   font-family   : var(--font-serif);
   font-size     : var(--text-hero);
   line-height   : 0.98;
   color         : var(--ink);
   letter-spacing: -0.025em;
   font-weight   : 400;
+  text-align    : center;
 }
 
-.hero__title em {
+.hero-title em {
   color     : var(--accent);
   font-style: italic;
 }
 
-.hero__cursor {
+.hero-cursor {
   color  : var(--accent);
   display: inline-block;
 }
 
-.hero__standfirst {
+.hero-standfirst {
   font-family: var(--font-serif);
   font-size  : var(--text-2xl);
   font-style : italic;
   color      : var(--ink);
   line-height: 1.4;
   margin-top : 32px;
-  max-width  : 760px;
+  max-width  : 640px;
+  margin-left: auto;
+  margin-right: auto;
+  text-align : center;
 }
 
-.hero__body {
-  max-width : 580px;
-  margin-top: 36px;
+.hero-body {
+  max-width   : 580px;
+  margin-top  : 24px;
+  margin-left : auto;
+  margin-right: auto;
+  text-align  : center;
 }
 
-.hero__body p {
+.hero-body p {
   font-size  : var(--text-md);
   color      : var(--ink-light);
   line-height: 1.7;
 }
 
-.hero__body p + p {
+.hero-body p + p {
   margin-top: 16px;
 }
 
@@ -320,7 +326,7 @@ section[id] {
   border-top           : 0.5px solid var(--border);
 }
 
-.stat__label {
+.stat-label {
   font-size      : var(--text-xs);
   color          : var(--accent);
   letter-spacing : 0.22em;
@@ -328,7 +334,7 @@ section[id] {
   display        : block;
 }
 
-.stat__value {
+.stat-value {
   font-size  : var(--text-lg);
   color      : var(--ink);
   font-weight: 500;
@@ -337,7 +343,7 @@ section[id] {
   margin-bottom: 4px;
 }
 
-.stat__sub {
+.stat-sub {
   font-size : var(--text-sm);
   color     : var(--ink-faint);
   font-style: italic;
@@ -354,11 +360,11 @@ section[id] {
   padding-bottom: var(--section-pad-v-sm);
 }
 
-.about__grid {
+.about-grid {
   display              : grid;
   grid-template-columns: 0.7fr 1.5fr;
   gap                  : 48px;
-  align-items          : start;
+  align-items          : center;
 }
 
 /* Photo */
@@ -366,36 +372,44 @@ section[id] {
   position    : relative;
   overflow    : hidden;
   cursor      : pointer;
-  aspect-ratio: 4 / 5;
   border-radius: 4px;
   background  : #EDD8C7;
   max-width   : 220px;
+  margin      : 0 auto;
 }
 
-.portrait__img {
+/* Image par défaut : flux normal, donne sa hauteur au conteneur */
+.portrait-img-default {
+  display          : block;
+  width            : 100%;
+  aspect-ratio     : 4 / 5;
+  object-fit       : cover;
+  transition       : opacity 0.45s ease;
+  animation        : ken-burns 14s ease-in-out infinite alternate;
+  transform-origin : center;
+}
+
+/* Image au survol : superposée en absolu */
+.portrait-img-hover {
   position  : absolute;
   inset     : 0;
   width     : 100%;
   height    : 100%;
   object-fit: cover;
+  opacity   : 0;
   transition: opacity 0.45s ease;
 }
 
-/* L'image "surpris" est cachée par défaut */
-.portrait__img--hover {
-  opacity: 0;
-}
-
 /* Au survol : on affiche la 2e photo */
-.portrait:hover .portrait__img--hover  { opacity: 1; }
-.portrait:hover .portrait__img--default { opacity: 0; }
+.portrait:hover .portrait-img-hover  { opacity: 1; }
+.portrait:hover .portrait-img-default { opacity: 0; }
 
 /* Contenu textuel */
-.about__content {
-  /* le label .section__label est utilisé ici */
+.about-content {
+  /* le label .section-label est utilisé ici */
 }
 
-.about__intro {
+.about-intro {
   font-family  : var(--font-serif);
   font-size    : var(--text-xl);
   line-height  : 1.35;
@@ -404,18 +418,18 @@ section[id] {
   margin-bottom: 22px;
 }
 
-.about__intro em {
+.about-intro em {
   color     : var(--accent);
   font-style: italic;
 }
 
-.about__text {
+.about-content p:not(.about-intro) {
   font-size  : var(--text-base);
   color      : var(--ink-light);
   line-height: 1.7;
 }
 
-.about__text p + p {
+.about-content p:not(.about-intro) + p {
   margin-top: 14px;
 }
 
@@ -424,27 +438,25 @@ section[id] {
    07. Section Projets (03)
    ============================================================ */
 
-.projects__header {
-  display         : flex;
-  justify-content : space-between;
-  align-items     : baseline;
-  margin-bottom   : 40px;
+.projects-header {
+  margin-bottom: 40px;
 }
 
-.projects__title {
+.projects-title,
+.section-title {
   font-family: var(--font-serif);
   font-size  : var(--text-3xl);
   color      : var(--ink);
   font-weight: 400;
 }
 
-.projects__see-all {
+.projects-see-all {
   font-size : 12px;
   color     : var(--accent);
   transition: opacity 0.2s;
 }
 
-.projects__see-all:hover { opacity: 0.7; }
+.projects-see-all:hover { opacity: 0.7; }
 
 /* Grille de cartes */
 .projects-grid {
@@ -460,33 +472,34 @@ section[id] {
   max-width: 260px;
 }
 
-.project-card--link {
+.project-card-link {
   display   : block;
   color     : inherit;
   transition: none;
 }
 
-.project-card--link:hover .project-card__title {
+.project-card-link:hover .project-card-title {
   color: var(--accent);
 }
 
-.project-card__image {
+.project-card-image {
   overflow     : hidden;
   border-radius: 4px;
   aspect-ratio : 4 / 3;
 }
 
-.project-card__image svg {
+.project-card-image svg,
+.project-card-image img {
   display: block;
   width  : 100%;
   height : 100%;
 }
 
-.project-card__info {
+.project-card-info {
   margin-top: 16px;
 }
 
-.project-card__meta {
+.project-card-meta {
   display         : flex;
   justify-content : space-between;
   font-size       : var(--text-sm);
@@ -494,7 +507,7 @@ section[id] {
   margin-bottom   : 6px;
 }
 
-.project-card__title {
+.project-card-title {
   font-family  : var(--font-serif);
   font-size    : 20px;
   color        : var(--ink);
@@ -502,13 +515,13 @@ section[id] {
   transition   : color 0.25s ease;
 }
 
-.project-card__desc {
+.project-card-desc {
   font-size  : 12px;
   color      : var(--ink-light);
   line-height: 1.6;
 }
 
-.project-card__link {
+.project-card-link {
   font-size  : var(--text-sm);
   color      : var(--accent);
   margin-top : 8px;
@@ -516,93 +529,119 @@ section[id] {
 }
 
 /* Cartes skeleton (projets à venir) */
-.project-card--skeleton {
+.project-card-skeleton {
   opacity: 0.85;
 }
 
-.project-card--skeleton .project-card__title {
+.project-card-skeleton .project-card-title {
   color     : var(--ink-faint);
   font-style: italic;
 }
 
-.project-card--skeleton .project-card__link {
+.project-card-skeleton .project-card-link {
   color     : var(--ink-faint);
   font-style: italic;
 }
 
 
 /* ============================================================
-   08. Section Atelier (04)
+   08. Section Stack — Techniques (04)
    ============================================================ */
 
-.atelier {
-  padding-left : 0;
-  padding-right: 0;
-  overflow     : hidden;
+.stack-title {
+  font-family  : var(--font-serif);
+  font-size    : var(--text-3xl);
+  color        : var(--ink);
+  font-weight  : 400;
+  margin-bottom: 36px;
 }
 
-.atelier__header {
-  display         : flex;
-  justify-content : space-between;
-  padding         : 0 var(--section-pad-h);
-  margin-bottom   : 24px;
+/* Grille de cartes tech */
+.tech-grid {
+  display              : grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap                  : 16px;
 }
 
-.atelier__subtitle {
-  font-size : var(--text-sm);
-  color     : var(--ink-faint);
-  font-style: italic;
+.tech-card {
+  border        : 0.5px solid var(--border);
+  border-radius : 6px;
+  display       : flex;
+  flex-direction: row;
+  align-items   : flex-start;
+  gap           : 14px;
+  padding       : 18px 20px;
 }
 
-/* La piste défilante */
-.atelier__track {
-  display: flex;
-  gap    : 14px;
-  width  : max-content;
-  padding: 0 var(--section-pad-h);
+/* Logo à gauche, sans fond */
+.tech-card-logo {
+  flex-shrink: 0;
+  width      : 22px;
+  height     : 22px;
+  object-fit : contain;
+  display    : block;
+  margin-top : 3px;
 }
 
-/* Chaque vignette */
-.atelier__item {
-  width        : 200px;
-  aspect-ratio : 3 / 4;
-  border-radius: 4px;
-  flex-shrink  : 0;
-  overflow     : hidden;
-}
-
-.atelier__item svg {
-  display: block;
-  width  : 100%;
-  height : 100%;
-}
-
-
-/* ============================================================
-   09. Marquee stack technique (05)
-   ============================================================ */
-
-.marquee-section {
-  overflow     : hidden;
-  padding-left : 0;
-  padding-right: 0;
-}
-
-.marquee__track {
-  display     : flex;
-  gap         : 48px;
-  white-space : nowrap;
+/* Monogramme pour les techs sans logo CDN */
+.tech-card-logo-mono {
   font-family : var(--font-serif);
-  font-size   : 28px;
-  color       : var(--ink);
-  width       : max-content;
+  font-size   : 16px;
+  color       : var(--ink-faint);
   font-style  : italic;
   font-weight : 400;
+  line-height : 1.4;
+  height      : auto;
+  object-fit  : unset;
 }
 
-.marquee__dot {
+/* Zone texte */
+.tech-card-body {
+  flex: 1;
+}
+
+.tech-card-name {
+  display         : flex;
+  justify-content : space-between;
+  align-items     : baseline;
+  gap             : 8px;
+  margin-bottom   : 8px;
+  font-family     : var(--font-serif);
+  font-size       : var(--text-lg);
+  color           : var(--ink);
+  font-weight     : 400;
+  line-height     : 1.2;
+}
+
+.tech-card-version {
+  font-size      : var(--text-xs);
+  color          : var(--accent);
+  letter-spacing : 0.1em;
+  font-weight    : 500;
+  white-space    : nowrap;
+  flex-shrink    : 0;
+}
+
+.tech-card-desc {
+  font-size  : var(--text-sm);
+  color      : var(--ink-light);
+  line-height: 1.65;
+}
+
+.tech-card-learning {
+  border-style: dashed;
+  opacity     : 0.8;
+}
+
+.tech-card-learning .tech-card-name {
+  color      : var(--accent);
+  font-style : italic;
+}
+
+.tech-card-learning .tech-card-logo-mono {
   color: var(--accent);
 }
+
 
 
 /* ============================================================
@@ -610,52 +649,54 @@ section[id] {
    ============================================================ */
 
 .timeline-section {
-  /* padding hérité de .section */
+  padding-top   : 44px;
+  padding-bottom: 44px;
 }
 
 .timeline-layout {
   display              : grid;
-  grid-template-columns: 1.5fr 1fr;
+  grid-template-columns: repeat(2, 1fr);
   gap                  : 48px;
+  align-items          : start;
 }
 
 /* Colonne parcours */
-.timeline__title {
+.timeline-title {
   font-size      : var(--text-sm);
   color          : var(--accent);
   letter-spacing : 0.2em;
-  margin-bottom  : 24px;
+  margin-bottom  : 16px;
   display        : block;
 }
 
-.timeline__row {
+.timeline-row {
   display              : grid;
   grid-template-columns: 95px 1fr auto;
   gap                  : 18px;
   font-size            : var(--text-base);
   color                : var(--ink);
-  padding              : 14px 0;
+  padding              : 10px 0;
   border-bottom        : 0.5px solid var(--border);
   align-items          : baseline;
 }
 
-.timeline__row:last-child {
+.timeline-row:last-child {
   border-bottom: none;
 }
 
-.timeline__year {
+.timeline-year {
   color: var(--ink-faint);
 }
 
-.timeline__company {
+.timeline-company {
   font-weight: 500;
 }
 
-.timeline__role {
+.timeline-role {
   color: var(--ink-light);
 }
 
-.timeline__location {
+.timeline-location {
   color      : var(--ink-faint);
   font-style : italic;
   font-size  : var(--text-sm);
@@ -663,41 +704,41 @@ section[id] {
 }
 
 /* Colonne loisirs */
-.hobbies__title {
+.hobbies-title {
   font-size      : var(--text-sm);
   color          : var(--accent);
   letter-spacing : 0.2em;
-  margin-bottom  : 24px;
+  margin-bottom  : 16px;
   display        : block;
 }
 
-.hobbies__list {
+.hobbies-list {
   font-family: var(--font-serif);
   font-size  : 16px;
   color      : var(--ink);
-  line-height: 1.85;
+  line-height: 1.7;
   font-weight: 400;
 }
 
-.hobbies__comment {
+.hobbies-comment {
   color      : var(--ink-faint);
   font-style : italic;
   font-size  : var(--text-base);
 }
 
-.hobbies__link {
+.hobbies-link {
   color      : var(--accent);
   font-style : italic;
   transition : opacity 0.2s;
 }
 
-.hobbies__link:hover { opacity: 0.7; }
+.hobbies-link:hover { opacity: 0.7; }
 
-.hobbies__languages {
+.hobbies-languages {
   font-size  : var(--text-sm);
   color      : var(--ink-faint);
   font-style : italic;
-  margin-top : 14px;
+  margin-top : 10px;
 }
 
 
@@ -709,13 +750,13 @@ section[id] {
   background: var(--ink);
 }
 
-.contact__inner {
+.contact-inner {
   display         : flex;
   justify-content : space-between;
   align-items     : flex-end;
 }
 
-.contact__label {
+.contact-label {
   font-size      : var(--text-sm);
   color          : var(--accent);
   letter-spacing : 0.2em;
@@ -723,7 +764,7 @@ section[id] {
   display        : block;
 }
 
-.contact__cta {
+.contact-cta {
   font-family: var(--font-serif);
   font-size  : 42px;
   color      : var(--cream);
@@ -731,12 +772,12 @@ section[id] {
   font-weight: 400;
 }
 
-.contact__cta em {
+.contact-cta em {
   color     : var(--accent);
   font-style: italic;
 }
 
-.contact__email {
+.contact-email {
   font-size : var(--text-base);
   color     : #C9BCA8;
   margin-top: 20px;
@@ -744,22 +785,32 @@ section[id] {
   transition: color 0.25s ease;
 }
 
-.contact__email:hover { color: var(--accent); }
+.contact-email:hover { color: var(--accent); }
 
-.contact__links {
+.contact-cv {
+  font-size  : var(--text-sm);
+  color      : #8A7E72;
+  margin-top : 20px;
+  display    : block;
+  transition : color 0.25s ease;
+}
+
+.contact-cv:hover { color: var(--accent); }
+
+.contact-links {
   font-size  : 12px;
   color      : #C9BCA8;
   line-height: 1.9;
   text-align : right;
 }
 
-.contact__social-link {
+.contact-social-link {
   display   : block;
   color     : #C9BCA8;
   transition: color 0.25s ease;
 }
 
-.contact__social-link:hover { color: var(--accent); }
+.contact-social-link:hover { color: var(--accent); }
 
 
 /* ============================================================
@@ -784,34 +835,10 @@ section[id] {
   animation: blink 1.05s steps(1) infinite;
 }
 
-/* Défilement de la marquee */
-@keyframes marquee {
-  from { transform: translateX(0); }
-  to   { transform: translateX(-50%); }
-}
-.anim-marquee {
-  animation: marquee 30s linear infinite;
-}
-
-/* Défilement de la bande atelier */
-@keyframes scroll-left {
-  from { transform: translateX(0); }
-  to   { transform: translateX(-50%); }
-}
-.anim-scroll {
-  animation: scroll-left 50s linear infinite;
-}
-
 /* Zoom lent Ken Burns sur la photo */
 @keyframes ken-burns {
   from { transform: scale(1); }
   to   { transform: scale(1.06); }
-}
-.portrait__zoom {
-  position      : absolute;
-  inset         : 0;
-  animation     : ken-burns 14s ease-in-out infinite alternate;
-  transform-origin: center;
 }
 
 
@@ -826,17 +853,25 @@ section[id] {
   }
 
   /* La grille 2 colonnes passe en 1 colonne */
-  .about__grid,
+  .about-grid {
+    grid-template-columns: 1fr;
+  }
+
   .timeline-layout {
     grid-template-columns: 1fr;
   }
 
+  /* Stack : 2 colonnes sur tablette */
+  .tech-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
   /* Titre héro plus petit */
-  .hero__title {
+  .hero-title {
     font-size: 44px;
   }
 
-  .hero__standfirst {
+  .hero-standfirst {
     font-size: 20px;
   }
 
@@ -847,18 +882,18 @@ section[id] {
   }
 
   /* Contact empilé */
-  .contact__inner {
+  .contact-inner {
     flex-direction: column;
     align-items   : stretch;
     gap           : 24px;
   }
 
-  .contact__links {
+  .contact-links {
     text-align: left;
   }
 
   /* Navigation : on masque les liens du milieu */
-  .nav__links {
+  .nav-links {
     display: none;
   }
 }
@@ -871,22 +906,26 @@ section[id] {
 @media (max-width: 600px) {
 
   /* Titres */
-  .hero__title {
+  .hero-title {
     font-size  : 36px;
     line-height: 1.05;
   }
 
-  .hero__standfirst {
+  .hero-standfirst {
     font-size: 18px;
   }
 
   /* Paddings de section */
   .section,
-  .nav,
-  .atelier__header,
-  .atelier__track {
+  .nav {
     padding-left : 20px;
     padding-right: 20px;
+  }
+
+  /* Stack : 2 colonnes compactes sur mobile */
+  .tech-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap                  : 10px;
   }
 
   .section {
@@ -895,7 +934,7 @@ section[id] {
   }
 
   /* Contact */
-  .contact__cta {
+  .contact-cta {
     font-size: 30px;
   }
 
