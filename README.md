@@ -58,6 +58,6 @@ Let's Encrypt — no special server config required, it's plain static hosting.
 ## License
 
 The code is free to read and learn from. The content, photos and CV are mine —
-please don't reuse those.
+please don't reuse those. See [LICENSE](LICENSE) for the details.
 
 — Thibault Lafaurie · [contact@labault.dev](mailto:contact@labault.dev)
