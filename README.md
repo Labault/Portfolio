@@ -9,16 +9,12 @@ My personal portfolio. One page, two files, no build step, no regrets.
 Good question. Not so you can `git clone` it and ship it as your own (please
 don't - see the [LICENSE](LICENSE), and also, have some self-respect). It's
 public because the portfolio is a window, and this repo is the same window with
-the curtains pulled all the way back. If a recruiter or a client wants to see
-how I write code when nobody's forcing me to, it's all right here: the commits,
-the comments, the questionable decisions I stand by.
-
-Think of it as a second showroom. The site is the polished front. This is the
-workshop, with the sawdust left in on purpose.
+the curtains pulled all the way back: the commits, the structure, and the source
+sitting right behind the polished front.
 
 ## The idea
 
-A single static page, hand-written in HTML and CSS. No framework, no bundler,
+A single static page, built with plain HTML and CSS. No framework, no bundler,
 no `npm install` that quietly downloads half of the internet and a node_modules
 folder you could see from space. Just markup and a stylesheet, the way the
 ancients intended.
@@ -28,9 +24,8 @@ inside the browser it's already running in. Yes, it's a little meta. No, I will
 not be apologizing for it.
 
 The page itself is in French (it's aimed at French clients). The code, the
-comments and this README are in English - because that's where I keep my dev
-voice, and because future-me reads diffs in English. If you opened DevTools
-expecting boilerplate, the comments left you a few things to find.
+comments and this README are in English. If you open DevTools expecting
+boilerplate, the comments left you a few things to find.
 
 ## Philosophy, or: why no JavaScript
 
@@ -39,16 +34,12 @@ cursor, the pulsing "available" dot, the slow Ken Burns zoom? All CSS. The old
 dev proverb says *if it works, don't touch it* - turns out a lot of things work
 without a 200 KB runtime.
 
-There's a deliberate bit of irony baked in, too: the page lists "HTML / CSS" as
-a proven skill... and the proof is the page you're reading the source of. Call
-it *mise en abyme*. Call it a bold marketing move. (It's both.)
-
 ## Stack
 
 For a "no-dependency" site it has surprisingly strong opinions:
 
 - **HTML** - semantic, accessible, and stubbornly framework-free
-- **CSS** - custom properties, grid, a handful of keyframe animations, colons aligned in columns because I have a type
+- **CSS** - custom properties, grid, a handful of keyframe animations
 - **Fonts** - [Inter](https://rsms.me/inter/) for the body, DM Serif Display for the drama, both via Google Fonts
 - **Tech logos** - [devicon](https://devicon.dev/) served over jsDelivr
 
