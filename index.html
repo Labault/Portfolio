@@ -313,77 +313,194 @@
 
     <!-- 06 - projects -->
     <!--
-      Yes, there's a placeholder card at the end. No, it's not filler.
-      Well... not only. The real ones are coming - the git log doesn't lie.
+      Sorted by intent, not by date: what's live, what's polished,
+      what's under the hood, and what's pure playground.
     -->
     <section class="section" id="projets">
       <header class="projects-header">
         <span class="section-label">06 - projets</span>
         <h2 class="projects-title">Quelques projets...</h2>
+        <p class="projects-intro">Rangés par intention plutôt que par date : du livrable client à l'expérience du dimanche soir.</p>
       </header>
 
-      <div class="projects-grid">
+      <!-- En prod -->
+      <div class="project-group">
+        <div class="project-group-head">
+          <span class="project-group-label">En prod</span>
+          <span class="project-group-rule" aria-hidden="true"></span>
+          <span class="project-group-note">déployés, utilisés — pour de vrai</span>
+        </div>
+        <div class="project-grid project-grid-feature">
 
-        <a href="https://redflagbingo.fun/" class="project-card project-card-link" target="_blank" rel="noopener" aria-label="Voir Red Flag Bingo">
-          <div class="project-card-image" style="background: #1F1A14;">
-            <img src="assets/rfb-bingo.svg" alt="">
-          </div>
-          <div class="project-card-info">
-            <div class="project-card-meta">
-              <span>projet perso · jeu en ligne</span>
-              <span>2026</span>
+          <a href="https://lolv.labault.dev/" class="project-card-link" target="_blank" rel="noopener" aria-label="Voir La où l'on va">
+            <div class="project-thumb">
+              <img src="assets/scene-lolv.svg" alt="">
             </div>
-            <h3 class="project-card-title">Red Flag Bingo</h3>
-            <p class="project-card-desc">Application web humoristique de bingo collaboratif en temps réel, inspirée des codes des apps de rencontre, développée avec Symfony 7.4, FrankenPHP, Tailwind v4 et Mercure pour la synchronisation live entre joueurs.</p>
-            <span class="project-card-link">redflagbingo.fun ↗</span>
-          </div>
-        </a>
+            <div class="project-card-info">
+              <div class="project-card-meta">
+                <span>client · vitrine</span>
+                <span>2026</span>
+              </div>
+              <h3 class="project-card-title">La où l'on va</h3>
+              <p class="project-card-desc">Site vitrine sur-mesure réalisé pour un client, du cadrage au déploiement. (Lien provisoire, le temps que le domaine définitif arrive.)</p>
+              <span class="project-card-cta">voir le site ↗</span>
+            </div>
+          </a>
 
-        <a href="https://humelis.labault.dev/" class="project-card project-card-link" target="_blank" rel="noopener" aria-label="Voir Humelis">
-          <div class="project-card-image" style="background: #1a1530;">
-            <img src="assets/humelis-chart.svg" alt="">
+          <a href="https://docendo.fr" class="project-card-link" target="_blank" rel="noopener" aria-label="Voir Docendo">
+            <div class="project-thumb">
+              <img src="assets/scene-docendo.svg" alt="">
+            </div>
+            <div class="project-card-info">
+              <div class="project-card-meta">
+                <span>edtech · production</span>
+                <span>2026</span>
+              </div>
+              <h3 class="project-card-title">Docendo</h3>
+              <p class="project-card-desc">Suivi et accompagnement scolaire avec un tuteur IA : un chat qui guide sans souffler les réponses, la récitation vocale analysée, et un espace parents (temps, contrôles, alertes).</p>
+              <span class="project-card-cta">docendo.fr ↗</span>
+            </div>
+          </a>
+
+          <a href="https://github.com/Labault/Portfolio" class="project-card-link" target="_blank" rel="noopener" aria-label="Voir le code de ce portfolio">
+            <div class="project-thumb">
+              <img src="assets/scene-portfolio.svg" alt="">
+            </div>
+            <div class="project-card-info">
+              <div class="project-card-meta">
+                <span>perso · vitrine</span>
+                <span>2026</span>
+              </div>
+              <h3 class="project-card-title">Ce portfolio</h3>
+              <p class="project-card-desc">Le site que vous lisez. Une page, zéro JavaScript, zéro build — le portfolio qui se présente lui-même. Un peu méta, oui.</p>
+              <span class="project-card-cta">voir le code ↗</span>
+            </div>
+          </a>
+
+        </div>
+      </div>
+
+      <!-- Perso & soigné -->
+      <div class="project-group">
+        <div class="project-group-head">
+          <span class="project-group-label">Perso &amp; soigné</span>
+          <span class="project-group-rule" aria-hidden="true"></span>
+          <span class="project-group-note">mes idées, menées au bout</span>
+        </div>
+
+        <a href="https://humelis.labault.dev/" class="project-wide project-card-link" target="_blank" rel="noopener" aria-label="Voir Humelis">
+          <div class="project-wide-image">
+            <img src="assets/scene-humelis.svg" alt="">
           </div>
-          <div class="project-card-info">
+          <div class="project-wide-body">
             <div class="project-card-meta">
-              <span>santé · accompagnement</span>
+              <span>santé · suivi</span>
               <span>2026</span>
             </div>
             <h3 class="project-card-title">Humelis</h3>
-            <p class="project-card-desc">Application web Symfony de suivi d'humeur reliant patients et professionnels (dashboard, objectifs, consultations, export PDF), déployée en production avec CI/CD et conformité RGPD.</p>
-            <span class="project-card-link">humelis.labault.dev ↗</span>
+            <p class="project-card-desc">Application web Symfony de suivi d'humeur reliant patients et professionnels : dashboard, objectifs, consultations, export PDF. Un projet vitrine sérieux — déployé en démo, CI/CD, conforme RGPD.</p>
+            <span class="project-card-cta">humelis.labault.dev ↗</span>
           </div>
         </a>
+      </div>
 
-        <a href="https://hush.labault.dev" class="project-card project-card-link" target="_blank" rel="noopener" aria-label="Voir Hush">
-          <div class="project-card-image" style="background: #0A0B14;">
-            <img src="assets/hush-timer.svg" alt="">
-          </div>
-          <div class="project-card-info">
-            <div class="project-card-meta">
-              <span>attention · discipline</span>
-              <span>2026</span>
-            </div>
-            <h3 class="project-card-title">Hush</h3>
-            <p class="project-card-desc">Application React de mesure de patience. Lance une session, reste sur la page mais ose changer d'onglet, et le chrono démarre. Chaque seconde passée ailleurs se paie cash sur ton score au retour. Hush ne punit pas la distraction. Il la mesure.</p>
-            <span class="project-card-link">hush.labault.dev ↗</span>
-          </div>
-        </a>
-
-        <div class="project-card project-card-skeleton" aria-hidden="true">
-          <div class="project-card-image" style="background: #F0E2D2;">
-            <img src="assets/skeleton-clock.svg" alt="">
-          </div>
-          <div class="project-card-info">
-            <div class="project-card-meta">
-              <span>à venir</span>
-              <span>-</span>
-            </div>
-            <h3 class="project-card-title">À venir</h3>
-            <p class="project-card-desc">Espace réservé pour un prochain projet - bientôt révélé.</p>
-            <span class="project-card-link">indisponible pour l'instant</span>
-          </div>
+      <!-- L'établi -->
+      <div class="project-group">
+        <div class="project-group-head">
+          <span class="project-group-label">L'établi</span>
+          <span class="project-group-rule" aria-hidden="true"></span>
+          <span class="project-group-note">comment je bosse, pas ce que je vends</span>
         </div>
+        <div class="project-grid project-grid-tools">
 
+          <a href="https://github.com/Labault/mac-dev-setup" class="project-card-link" target="_blank" rel="noopener" aria-label="Voir le repo mac-dev-setup">
+            <div class="project-thumb">
+              <img src="assets/scene-mac.svg" alt="">
+            </div>
+            <div class="project-card-info">
+              <div class="project-card-meta">
+                <span>dotfiles · macOS</span>
+                <span>open source</span>
+              </div>
+              <h3 class="project-card-title">Environnement de dev</h3>
+              <p class="project-card-desc">Tout mon environnement macOS en une commande : Homebrew, Zsh, VS Code, PHP/Symfony — la machine prête avant que le café refroidisse.</p>
+              <span class="project-card-cta">voir le repo ↗</span>
+            </div>
+          </a>
+
+          <a href="https://github.com/Labault/push-to-deploy" class="project-card-link" target="_blank" rel="noopener" aria-label="Voir le repo push-to-deploy">
+            <div class="project-thumb">
+              <img src="assets/scene-deploy.svg" alt="">
+            </div>
+            <div class="project-card-info">
+              <div class="project-card-meta">
+                <span>ci/cd · ops</span>
+                <span>open source</span>
+              </div>
+              <h3 class="project-card-title">Push-to-deploy</h3>
+              <p class="project-card-desc">Plateforme self-hosted pour VPS mono-serveur : reverse-proxy Caddy, déploiement continu par webhook, sauvegardes chiffrées, monitoring et diagnostic d'incident par IA.</p>
+              <span class="project-card-cta">voir le repo ↗</span>
+            </div>
+          </a>
+
+        </div>
+      </div>
+
+      <!-- Bac à sable -->
+      <div class="project-group">
+        <div class="project-group-head">
+          <span class="project-group-label">Bac à sable</span>
+          <span class="project-group-rule" aria-hidden="true"></span>
+          <span class="project-group-note">pour apprendre, ou juste pour rire</span>
+        </div>
+        <div class="project-grid project-grid-play">
+
+          <a href="https://redflagbingo.fun/" class="project-card-link" target="_blank" rel="noopener" aria-label="Voir Red Flag Bingo">
+            <div class="project-thumb">
+              <img src="assets/scene-rfb.svg" alt="">
+            </div>
+            <div class="project-card-info">
+              <div class="project-card-meta">
+                <span>jeu · fun</span>
+                <span>2026</span>
+              </div>
+              <h3 class="project-card-title">Red Flag Bingo</h3>
+              <p class="project-card-desc">Bingo collaboratif en temps réel inspiré des codes des apps de rencontre. Symfony, FrankenPHP et Mercure pour la synchro live entre joueurs.</p>
+              <span class="project-card-cta">redflagbingo.fun ↗</span>
+            </div>
+          </a>
+
+          <a href="https://hush.labault.dev" class="project-card-link" target="_blank" rel="noopener" aria-label="Voir Hush">
+            <div class="project-thumb">
+              <img src="assets/scene-hush.svg" alt="">
+            </div>
+            <div class="project-card-info">
+              <div class="project-card-meta">
+                <span>exp. · fun</span>
+                <span>2026</span>
+              </div>
+              <h3 class="project-card-title">Hush</h3>
+              <p class="project-card-desc">Mesure ta patience : change d'onglet et le chrono te le fait payer au retour. Hush ne punit pas la distraction, il la mesure.</p>
+              <span class="project-card-cta">hush.labault.dev ↗</span>
+            </div>
+          </a>
+
+          <div class="project-card-link project-card-soon" aria-label="DevSpeak — bientôt en ligne">
+            <div class="project-thumb">
+              <img src="assets/scene-devspeak.svg" alt="">
+            </div>
+            <div class="project-card-info">
+              <div class="project-card-meta">
+                <span>exp. · fun</span>
+                <span>2026</span>
+              </div>
+              <h3 class="project-card-title">DevSpeak</h3>
+              <p class="project-card-desc">Traduit le langage courant en langage de développeur — un petit dictionnaire moldu → barbu, à charge comique.</p>
+              <span class="project-card-cta project-card-cta-muted">bientôt en ligne</span>
+            </div>
+          </div>
+
+        </div>
       </div>
     </section>
 

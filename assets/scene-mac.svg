@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 300" role="img" aria-label="mac-dev-setup">
+  <rect width="400" height="300" fill="#EFE7DA"/>
+  <rect x="28" y="34" width="312" height="214" rx="9" fill="#1E2230" stroke="#11131C" stroke-width="1"/>
+  <circle cx="46" cy="52" r="4.5" fill="#C9BCA8"/><circle cx="63" cy="52" r="4.5" fill="#B5341A"/><circle cx="80" cy="52" r="4.5" fill="#5A7236"/>
+  <text x="184" y="56" text-anchor="middle" font-family="ui-monospace, Menlo, monospace" font-size="10" fill="#7E839A">~/mac-dev-setup</text>
+  <line x1="28" y1="68" x2="340" y2="68" stroke="#2A2F3E" stroke-width="1"/>
+  <g font-family="ui-monospace, Menlo, monospace" font-size="12.5">
+    <text x="44" y="94"><tspan fill="#B5341A">$</tspan><tspan fill="#D7DBE6"> ./setup.sh</tspan></text>
+    <text x="44" y="118" fill="#A9AEBE">▸ homebrew</text><text x="316" y="118" text-anchor="end" fill="#8FB45C">✓</text>
+    <text x="44" y="140" fill="#A9AEBE">▸ zsh · oh-my-zsh</text><text x="316" y="140" text-anchor="end" fill="#8FB45C">✓</text>
+    <text x="44" y="162" fill="#A9AEBE">▸ php 8.4 · symfony</text><text x="316" y="162" text-anchor="end" fill="#8FB45C">✓</text>
+    <text x="44" y="184" fill="#A9AEBE">▸ vscode · git</text><text x="316" y="184" text-anchor="end" fill="#8FB45C">✓</text>
+    <text x="44" y="212" fill="#E7E2D4">prêt</text><rect x="78" y="202" width="8" height="13" fill="#E7E2D4"/>
+  </g>
+  <g>
+    <path d="M300 196 h54 l-5 40 a7 7 0 0 1 -7 6 h-30 a7 7 0 0 1 -7 -6 z" fill="#EEE7D8" stroke="#C2A079" stroke-width="1.6"/>
+    <path d="M354 204 a13 11 0 0 1 0 22" fill="none" stroke="#C2A079" stroke-width="3"/>
+    <ellipse cx="327" cy="246" rx="33" ry="5" fill="#DCD2C0"/>
+    <path d="M316 192 q-5 -7 0 -14 q5 -7 0 -14" fill="none" stroke="#B5341A" stroke-width="2" opacity="0.4" stroke-linecap="round"/>
+    <path d="M336 192 q-5 -7 0 -14 q5 -7 0 -14" fill="none" stroke="#B5341A" stroke-width="2" opacity="0.4" stroke-linecap="round"/>
+  </g>
+  <rect x="343" y="22" width="9" height="9" rx="2" fill="#B5341A"/>
+</svg>
