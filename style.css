@@ -97,6 +97,8 @@ a {
   background    : var(--cream-dark);
   border-radius : 12px;
   padding       : 14px;
+  max-width     : 1180px;
+  margin        : 0 auto;
 }
 
 .browser-chrome {
