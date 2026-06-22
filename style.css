@@ -1,50 +1,51 @@
 /* ============================================================
    Thibault Lafaurie — Portfolio
    style.css
-   ============================================================
 
-   Table des matières :
-   01. Variables & Reset
-   02. Base & Typographie
-   03. Mise en page générale
-   04. Navigation
-   05. Section Hero (01 — index)
-   06. Section À propos (02)
-   07. Section Projets (03)
-   08. Section Stack — Techniques (04)
-   09. Section Parcours & Loisirs (05)
-   10. Section Contact (06)
-   12. Animations
-   13. Responsive — Tablette (< 900px)
-   14. Responsive — Mobile (< 600px)
+   No preprocessor, no PostCSS, no @apply. Just CSS that aged well.
+   Colons are column-aligned on purpose — it's a habit, not a linter.
+
+   Table of contents:
+   01. Variables & reset
+   02. Layout
+   03. Navigation
+   04. Hero            — section 01
+   05. About           — section 02
+   06. Timeline & hobbies — sections 03–04
+   07. Stack           — section 05
+   08. Projects        — section 06
+   09. Contact         — section 07
+   10. Animations
+   11. Responsive — tablet (< 900px)
+   12. Responsive — mobile (< 600px)
    ============================================================ */
 
 
 /* ============================================================
-   01. Variables & Reset
+   01. Variables & reset
    ============================================================ */
 
 :root {
   --font-sans    : 'Inter', system-ui, sans-serif;
   --font-serif   : 'DM Serif Display', Georgia, serif;
 
-  /* Couleurs principales */
-  --ink          : #1F1A14;   /* texte principal */
-  --ink-light    : #6B6258;   /* texte secondaire */
-  --ink-faint    : #9C9286;   /* texte tertiaire / labels */
-  --cream        : #F5F0E8;   /* fond page */
-  --cream-dark   : #EBE6DD;   /* fond extérieur */
-  --border       : #E5DDD0;   /* lignes de séparation */
+  /* Core colors */
+  --ink          : #1F1A14;   /* primary text */
+  --ink-light    : #6B6258;   /* secondary text */
+  --ink-faint    : #9C9286;   /* tertiary text / labels */
+  --cream        : #F5F0E8;   /* page background */
+  --cream-dark   : #EBE6DD;   /* outer background */
+  --border       : #E5DDD0;   /* separator lines */
 
-  /* Couleur accent */
-  --accent       : #B5341A;   /* terracotta */
+  /* Accent — terracotta */
+  --accent       : #B5341A;
   --accent-dark  : #5C1B0A;
 
-  /* Couleur secondaire */
-  --sage         : #5A7236;   /* vert sauge (statut) */
+  /* Secondary — sage green (status) */
+  --sage         : #5A7236;
   --sage-dark    : #2E3D17;
 
-  /* Typographie */
+  /* Type scale */
   --text-xs   : 10px;
   --text-sm   : 11px;
   --text-base : 13px;
@@ -55,7 +56,7 @@
   --text-3xl  : 28px;
   --text-hero : 62px;
 
-  /* Espacements */
+  /* Spacing */
   --section-pad-h : 36px;
   --section-pad-v : 64px;
   --section-pad-v-sm : 56px;
@@ -86,35 +87,13 @@ a {
   color: inherit;
 }
 
-/* Accessibilité : texte masqué visuellement mais lu par les lecteurs d'écran */
-.sr-only {
-  position   : absolute;
-  width      : 1px;
-  height     : 1px;
-  padding    : 0;
-  overflow   : hidden;
-  clip       : rect(0, 0, 0, 0);
-  white-space: nowrap;
-  border     : 0;
-}
-
 
 /* ============================================================
-   02. Base & Typographie
+   02. Layout
    ============================================================ */
 
-.font-serif { font-family: var(--font-serif); }
-
-.text-accent { color: var(--accent); }
-.text-faint  { color: var(--ink-faint); }
-.text-light  { color: var(--ink-light); }
-
-
-/* ============================================================
-   03. Mise en page générale
-   ============================================================ */
-
-/* Cadre extérieur (simule un navigateur, peut être retiré en prod) */
+/* Outer frame — yes, it's a portfolio dressed up as a browser window.
+   Meta? A little. I'm keeping it anyway. */
 .browser-frame {
   background    : var(--cream-dark);
   border-radius : 12px;
@@ -142,14 +121,14 @@ a {
   color       : #888780;
 }
 
-/* Contenu principal */
+/* Main content */
 .page {
   background    : var(--cream);
   border-radius : 8px;
   overflow      : hidden;
 }
 
-/* Séparateurs de section */
+/* Section separators */
 .section {
   padding: var(--section-pad-v) var(--section-pad-h);
   border-top: 0.5px solid var(--border);
@@ -159,12 +138,12 @@ a {
   border-top: none;
 }
 
-/* Ancres de navigation avec offset */
+/* Anchor offset for in-page navigation */
 section[id] {
   scroll-margin-top: 20px;
 }
 
-/* Label de section (ex : "01 — index") */
+/* Section label (e.g. "01 — index") */
 .section-label {
   font-size      : var(--text-sm);
   color          : var(--accent);
@@ -175,7 +154,7 @@ section[id] {
 
 
 /* ============================================================
-   04. Navigation
+   03. Navigation
    ============================================================ */
 
 .nav {
@@ -244,7 +223,7 @@ section[id] {
 
 
 /* ============================================================
-   05. Section Hero (01 — index)
+   04. Hero — section 01
    ============================================================ */
 
 .hero {
@@ -316,7 +295,7 @@ section[id] {
   margin-top: 16px;
 }
 
-/* Grille de méta-données (depuis / stack / lieu / dispo) */
+/* Meta grid (since / stack / location / availability) */
 .stat-grid {
   display              : grid;
   grid-template-columns: repeat(4, 1fr);
@@ -352,7 +331,7 @@ section[id] {
 
 
 /* ============================================================
-   06. Section À propos (02)
+   05. About — section 02
    ============================================================ */
 
 .about {
@@ -367,7 +346,7 @@ section[id] {
   align-items          : center;
 }
 
-/* Photo */
+/* Portrait */
 .portrait {
   position    : relative;
   overflow    : hidden;
@@ -378,7 +357,7 @@ section[id] {
   margin      : 0 auto;
 }
 
-/* Image par défaut : flux normal, donne sa hauteur au conteneur */
+/* Default image: in normal flow, gives the container its height */
 .portrait-img-default {
   display          : block;
   width            : 100%;
@@ -389,7 +368,7 @@ section[id] {
   transform-origin : center;
 }
 
-/* Image au survol : superposée en absolu */
+/* Hover image: absolutely stacked on top */
 .portrait-img-hover {
   position  : absolute;
   inset     : 0;
@@ -400,14 +379,9 @@ section[id] {
   transition: opacity 0.45s ease;
 }
 
-/* Au survol : on affiche la 2e photo */
+/* On hover: swap to the second photo */
 .portrait:hover .portrait-img-hover  { opacity: 1; }
 .portrait:hover .portrait-img-default { opacity: 0; }
-
-/* Contenu textuel */
-.about-content {
-  /* le label .section-label est utilisé ici */
-}
 
 .about-intro {
   font-family  : var(--font-serif);
@@ -435,7 +409,197 @@ section[id] {
 
 
 /* ============================================================
-   07. Section Projets (03)
+   06. Timeline & hobbies — sections 03–04
+   ============================================================ */
+
+.timeline-section {
+  padding-top   : 44px;
+  padding-bottom: 44px;
+}
+
+.timeline-layout {
+  display              : grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap                  : 48px;
+  align-items          : start;
+}
+
+/* Timeline column */
+.timeline-title {
+  font-size      : var(--text-sm);
+  color          : var(--accent);
+  letter-spacing : 0.2em;
+  margin-bottom  : 16px;
+  display        : block;
+}
+
+.timeline-row {
+  display              : grid;
+  grid-template-columns: 95px 1fr auto;
+  gap                  : 18px;
+  font-size            : var(--text-base);
+  color                : var(--ink);
+  padding              : 10px 0;
+  border-bottom        : 0.5px solid var(--border);
+  align-items          : baseline;
+}
+
+.timeline-row:last-child {
+  border-bottom: none;
+}
+
+.timeline-year {
+  color: var(--ink-faint);
+}
+
+.timeline-company {
+  font-weight: 500;
+}
+
+.timeline-role {
+  color: var(--ink-light);
+}
+
+.timeline-location {
+  color      : var(--ink-faint);
+  font-style : italic;
+  font-size  : var(--text-sm);
+  white-space: nowrap;
+}
+
+/* Hobbies column */
+.hobbies-title {
+  font-size      : var(--text-sm);
+  color          : var(--accent);
+  letter-spacing : 0.2em;
+  margin-bottom  : 16px;
+  display        : block;
+}
+
+.hobbies-list {
+  font-family: var(--font-serif);
+  font-size  : 16px;
+  color      : var(--ink);
+  line-height: 1.7;
+  font-weight: 400;
+}
+
+.hobbies-comment {
+  color      : var(--ink-faint);
+  font-style : italic;
+  font-size  : var(--text-base);
+}
+
+.hobbies-link {
+  color      : var(--accent);
+  font-style : italic;
+  transition : opacity 0.2s;
+}
+
+.hobbies-link:hover { opacity: 0.7; }
+
+
+/* ============================================================
+   07. Stack — section 05
+   ============================================================ */
+
+.stack-title {
+  font-family  : var(--font-serif);
+  font-size    : var(--text-3xl);
+  color        : var(--ink);
+  font-weight  : 400;
+  margin-bottom: 36px;
+}
+
+/* Tech card grid */
+.tech-grid {
+  display              : grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap                  : 16px;
+}
+
+.tech-card {
+  border        : 0.5px solid var(--border);
+  border-radius : 6px;
+  display       : flex;
+  flex-direction: row;
+  align-items   : flex-start;
+  gap           : 14px;
+  padding       : 18px 20px;
+}
+
+/* Logo on the left, no background */
+.tech-card-logo {
+  flex-shrink: 0;
+  width      : 22px;
+  height     : 22px;
+  object-fit : contain;
+  display    : block;
+  margin-top : 3px;
+}
+
+/* Monogram fallback for techs without a CDN logo */
+.tech-card-logo-mono {
+  font-family : var(--font-serif);
+  font-size   : 16px;
+  color       : var(--ink-faint);
+  font-style  : italic;
+  font-weight : 400;
+  line-height : 1.4;
+  height      : auto;
+  object-fit  : unset;
+}
+
+/* Text area */
+.tech-card-body {
+  flex: 1;
+}
+
+.tech-card-name {
+  display         : flex;
+  justify-content : space-between;
+  align-items     : baseline;
+  gap             : 8px;
+  margin-bottom   : 8px;
+  font-family     : var(--font-serif);
+  font-size       : var(--text-lg);
+  color           : var(--ink);
+  font-weight     : 400;
+  line-height     : 1.2;
+}
+
+.tech-card-version {
+  font-size      : var(--text-xs);
+  color          : var(--accent);
+  letter-spacing : 0.1em;
+  font-weight    : 500;
+  white-space    : nowrap;
+  flex-shrink    : 0;
+}
+
+.tech-card-desc {
+  font-size  : var(--text-sm);
+  color      : var(--ink-light);
+  line-height: 1.65;
+}
+
+.tech-card-learning {
+  border-style: dashed;
+  opacity     : 0.8;
+}
+
+.tech-card-learning .tech-card-name {
+  color      : var(--accent);
+  font-style : italic;
+}
+
+.tech-card-learning .tech-card-logo-mono {
+  color: var(--accent);
+}
+
+
+/* ============================================================
+   08. Projects — section 06
    ============================================================ */
 
 .projects-header {
@@ -450,15 +614,7 @@ section[id] {
   font-weight: 400;
 }
 
-.projects-see-all {
-  font-size : 12px;
-  color     : var(--accent);
-  transition: opacity 0.2s;
-}
-
-.projects-see-all:hover { opacity: 0.7; }
-
-/* Grille de cartes */
+/* Card grid */
 .projects-grid {
   display              : grid;
   grid-template-columns: repeat(auto-fit, minmax(180px, 260px));
@@ -466,7 +622,7 @@ section[id] {
   justify-content      : center;
 }
 
-/* Carte projet individuelle */
+/* Single project card */
 .project-card {
   width    : 100%;
   max-width: 260px;
@@ -528,7 +684,7 @@ section[id] {
   display    : block;
 }
 
-/* Cartes skeleton (projets à venir) */
+/* Skeleton cards (upcoming projects) */
 .project-card-skeleton {
   opacity: 0.85;
 }
@@ -545,205 +701,7 @@ section[id] {
 
 
 /* ============================================================
-   08. Section Stack — Techniques (04)
-   ============================================================ */
-
-.stack-title {
-  font-family  : var(--font-serif);
-  font-size    : var(--text-3xl);
-  color        : var(--ink);
-  font-weight  : 400;
-  margin-bottom: 36px;
-}
-
-/* Grille de cartes tech */
-.tech-grid {
-  display              : grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap                  : 16px;
-}
-
-.tech-card {
-  border        : 0.5px solid var(--border);
-  border-radius : 6px;
-  display       : flex;
-  flex-direction: row;
-  align-items   : flex-start;
-  gap           : 14px;
-  padding       : 18px 20px;
-}
-
-/* Logo à gauche, sans fond */
-.tech-card-logo {
-  flex-shrink: 0;
-  width      : 22px;
-  height     : 22px;
-  object-fit : contain;
-  display    : block;
-  margin-top : 3px;
-}
-
-/* Monogramme pour les techs sans logo CDN */
-.tech-card-logo-mono {
-  font-family : var(--font-serif);
-  font-size   : 16px;
-  color       : var(--ink-faint);
-  font-style  : italic;
-  font-weight : 400;
-  line-height : 1.4;
-  height      : auto;
-  object-fit  : unset;
-}
-
-/* Zone texte */
-.tech-card-body {
-  flex: 1;
-}
-
-.tech-card-name {
-  display         : flex;
-  justify-content : space-between;
-  align-items     : baseline;
-  gap             : 8px;
-  margin-bottom   : 8px;
-  font-family     : var(--font-serif);
-  font-size       : var(--text-lg);
-  color           : var(--ink);
-  font-weight     : 400;
-  line-height     : 1.2;
-}
-
-.tech-card-version {
-  font-size      : var(--text-xs);
-  color          : var(--accent);
-  letter-spacing : 0.1em;
-  font-weight    : 500;
-  white-space    : nowrap;
-  flex-shrink    : 0;
-}
-
-.tech-card-desc {
-  font-size  : var(--text-sm);
-  color      : var(--ink-light);
-  line-height: 1.65;
-}
-
-.tech-card-learning {
-  border-style: dashed;
-  opacity     : 0.8;
-}
-
-.tech-card-learning .tech-card-name {
-  color      : var(--accent);
-  font-style : italic;
-}
-
-.tech-card-learning .tech-card-logo-mono {
-  color: var(--accent);
-}
-
-
-
-/* ============================================================
-   10. Section Parcours & Loisirs (06)
-   ============================================================ */
-
-.timeline-section {
-  padding-top   : 44px;
-  padding-bottom: 44px;
-}
-
-.timeline-layout {
-  display              : grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap                  : 48px;
-  align-items          : start;
-}
-
-/* Colonne parcours */
-.timeline-title {
-  font-size      : var(--text-sm);
-  color          : var(--accent);
-  letter-spacing : 0.2em;
-  margin-bottom  : 16px;
-  display        : block;
-}
-
-.timeline-row {
-  display              : grid;
-  grid-template-columns: 95px 1fr auto;
-  gap                  : 18px;
-  font-size            : var(--text-base);
-  color                : var(--ink);
-  padding              : 10px 0;
-  border-bottom        : 0.5px solid var(--border);
-  align-items          : baseline;
-}
-
-.timeline-row:last-child {
-  border-bottom: none;
-}
-
-.timeline-year {
-  color: var(--ink-faint);
-}
-
-.timeline-company {
-  font-weight: 500;
-}
-
-.timeline-role {
-  color: var(--ink-light);
-}
-
-.timeline-location {
-  color      : var(--ink-faint);
-  font-style : italic;
-  font-size  : var(--text-sm);
-  white-space: nowrap;
-}
-
-/* Colonne loisirs */
-.hobbies-title {
-  font-size      : var(--text-sm);
-  color          : var(--accent);
-  letter-spacing : 0.2em;
-  margin-bottom  : 16px;
-  display        : block;
-}
-
-.hobbies-list {
-  font-family: var(--font-serif);
-  font-size  : 16px;
-  color      : var(--ink);
-  line-height: 1.7;
-  font-weight: 400;
-}
-
-.hobbies-comment {
-  color      : var(--ink-faint);
-  font-style : italic;
-  font-size  : var(--text-base);
-}
-
-.hobbies-link {
-  color      : var(--accent);
-  font-style : italic;
-  transition : opacity 0.2s;
-}
-
-.hobbies-link:hover { opacity: 0.7; }
-
-.hobbies-languages {
-  font-size  : var(--text-sm);
-  color      : var(--ink-faint);
-  font-style : italic;
-  margin-top : 10px;
-}
-
-
-/* ============================================================
-   11. Section Contact (07)
+   09. Contact — section 07
    ============================================================ */
 
 .contact {
@@ -814,10 +772,10 @@ section[id] {
 
 
 /* ============================================================
-   12. Animations
+   10. Animations
    ============================================================ */
 
-/* Point de statut qui pulse */
+/* Pulsing status dot */
 @keyframes pulse {
   0%, 100% { opacity: 1; }
   50%       { opacity: 0.25; }
@@ -826,7 +784,7 @@ section[id] {
   animation: pulse 1.8s ease-in-out infinite;
 }
 
-/* Curseur clignotant */
+/* Blinking cursor */
 @keyframes blink {
   0%, 49% { opacity: 1; }
   50%, 100% { opacity: 0; }
@@ -835,7 +793,7 @@ section[id] {
   animation: blink 1.05s steps(1) infinite;
 }
 
-/* Zoom lent Ken Burns sur la photo */
+/* Slow Ken Burns zoom on the portrait */
 @keyframes ken-burns {
   from { transform: scale(1); }
   to   { transform: scale(1.06); }
@@ -843,7 +801,7 @@ section[id] {
 
 
 /* ============================================================
-   13. Responsive — Tablette (< 900px)
+   11. Responsive — tablet (< 900px)
    ============================================================ */
 
 @media (max-width: 900px) {
@@ -852,7 +810,7 @@ section[id] {
     padding: 12px;
   }
 
-  /* La grille 2 colonnes passe en 1 colonne */
+  /* 2-col grids collapse to 1 */
   .about-grid {
     grid-template-columns: 1fr;
   }
@@ -861,12 +819,12 @@ section[id] {
     grid-template-columns: 1fr;
   }
 
-  /* Stack : 2 colonnes sur tablette */
+  /* Stack: 2 columns on tablet */
   .tech-grid {
     grid-template-columns: repeat(2, 1fr);
   }
 
-  /* Titre héro plus petit */
+  /* Smaller hero title */
   .hero-title {
     font-size: 44px;
   }
@@ -875,13 +833,13 @@ section[id] {
     font-size: 20px;
   }
 
-  /* Méta stats : 2 colonnes au lieu de 4 */
+  /* Meta stats: 2 columns instead of 4 */
   .stat-grid {
     grid-template-columns: repeat(2, 1fr);
     gap: 24px;
   }
 
-  /* Contact empilé */
+  /* Stacked contact */
   .contact-inner {
     flex-direction: column;
     align-items   : stretch;
@@ -892,7 +850,7 @@ section[id] {
     text-align: left;
   }
 
-  /* Navigation : on masque les liens du milieu */
+  /* Nav: hide the middle links */
   .nav-links {
     display: none;
   }
@@ -900,12 +858,12 @@ section[id] {
 
 
 /* ============================================================
-   14. Responsive — Mobile (< 600px)
+   12. Responsive — mobile (< 600px)
    ============================================================ */
 
 @media (max-width: 600px) {
 
-  /* Titres */
+  /* Headings */
   .hero-title {
     font-size  : 36px;
     line-height: 1.05;
@@ -915,14 +873,14 @@ section[id] {
     font-size: 18px;
   }
 
-  /* Paddings de section */
+  /* Section padding */
   .section,
   .nav {
     padding-left : 20px;
     padding-right: 20px;
   }
 
-  /* Stack : 1 colonne sur mobile */
+  /* Stack: 1 column on mobile */
   .tech-grid {
     grid-template-columns: 1fr;
     gap                  : 10px;
@@ -938,7 +896,7 @@ section[id] {
     font-size: 30px;
   }
 
-  /* Projets : 1 colonne, pleine largeur */
+  /* Projects: 1 column, full width */
   .projects-grid {
     grid-template-columns: 1fr;
     gap                  : 32px;
