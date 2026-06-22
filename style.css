@@ -1,23 +1,23 @@
 /* ============================================================
-   Thibault Lafaurie — Portfolio
+   Thibault Lafaurie - Portfolio
    style.css
 
    No preprocessor, no PostCSS, no @apply. Just CSS that aged well.
-   Colons are column-aligned on purpose — it's a habit, not a linter.
+   Colons are column-aligned on purpose - it's a habit, not a linter.
 
    Table of contents:
    01. Variables & reset
    02. Layout
    03. Navigation
-   04. Hero            — section 01
-   05. About           — section 02
-   06. Timeline & hobbies — sections 03–04
-   07. Stack           — section 05
-   08. Projects        — section 06
-   09. Contact         — section 07
+   04. Hero            - section 01
+   05. About           - section 02
+   06. Timeline & hobbies - sections 03–04
+   07. Stack           - section 05
+   08. Projects        - section 06
+   09. Contact         - section 07
    10. Animations
-   11. Responsive — tablet (< 900px)
-   12. Responsive — mobile (< 600px)
+   11. Responsive - tablet (< 900px)
+   12. Responsive - mobile (< 600px)
    ============================================================ */
 
 
@@ -37,11 +37,11 @@
   --cream-dark   : #EBE6DD;   /* outer background */
   --border       : #E5DDD0;   /* separator lines */
 
-  /* Accent — terracotta */
+  /* Accent - terracotta */
   --accent       : #B5341A;
   --accent-dark  : #5C1B0A;
 
-  /* Secondary — sage green (status) */
+  /* Secondary - sage green (status) */
   --sage         : #5A7236;
   --sage-dark    : #2E3D17;
 
@@ -92,7 +92,7 @@ a {
    02. Layout
    ============================================================ */
 
-/* Outer frame — yes, it's a portfolio dressed up as a browser window.
+/* Outer frame - yes, it's a portfolio dressed up as a browser window.
    Meta? A little. I'm keeping it anyway. */
 .browser-frame {
   background    : var(--cream-dark);
@@ -143,7 +143,7 @@ section[id] {
   scroll-margin-top: 20px;
 }
 
-/* Section label (e.g. "01 — index") */
+/* Section label (e.g. "01 - index") */
 .section-label {
   font-size      : var(--text-sm);
   color          : var(--accent);
@@ -223,7 +223,7 @@ section[id] {
 
 
 /* ============================================================
-   04. Hero — section 01
+   04. Hero - section 01
    ============================================================ */
 
 .hero {
@@ -331,7 +331,7 @@ section[id] {
 
 
 /* ============================================================
-   05. About — section 02
+   05. About - section 02
    ============================================================ */
 
 .about {
@@ -409,7 +409,7 @@ section[id] {
 
 
 /* ============================================================
-   06. Timeline & hobbies — sections 03–04
+   06. Timeline & hobbies - sections 03–04
    ============================================================ */
 
 .timeline-section {
@@ -500,7 +500,7 @@ section[id] {
 
 
 /* ============================================================
-   07. Stack — section 05
+   07. Stack - section 05
    ============================================================ */
 
 .stack-title {
@@ -599,7 +599,7 @@ section[id] {
 
 
 /* ============================================================
-   08. Projects — section 06
+   08. Projects - section 06
    ============================================================ */
 
 .projects-header {
@@ -701,7 +701,7 @@ section[id] {
 
 
 /* ============================================================
-   09. Contact — section 07
+   09. Contact - section 07
    ============================================================ */
 
 .contact {
@@ -801,7 +801,7 @@ section[id] {
 
 
 /* ============================================================
-   11. Responsive — tablet (< 900px)
+   11. Responsive - tablet (< 900px)
    ============================================================ */
 
 @media (max-width: 900px) {
@@ -858,7 +858,7 @@ section[id] {
 
 
 /* ============================================================
-   12. Responsive — mobile (< 600px)
+   12. Responsive - mobile (< 600px)
    ============================================================ */
 
 @media (max-width: 600px) {
