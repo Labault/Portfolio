@@ -750,7 +750,7 @@ section[id] {
 }
 
 .project-grid-feature { grid-template-columns: repeat(3, 1fr); }
-.project-grid-tools   { grid-template-columns: repeat(2, 1fr); }
+.project-grid-tools   { grid-template-columns: repeat(3, 1fr); }
 .project-grid-play    { grid-template-columns: repeat(3, 1fr); }
 
 .project-grid-play .project-card-info { margin-top: 14px; }
@@ -824,6 +824,7 @@ section[id] {
 
 .contact {
   background: var(--ink);
+  position  : relative;
 }
 
 .contact-inner {
@@ -890,6 +891,60 @@ section[id] {
 
 
 /* ============================================================
+   09b. Le canard easter-egg (niché dans la zone contact)
+   ============================================================ */
+
+/* Tucked into a corner of the dark contact block. Discreet by default,
+   the duck wakes up on hover and waddles you back to the top. */
+.footer-duck {
+  position    : absolute;
+  top         : 26px;
+  right       : var(--section-pad-h);
+  display     : inline-flex;
+  align-items : center;
+  gap         : 8px;
+  opacity     : 0.28;
+  transition  : opacity 0.4s ease;
+  z-index     : 2;
+}
+
+.footer-duck:hover,
+.footer-duck:focus-visible {
+  opacity: 1;
+  outline: none;
+}
+
+.footer-duck-img {
+  width  : 46px;
+  height : 46px;
+  display: block;
+}
+
+.footer-duck:hover .footer-duck-img,
+.footer-duck:focus-visible .footer-duck-img {
+  animation: duck-wiggle 0.5s ease-in-out;
+  transform-origin: 50% 80%;
+}
+
+/* Quack sits to the LEFT of the duck (it's in the top-right corner) */
+.footer-duck-quack {
+  font-family: var(--font-serif);
+  font-style : italic;
+  font-size  : 13px;
+  color      : #C9BCA8;
+  opacity    : 0;
+  transform  : translateX(6px);
+  transition : opacity 0.4s ease, transform 0.4s ease;
+}
+
+.footer-duck:hover .footer-duck-quack,
+.footer-duck:focus-visible .footer-duck-quack {
+  opacity  : 1;
+  transform: translateX(0);
+}
+
+
+/* ============================================================
    10. Animations
    ============================================================ */
 
@@ -915,6 +970,13 @@ section[id] {
 @keyframes ken-burns {
   from { transform: scale(1); }
   to   { transform: scale(1.06); }
+}
+
+/* The footer duck wiggles when you find it */
+@keyframes duck-wiggle {
+  0%, 100% { transform: rotate(0deg); }
+  25%      { transform: rotate(-8deg); }
+  75%      { transform: rotate(8deg); }
 }
 
 
@@ -973,14 +1035,11 @@ section[id] {
     display: none;
   }
 
-  /* Projects: feature & play to 2 cols, tools & wide stack */
+  /* Projects: feature, play & tools to 2 cols, wide stack */
   .project-grid-feature,
-  .project-grid-play {
-    grid-template-columns: repeat(2, 1fr);
-  }
-
+  .project-grid-play,
   .project-grid-tools {
-    grid-template-columns: 1fr;
+    grid-template-columns: repeat(2, 1fr);
   }
 
   .project-wide {
