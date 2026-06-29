@@ -714,12 +714,32 @@ section[id] {
 
 /* Thumbnail (illustration or monogram placeholder) */
 .project-thumb {
-  overflow       : hidden;
-  border-radius  : 4px;
-  aspect-ratio   : 4 / 3;
-  display        : flex;
-  align-items    : center;
-  justify-content: center;
+  overflow        : hidden;
+  border-radius   : 4px;
+  aspect-ratio    : 4 / 3;
+  display         : flex;
+  align-items     : center;
+  justify-content : center;
+  transition      : transform 0.3s ease;
+  transform-origin: center;
+}
+
+/* Survol : la vignette se soulève légèrement (tout type de carte) */
+.project-card-link:hover .project-thumb,
+.project-wide:hover .project-wide-image {
+  transform: translateY(-6px) scale(1.015);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .project-thumb,
+  .project-wide-image,
+  .project-card-link:hover .project-thumb,
+  .project-grid-pinned .project-card-link .project-thumb,
+  .project-grid-pinned .project-card-link:hover .project-thumb,
+  .project-wide:hover .project-wide-image {
+    transition: none;
+    transform : none;
+  }
 }
 
 /* Each grid card = one tidy column (thumb + text same width, well separated) */
@@ -750,27 +770,53 @@ section[id] {
 }
 
 .project-grid-feature { grid-template-columns: repeat(3, 1fr); }
-.project-grid-tools   { grid-template-columns: repeat(3, 1fr); }
-.project-grid-play    { grid-template-columns: repeat(3, 1fr); }
+.project-grid-tools   { grid-template-columns: repeat(4, 1fr); }
 
-.project-grid-play .project-card-info { margin-top: 14px; }
 .project-grid-play .project-card-title { font-size: 18px; }
 
-/* Perso & soigné: wide horizontal card */
+/* Bac à sable : « mur d'atelier ».
+   4 colonnes pleine largeur (zéro vide), vignettes traitées comme des croquis
+   épinglés — légèrement inclinées, elles se redressent et se soulèvent au survol.
+   Le détail tilt est porté par une classe modifier (.project-grid-pinned),
+   réutilisable / désactivable sur n'importe quelle autre catégorie en tuiles. */
+.project-grid-play {
+  grid-template-columns: repeat(4, 1fr);
+  gap                  : 30px 32px;
+}
+
+/* La tuile remplit sa colonne (on lève le plafond 320px partagé) */
+.project-grid-play .project-card-link { max-width: none; }
+
+/* Épinglage : la vignette est la pièce qui s'incline, la légende reste droite */
+.project-grid-pinned .project-card-link:nth-child(4n + 1) .project-thumb { transform: rotate(-1.8deg); }
+.project-grid-pinned .project-card-link:nth-child(4n + 2) .project-thumb { transform: rotate(1.5deg); }
+.project-grid-pinned .project-card-link:nth-child(4n + 3) .project-thumb { transform: rotate(1.1deg); }
+.project-grid-pinned .project-card-link:nth-child(4n + 4) .project-thumb { transform: rotate(-1.4deg); }
+
+/* Au survol : on redresse, puis on soulève comme les autres cartes */
+.project-grid-pinned .project-card-link:hover .project-thumb {
+  transform: rotate(0deg) translateY(-6px) scale(1.015);
+}
+
+/* Perso & soigné: wide horizontal card (compacte, centrée) */
 .project-wide {
   display              : grid;
   grid-template-columns: 0.85fr 1.4fr;
   gap                  : 28px;
-  align-items          : center;
+  align-items          : stretch;
   border               : 0.5px solid var(--border);
   border-radius        : 8px;
   padding              : 22px;
+  max-width            : 860px;
+  margin               : 0 auto;
 }
 
 .project-wide-image {
   overflow     : hidden;
   border-radius: 6px;
   aspect-ratio : 4 / 3;
+  align-self   : center;
+  transition   : transform 0.3s ease;
 }
 
 .project-wide-image img,
@@ -778,6 +824,35 @@ section[id] {
   display: block;
   width  : 100%;
   height : 100%;
+}
+
+/* Le corps occupe toute la hauteur : contenu en haut, CTA ancré en bas */
+.project-wide-body {
+  display       : flex;
+  flex-direction: column;
+}
+
+.project-wide-body .project-card-cta {
+  margin-top : auto;
+  padding-top: 18px;
+}
+
+/* Chips de caractéristiques : remplissent le creux et résument le projet */
+.project-wide-tags {
+  display  : flex;
+  flex-wrap: wrap;
+  gap      : 8px;
+  margin-top: 16px;
+}
+
+.project-wide-tag {
+  font-size    : var(--text-sm);
+  color        : var(--ink-light);
+  background   : var(--cream);
+  border       : 0.5px solid var(--border);
+  border-radius: 999px;
+  padding      : 4px 12px;
+  white-space  : nowrap;
 }
 
 .project-wide:hover .project-card-title { color: var(--accent); }
@@ -1094,6 +1169,11 @@ section[id] {
   .project-grid-tools {
     grid-template-columns: 1fr;
     gap                  : 28px;
+  }
+
+  /* Vignettes droites une fois empilées (plus d'épinglage en mono-colonne) */
+  .project-grid-pinned .project-card-link .project-thumb {
+    transform: none;
   }
 
   /* Group head: drop the note so the label + rule keep their line */
