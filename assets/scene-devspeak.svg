@@ -1,26 +1,50 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 300" role="img" aria-label="DevSpeak">
-  <rect width="400" height="300" fill="#EFE7DA"/>
-  <rect x="28" y="22" width="344" height="256" rx="4" fill="#FBF8F2" stroke="#E5DDD0" stroke-width="1"/>
-  <text x="48" y="60" font-family="Georgia, 'DM Serif Display', serif" font-size="24" fill="#1F1A14">DevSpeak</text>
-  <text x="352" y="58" text-anchor="end" font-family="Georgia, serif" font-size="15" font-style="italic" fill="#9C9286">/dɛv.spik/</text>
-  <text x="48" y="80" font-family="Inter, system-ui, sans-serif" font-size="10" letter-spacing="0.1em" fill="#B5341A">N.M. · TRAD. MOLDU → BARBU</text>
-  <line x1="48" y1="94" x2="352" y2="94" stroke="#E5DDD0" stroke-width="1"/>
-  <g font-family="Georgia, serif" font-size="13.5">
-    <text x="52" y="124" font-style="italic" fill="#41382E">« ça marche »</text>
-    <text x="206" y="124" fill="#B5341A">→</text>
-    <text x="224" y="124" fill="#1F1A14">« ça compile »</text>
+  <defs>
+    <linearGradient id="ds-sky" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#AEDBD1"/>
+      <stop offset="1" stop-color="#5FA89C"/>
+    </linearGradient>
+  </defs>
 
-    <text x="52" y="156" font-style="italic" fill="#41382E">« le petit truc »</text>
-    <text x="206" y="156" fill="#B5341A">→</text>
-    <text x="224" y="156" fill="#1F1A14">« le micro-service »</text>
+  <rect width="400" height="300" fill="url(#ds-sky)"/>
+  <circle cx="200" cy="150" r="112" fill="#E8F5F0" opacity="0.5"/>
 
-    <text x="52" y="188" font-style="italic" fill="#41382E">« c'est cassé »</text>
-    <text x="206" y="188" fill="#B5341A">→</text>
-    <text x="224" y="188" fill="#1F1A14">« known issue »</text>
+  <text x="30" y="34" font-family="Inter, system-ui, sans-serif" font-size="10" letter-spacing="0.13em" fill="#B5341A">DU MOLDU AU BARBU</text>
 
-    <text x="52" y="220" font-style="italic" fill="#41382E">« vite fait »</text>
-    <text x="206" y="220" fill="#B5341A">→</text>
-    <text x="224" y="220" fill="#5A7236">git commit -m 'wip'</text>
+  <!-- Chapeau de magicien aux couleurs de Tibec (teal / crème / bec orange) -->
+  <g>
+    <path d="M200 44 L180 92 L220 92 Z" fill="#2E6E64"/>
+    <path d="M200 44 q -4 -10 8 -12 q -3 6 -3 11 z" fill="#2E6E64"/>
+    <rect x="177" y="78" width="46" height="10" rx="3" fill="#F4EFE3"/>
+    <rect x="194" y="78" width="12" height="10" rx="2" fill="#F2A93B"/>
+    <path d="M200 56 Q200 62 206 62 Q200 62 200 68 Q200 62 194 62 Q200 62 200 56 Z" fill="#F2A93B"/>
   </g>
-  <rect x="343" y="256" width="9" height="9" rx="2" fill="#B5341A"/>
+  <!-- Étincelles -->
+  <path d="M150 70 Q150 75 155 75 Q150 75 150 80 Q150 75 145 75 Q150 75 150 70 Z" fill="#F2A93B"/>
+  <path d="M252 64 Q252 68 256 68 Q252 68 252 72 Q252 68 248 68 Q252 68 252 64 Z" fill="#F4EFE3"/>
+  <path d="M262 78 Q262 82 266 82 Q262 82 262 86 Q262 82 258 82 Q262 82 262 78 Z" fill="#B5341A"/>
+
+  <!-- Panneau dictionnaire -->
+  <rect x="44" y="92" width="312" height="148" rx="12" fill="#FCF5E8" stroke="#CDBBA0" stroke-width="1.5"/>
+
+  <text x="66" y="124" font-family="Georgia, 'DM Serif Display', serif" font-size="23" fill="#2A2118">DevSpeak</text>
+  <text x="334" y="122" text-anchor="end" font-family="Georgia, serif" font-size="13" font-style="italic" fill="#8AA39C">/dɛv.spik/</text>
+  <text x="67" y="140" font-family="Inter, system-ui, sans-serif" font-size="9" letter-spacing="0.1em" fill="#B5341A">N.M. · TRAD. MOLDU → BARBU</text>
+  <line x1="66" y1="150" x2="334" y2="150" stroke="#E6D8BC" stroke-width="1"/>
+
+  <g font-family="Georgia, serif" font-size="13">
+    <text x="70" y="176" font-style="italic" fill="#5A4632">« ça marche »</text>
+    <text x="196" y="176" fill="#F2A93B">→</text>
+    <text x="214" y="176" fill="#1F1A14">« ça compile »</text>
+
+    <text x="70" y="204" font-style="italic" fill="#5A4632">« le petit truc »</text>
+    <text x="196" y="204" fill="#F2A93B">→</text>
+    <text x="214" y="204" fill="#1F1A14">« le micro-service »</text>
+
+    <text x="70" y="232" font-style="italic" fill="#5A4632">« vite fait »</text>
+    <text x="196" y="232" fill="#F2A93B">→</text>
+    <text x="214" y="232" font-family="ui-monospace, Menlo, monospace" font-size="12" fill="#2E7D72">git commit -m 'wip'</text>
+  </g>
+
+  <rect x="361" y="279" width="9" height="9" rx="2" fill="#B5341A"/>
 </svg>

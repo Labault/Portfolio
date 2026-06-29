@@ -1,0 +1,77 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 300" role="img" aria-label="Le Canard du Vendredi">
+  <defs>
+    <linearGradient id="cv-sky" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#FCE9C4"/>
+      <stop offset="1" stop-color="#F3BE63"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Ciel chaud -->
+  <rect width="400" height="300" fill="url(#cv-sky)"/>
+  <!-- Halo de réveil derrière le vendredi -->
+  <circle cx="248" cy="150" r="96" fill="#FFF3D2" opacity="0.55"/>
+
+  <!-- Petite accroche -->
+  <text x="30" y="36" font-family="Inter, system-ui, sans-serif" font-size="10" letter-spacing="0.14em" fill="#B5341A">IL NE SE RÉVEILLE QUE LE VENDREDI</text>
+
+  <!-- Le canard, derrière la case du vendredi (dessiné avant, donc en arrière-plan) -->
+  <g>
+    <!-- houppette -->
+    <path d="M243 60 q4 -16 13 -10 q-6 4 -3 12 z" fill="#F2B229"/>
+    <!-- tête -->
+    <circle cx="248" cy="98" r="40" fill="#FBC73D"/>
+    <circle cx="248" cy="98" r="40" fill="#F2B229" opacity="0.25" transform="translate(6 8)"/>
+    <circle cx="248" cy="96" r="40" fill="#FBC73D"/>
+    <!-- joues -->
+    <circle cx="226" cy="108" r="6.5" fill="#F2913B" opacity="0.45"/>
+    <circle cx="270" cy="108" r="6.5" fill="#F2913B" opacity="0.45"/>
+    <!-- yeux -->
+    <circle cx="236" cy="92" r="6" fill="#FFFFFF"/>
+    <circle cx="260" cy="92" r="6" fill="#FFFFFF"/>
+    <circle cx="237" cy="93" r="3.1" fill="#2A2118"/>
+    <circle cx="261" cy="93" r="3.1" fill="#2A2118"/>
+    <circle cx="238.2" cy="91.8" r="1" fill="#FFFFFF"/>
+    <circle cx="262.2" cy="91.8" r="1" fill="#FFFFFF"/>
+    <!-- bec (sa base passe derrière la case) -->
+    <ellipse cx="248" cy="110" rx="17" ry="10.5" fill="#ED8A36"/>
+    <path d="M233 110 h30" stroke="#C9701F" stroke-width="1.4" stroke-linecap="round"/>
+  </g>
+
+  <!-- La semaine -->
+  <g font-family="Inter, system-ui, sans-serif" text-anchor="middle">
+    <!-- lun -> jeu (jours « endormis », crème chaud) -->
+    <g>
+      <rect x="36"  y="140" width="40" height="72" rx="7" fill="#FDF6E7" stroke="#EAD7AF" stroke-width="1"/>
+      <rect x="84"  y="140" width="40" height="72" rx="7" fill="#FDF6E7" stroke="#EAD7AF" stroke-width="1"/>
+      <rect x="132" y="140" width="40" height="72" rx="7" fill="#FDF6E7" stroke="#EAD7AF" stroke-width="1"/>
+      <rect x="180" y="140" width="40" height="72" rx="7" fill="#FDF6E7" stroke="#EAD7AF" stroke-width="1"/>
+      <text x="56"  y="160" font-size="9" fill="#A2906C">lun</text>
+      <text x="104" y="160" font-size="9" fill="#A2906C">mar</text>
+      <text x="152" y="160" font-size="9" fill="#A2906C">mer</text>
+      <text x="200" y="160" font-size="9" fill="#A2906C">jeu</text>
+      <text x="56"  y="190" font-family="ui-monospace, Menlo, monospace" font-size="15" fill="#7A6A4E">12</text>
+      <text x="104" y="190" font-family="ui-monospace, Menlo, monospace" font-size="15" fill="#7A6A4E">13</text>
+      <text x="152" y="190" font-family="ui-monospace, Menlo, monospace" font-size="15" fill="#7A6A4E">14</text>
+      <text x="200" y="190" font-family="ui-monospace, Menlo, monospace" font-size="15" fill="#7A6A4E">15</text>
+    </g>
+
+    <!-- sam & dim (week-end, vert tendre) -->
+    <g>
+      <rect x="276" y="140" width="40" height="72" rx="7" fill="#E7EDD6" stroke="#C8D5A8" stroke-width="1"/>
+      <rect x="324" y="140" width="40" height="72" rx="7" fill="#E7EDD6" stroke="#C8D5A8" stroke-width="1"/>
+      <text x="296" y="160" font-size="9" fill="#6E7A52">sam</text>
+      <text x="344" y="160" font-size="9" fill="#6E7A52">dim</text>
+      <text x="296" y="190" font-family="ui-monospace, Menlo, monospace" font-size="15" fill="#5A663C">17</text>
+      <text x="344" y="190" font-family="ui-monospace, Menlo, monospace" font-size="15" fill="#5A663C">18</text>
+    </g>
+
+    <!-- VENDREDI : la case qui sort du lot (devant le canard) -->
+    <rect x="224" y="120" width="48" height="94" rx="9" fill="#FFCB4D" stroke="#E0951F" stroke-width="1.6"/>
+    <text x="248" y="143" font-size="11" font-weight="700" letter-spacing="0.04em" fill="#B5341A">ven</text>
+    <text x="248" y="180" font-family="ui-monospace, Menlo, monospace" font-size="22" font-weight="700" fill="#3A2A12">16</text>
+    <circle cx="248" cy="198" r="3" fill="#B5341A"/>
+  </g>
+
+  <!-- Signature -->
+  <rect x="361" y="279" width="9" height="9" rx="2" fill="#B5341A"/>
+</svg>
