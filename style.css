@@ -31,7 +31,7 @@
   /* Core colors */
   --ink          : #1F1A14;   /* primary text */
   --ink-light    : #6B6258;   /* secondary text */
-  --ink-faint    : #9C9286;   /* tertiary text / labels */
+  --ink-faint    : #736C63;   /* tertiary text / labels (AA on cream) */
   --cream        : #F5F0E8;   /* page background */
   --cream-dark   : #EBE6DD;   /* outer background */
   --border       : #E5DDD0;   /* separator lines */
@@ -891,7 +891,7 @@ section[id] {
 
 .contact-cv {
   font-size  : var(--text-sm);
-  color      : #8A7E72;
+  color      : #766C62;
   margin-top : 20px;
   display    : block;
   transition : color 0.25s ease;
@@ -901,7 +901,7 @@ section[id] {
 
 .contact-note {
   font-size : var(--text-sm);
-  color     : #8A7E72;
+  color     : #766C62;
   margin-top: 20px;
 }
 
@@ -937,6 +937,34 @@ section[id] {
   opacity     : 0.28;
   transition  : opacity 0.4s ease;
   z-index     : 2;
+}
+
+/* Accessibilité : lien d'évitement, hors écran sauf au focus clavier */
+.skip-link {
+  position     : absolute;
+  left         : -9999px;
+  top          : 0;
+  z-index      : 100;
+  background   : var(--ink);
+  color        : var(--cream);
+  padding      : 10px 16px;
+  border-radius: 0 0 6px 0;
+}
+
+.skip-link:focus {
+  left: 0;
+}
+
+/* Accessibilité : focus clavier visible sur les liens (la souris n'est pas impactée) */
+a:not(.footer-duck):focus-visible {
+  outline       : 2px solid var(--accent);
+  outline-offset: 3px;
+  border-radius : 2px;
+}
+
+/* Section contact sur fond sombre : anneau clair pour rester lisible */
+.contact a:not(.footer-duck):focus-visible {
+  outline-color: var(--cream);
 }
 
 .footer-duck:hover,
@@ -1008,6 +1036,16 @@ section[id] {
   0%, 100% { transform: rotate(0deg); }
   25%      { transform: rotate(-8deg); }
   75%      { transform: rotate(8deg); }
+}
+
+/* Accessibilité : coupe les animations continues si l'utilisateur le demande */
+@media (prefers-reduced-motion: reduce) {
+  .portrait-img-default,
+  .anim-pulse,
+  .anim-blink,
+  .footer-duck:focus-visible .footer-duck-img {
+    animation: none;
+  }
 }
 
 
