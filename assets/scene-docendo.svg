@@ -1,5 +1,5 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 300" role="img" aria-label="Docendo">
-  <rect width="400" height="300" fill="#EFE7DA"/>
+  <rect width="400" height="300" fill="#FBF8F2"/>
   <rect x="14" y="20" width="372" height="248" rx="9" fill="#7A4A2E"/>
   <rect x="14.5" y="20.5" width="371" height="247" rx="9" fill="none" stroke="#9A6238" stroke-width="1.5"/>
   <rect x="28" y="34" width="344" height="208" rx="3" fill="#2C3A31"/>

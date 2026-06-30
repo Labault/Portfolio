@@ -1,5 +1,5 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 300" role="img" aria-label="push-to-deploy">
-  <rect width="400" height="300" fill="#EFE7DA"/>
+  <rect width="400" height="300" fill="#FBF8F2"/>
   <text x="40" y="46" font-family="Georgia, 'DM Serif Display', serif" font-size="21" fill="#1F1A14">push-to-deploy</text>
   <text x="40" y="64" font-family="Inter, system-ui, sans-serif" font-size="10" letter-spacing="0.06em" fill="#B5341A">commit → prod, sans toucher à rien</text>
 
