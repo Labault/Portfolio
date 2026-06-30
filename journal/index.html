@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="/style.css">
+
+<!-- Primary Meta -->
+<title>Journal — Thibault Lafaurie</title>
+<meta name="description" content="Notes de prod : migrations, legacy, infra et les pièges du terrain. Le journal de Thibault Lafaurie, développeur backend PHP / Symfony.">
+<meta name="author" content="Thibault Lafaurie">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://labault.dev/journal/">
+
+<!-- Theme -->
+<meta name="theme-color" content="#1e2327">
+
+<!-- Open Graph / Facebook / LinkedIn -->
+<meta property="og:type" content="website">
+<meta property="og:locale" content="fr_FR">
+<meta property="og:site_name" content="Thibault Lafaurie">
+<meta property="og:url" content="https://labault.dev/journal/">
+<meta property="og:title" content="Journal — Thibault Lafaurie">
+<meta property="og:description" content="Notes de prod : migrations, legacy, infra et les pièges du terrain. Le journal de Thibault Lafaurie, développeur backend PHP / Symfony.">
+<meta property="og:image" content="https://labault.dev/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Thibault Lafaurie - Développeur Backend en prod">
+
+<!-- Twitter / X -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Journal — Thibault Lafaurie">
+<meta name="twitter:description" content="Notes de prod : migrations, legacy, infra et les pièges du terrain. Le journal de Thibault Lafaurie, développeur backend PHP / Symfony.">
+<meta name="twitter:image" content="https://labault.dev/og-image.png">
+<meta name="twitter:image:alt" content="Thibault Lafaurie - Développeur Backend en prod">
+
+<!-- Favicon : la mascotte Canard Dev -->
+<link rel="icon" type="image/png" href="/favicon.png">
+
+</head>
+<body>
+
+<a class="skip-link" href="#main">Aller au contenu</a>
+
+<!--
+  Still reading the source on the journal pages too? Of course you are.
+  Same deal as the home page: no framework, no bundler, zero runtime JS.
+  These pages are generated locally by a small PHP script (build.php),
+  from Markdown. The thing you're reading is the plain HTML it spat out.
+-->
+
+<div class="browser-frame">
+  <div class="browser-chrome">
+    <div class="browser-chrome-dot" style="background: #C9BCA8;"></div>
+    <div class="browser-chrome-dot" style="background: #B5341A;"></div>
+    <div class="browser-chrome-dot" style="background: #5A7236;"></div>
+    <div class="browser-chrome-url">https://labault.dev/journal</div>
+  </div>
+
+  <div class="page">
+
+    <nav class="nav" aria-label="Navigation principale">
+      <a href="/#index" class="nav-logo">
+        <div class="nav-logo-dot" aria-hidden="true"></div>
+        <span class="nav-logo-name">Thibault Lafaurie</span>
+      </a>
+      <ul class="nav-links" role="list">
+        <li><a href="/#index"    class="nav-link">index</a></li>
+        <li><a href="/#parcours" class="nav-link">parcours</a></li>
+        <li><a href="/#stack"    class="nav-link">stack</a></li>
+        <li><a href="/#projets"  class="nav-link">projets</a></li>
+        <li><a href="/journal/"  class="nav-link" aria-current="page">journal</a></li>
+        <li><a href="/#contact"  class="nav-link">contact</a></li>
+      </ul>
+      <div class="nav-status" aria-label="Statut : en recherche d'un CDI">
+        <span class="nav-status-dot anim-pulse"></span>
+        <span class="nav-status-text">en recherche d'un CDI</span>
+      </div>
+    </nav>
+
+    <main id="main" class="section journal-index">
+      <header class="journal-index-head">
+        <span class="section-label">journal</span>
+        <h1 class="journal-index-title">Le journal</h1>
+        <p class="journal-index-intro">Des notes de prod, prises sur le terrain : migrations, legacy, infra, et les pièges qu'on ne voit qu'une fois dedans. Pas de tutoriel, du vécu.</p>
+      </header>
+      <section class="journal-year">
+        <h2 class="journal-year-label">2026</h2>
+        <ul class="journal-list" role="list">
+          <li><a class="journal-entry" href="/journal/migrer-symfony-2-8-a-7-4-sans-geler-les-livraisons/">
+            <span class="journal-entry-thumb"><img src="/assets/journal/migrer-symfony-2-8-a-7-4-sans-geler-les-livraisons.svg" alt="" loading="lazy"></span>
+            <span class="journal-entry-text">
+              <span class="journal-entry-kicker">30 juin <span class="journal-entry-sep">·</span> 3 min</span>
+              <span class="journal-entry-title">Migrer Symfony 2.8 à 7.4 sans geler les livraisons</span>
+              <span class="journal-entry-desc">112 000 lignes, une release par semaine, zéro gel de feature. Comment on fait passer une codebase de PHP 7.0 / Symfony 2.8 à PHP 8.3 / Symfony 7.4 en livrant, pas en s&#039;arrêtant.</span>
+            </span>
+            <span class="journal-entry-arrow" aria-hidden="true">→</span>
+          </a></li>
+          <li><a class="journal-entry" href="/journal/greffer-une-api-rest-sur-dix-ans-de-legacy/">
+            <span class="journal-entry-thumb"><img src="/assets/journal/greffer-une-api-rest-sur-dix-ans-de-legacy.svg" alt="" loading="lazy"></span>
+            <span class="journal-entry-text">
+              <span class="journal-entry-kicker">23 juin <span class="journal-entry-sep">·</span> 3 min</span>
+              <span class="journal-entry-title">Greffer une API REST sur dix ans de legacy</span>
+              <span class="journal-entry-desc">Ajouter une API à dix ans de Symfony rendu côté serveur. Le vrai chantier n&#039;était pas d&#039;écrire des endpoints, c&#039;était de rendre partageable une logique métier qui ne l&#039;avait jamais été, sans casser ce qui tournait.</span>
+            </span>
+            <span class="journal-entry-arrow" aria-hidden="true">→</span>
+          </a></li>
+
+        </ul>
+      </section>
+
+    </main>
+
+
+  </div>
+</div>
+
+</body>
+</html>

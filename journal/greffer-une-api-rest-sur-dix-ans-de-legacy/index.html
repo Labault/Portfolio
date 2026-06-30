@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="/style.css">
+
+<!-- Primary Meta -->
+<title>Greffer une API REST sur dix ans de legacy — Journal · Thibault Lafaurie</title>
+<meta name="description" content="Ajouter une API à dix ans de Symfony rendu côté serveur. Le vrai chantier n&#039;était pas d&#039;écrire des endpoints, c&#039;était de rendre partageable une logique métier qui ne l&#039;avait jamais été, sans casser ce qui tournait.">
+<meta name="author" content="Thibault Lafaurie">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://labault.dev/journal/greffer-une-api-rest-sur-dix-ans-de-legacy/">
+
+<!-- Theme -->
+<meta name="theme-color" content="#1e2327">
+
+<!-- Open Graph / Facebook / LinkedIn -->
+<meta property="og:type" content="article">
+<meta property="og:locale" content="fr_FR">
+<meta property="og:site_name" content="Thibault Lafaurie">
+<meta property="og:url" content="https://labault.dev/journal/greffer-une-api-rest-sur-dix-ans-de-legacy/">
+<meta property="og:title" content="Greffer une API REST sur dix ans de legacy — Journal · Thibault Lafaurie">
+<meta property="og:description" content="Ajouter une API à dix ans de Symfony rendu côté serveur. Le vrai chantier n&#039;était pas d&#039;écrire des endpoints, c&#039;était de rendre partageable une logique métier qui ne l&#039;avait jamais été, sans casser ce qui tournait.">
+<meta property="og:image" content="https://labault.dev/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Thibault Lafaurie - Développeur Backend en prod">
+
+<!-- Twitter / X -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Greffer une API REST sur dix ans de legacy — Journal · Thibault Lafaurie">
+<meta name="twitter:description" content="Ajouter une API à dix ans de Symfony rendu côté serveur. Le vrai chantier n&#039;était pas d&#039;écrire des endpoints, c&#039;était de rendre partageable une logique métier qui ne l&#039;avait jamais été, sans casser ce qui tournait.">
+<meta name="twitter:image" content="https://labault.dev/og-image.png">
+<meta name="twitter:image:alt" content="Thibault Lafaurie - Développeur Backend en prod">
+
+<!-- Favicon : la mascotte Canard Dev -->
+<link rel="icon" type="image/png" href="/favicon.png">
+
+<!-- JSON-LD : BlogPosting -->
+<script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "headline": "Greffer une API REST sur dix ans de legacy",
+    "description": "Ajouter une API à dix ans de Symfony rendu côté serveur. Le vrai chantier n'était pas d'écrire des endpoints, c'était de rendre partageable une logique métier qui ne l'avait jamais été, sans casser ce qui tournait.",
+    "datePublished": "2026-06-23",
+    "url": "https://labault.dev/journal/greffer-une-api-rest-sur-dix-ans-de-legacy/",
+    "author": {
+        "@type": "Person",
+        "name": "Thibault Lafaurie",
+        "url": "https://labault.dev/"
+    },
+    "publisher": {
+        "@type": "Person",
+        "name": "Thibault Lafaurie"
+    },
+    "inLanguage": "fr-FR"
+}
+</script>
+</head>
+<body>
+
+<a class="skip-link" href="#main">Aller au contenu</a>
+
+<!--
+  Still reading the source on the journal pages too? Of course you are.
+  Same deal as the home page: no framework, no bundler, zero runtime JS.
+  These pages are generated locally by a small PHP script (build.php),
+  from Markdown. The thing you're reading is the plain HTML it spat out.
+-->
+
+<div class="browser-frame">
+  <div class="browser-chrome">
+    <div class="browser-chrome-dot" style="background: #C9BCA8;"></div>
+    <div class="browser-chrome-dot" style="background: #B5341A;"></div>
+    <div class="browser-chrome-dot" style="background: #5A7236;"></div>
+    <div class="browser-chrome-url">https://labault.dev/journal/greffer-une-api-rest-sur-dix-ans-de-legacy</div>
+  </div>
+
+  <div class="page">
+
+    <nav class="nav" aria-label="Navigation principale">
+      <a href="/#index" class="nav-logo">
+        <div class="nav-logo-dot" aria-hidden="true"></div>
+        <span class="nav-logo-name">Thibault Lafaurie</span>
+      </a>
+      <ul class="nav-links" role="list">
+        <li><a href="/#index"    class="nav-link">index</a></li>
+        <li><a href="/#parcours" class="nav-link">parcours</a></li>
+        <li><a href="/#stack"    class="nav-link">stack</a></li>
+        <li><a href="/#projets"  class="nav-link">projets</a></li>
+        <li><a href="/journal/"  class="nav-link" aria-current="page">journal</a></li>
+        <li><a href="/#contact"  class="nav-link">contact</a></li>
+      </ul>
+      <div class="nav-status" aria-label="Statut : en recherche d'un CDI">
+        <span class="nav-status-dot anim-pulse"></span>
+        <span class="nav-status-text">en recherche d'un CDI</span>
+      </div>
+    </nav>
+
+    <main id="main" class="section article">
+      <a class="article-back" href="/journal/">← journal</a>
+      <header class="article-head">
+      <figure class="article-hero"><img src="/assets/journal/greffer-une-api-rest-sur-dix-ans-de-legacy.svg" alt=""></figure>
+
+        <span class="section-label">journal</span>
+        <h1 class="article-title">Greffer une API REST sur dix ans de legacy</h1>
+        <p class="article-byline">23 juin 2026 <span class="article-byline-sep">·</span> 3 min de lecture</p>
+      </header>
+      <div class="article-body">
+<p>Le jour où on a décidé d'ajouter une API à QuizzWeb, elle n'existait pas. Pas &quot;elle était mal foutue&quot;. Elle n'existait pas. Dix ans de Symfony rendu côté serveur, des contrôleurs qui crachaient du HTML, et toute la logique métier coincée dedans, pensée pour une seule façon d'être appelée : par un humain devant un navigateur.</p>
+<p>Ajouter une API à ça, ce n'est pas créer un dossier <code>/api</code>. C'est exposer une logique qui n'a jamais été conçue pour être exposée.</p>
+<h2>Le piège : le copier-coller qui crée un deuxième produit</h2>
+<p>Le chemin facile est évident. Tu crées des contrôleurs d'API, tu réécris dedans ce dont l'API a besoin, et en deux semaines tu as des endpoints qui marchent. Le problème arrive trois mois plus tard : tu as maintenant deux implémentations de la même règle métier, une pour le web, une pour l'API, et elles divergent. Tu n'as pas construit une API. Tu as forké ton produit.</p>
+<p>La règle qu'on s'est fixée : l'API et l'appli web appellent la même logique. Une seule source de vérité par règle. Ce qui veut dire que le vrai chantier n'était pas d'écrire des endpoints, c'était de sortir la logique métier des contrôleurs HTML pour que les deux mondes puissent la partager. Du refactoring de legacy, déguisé en projet d'API.</p>
+<p>Et tout ça sans casser l'appli existante, qui continuait de livrer chaque semaine. On extrayait, on vérifiait que le web tournait toujours pareil, on exposait. Jamais l'inverse.</p>
+<h2>L'auth : sécurisé d'abord, parfait ensuite</h2>
+<p>L'API avait besoin d'authentification avant que le système final soit prêt. Plutôt que de bloquer la mise en service en attendant la solution idéale, on a démarré avec des tokens générés à la main : une API sécurisée et utilisable tout de suite, derrière un vrai consommateur, quitte à durcir le mécanisme juste après. Le JWT est venu dans un second temps, une fois l'API en place et le besoin clair.</p>
+<p>C'est un arbitrage que j'assume : un MVP sécurisé qui tourne bat un système d'auth parfait qui n'existe pas encore. À condition de tenir la deuxième étape, pas de l'oublier une fois que &quot;ça marche&quot;.</p>
+<h2>Une API qui pousse par les besoins, pas par un grand plan</h2>
+<p>On n'a pas dessiné l'API entière sur un tableau blanc pour la livrer d'un bloc. Chaque endpoint est né d'un besoin réel, versionné dès le départ sous <code>v1</code>, ressource par ressource. Au fil de l'eau, ça a fini par couvrir tout le domaine : sessions, examens, formations, organisations, candidatures. Une quarantaine de ressources, apparues quand elles servaient, pas avant.</p>
+<p>Moins satisfaisant pour l'esprit d'architecte qui veut tout cadrer d'avance. Beaucoup plus solide, parce que chaque endpoint avait une raison d'exister le jour où il est arrivé.</p>
+<h2>La preuve que c'était bien construit</h2>
+<p>Le test final, ce n'est pas un score de couverture. C'est qu'un autre produit a pu s'appuyer dessus. SignEval, une application d'émargement avec un front React confié à un alternant, consomme aujourd'hui cette même API et partage les mêmes données. L'API a cessé d'être une fonctionnalité de QuizzWeb pour devenir une plateforme.</p>
+<p>Une logique métier dupliquée n'aurait jamais tenu cette charge. C'est là qu'on sait, après coup, qu'on n'a pas forké le produit.</p>
+<h2>La leçon</h2>
+<p>Une API sur du legacy, c'est un projet de refactoring qui porte un costume d'API. Le travail visible, ce sont les endpoints. Le vrai travail, c'est de rendre partageable une logique qui ne l'était pas, sans casser ce qui tournait déjà. Si tu te retrouves à dupliquer du métier pour l'exposer, arrête-toi : tu n'écris pas une API, tu construis un deuxième produit que tu devras maintenir deux fois.</p>
+
+      </div>
+      <footer class="article-foot">
+        <p class="article-foot-cta">Un produit à faire tenir, une migration, un CDI à pourvoir ? <em>On en parle.</em></p>
+        <a href="mailto:contact@labault.dev" class="article-foot-mail">contact@labault.dev</a>
+        <a href="/journal/" class="article-foot-back">← tout le journal</a>
+      </footer>
+    </main>
+
+
+  </div>
+</div>
+
+</body>
+</html>

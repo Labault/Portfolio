@@ -8,3 +8,7 @@
 
 # Logs & misc
 *.log
+
+# Build tooling : vendor is restored locally via `composer install`,
+# never deployed (the live site serves the committed HTML only).
+/vendor/
