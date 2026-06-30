@@ -8,7 +8,7 @@
  
 <!-- Primary Meta -->
 <title>Thibault Lafaurie - Développeur web PHP / Symfony</title>
-<meta name="description" content="Développeur web backend depuis 2017. PHP, Symfony et l'infra autour (Docker, Traefik, FrankenPHP). Basé à Clermont-Ferrand, remote possible. En recherche d'un CDI, Clermont-Ferrand ou remote.">
+<meta name="description" content="Développeur web backend depuis 2017. PHP, Symfony et l'infra autour (Docker, FrankenPHP). Basé à Clermont-Ferrand, remote possible. En recherche d'un CDI, Clermont-Ferrand ou remote.">
 <meta name="author" content="Thibault Lafaurie">
 <meta name="robots" content="index, follow">
 <link rel="canonical" href="https://labault.dev/">
@@ -36,7 +36,6 @@
 <meta name="twitter:image:alt" content="Thibault Lafaurie - Développeur web en prod">
  
 <!-- Favicon : la mascotte Canard Dev -->
-<link rel="icon" type="image/svg+xml" href="/favicon.svg">
 <link rel="icon" type="image/png" href="/favicon.png">
  
 <!-- JSON-LD : Person (rich result / knowledge graph) -->
@@ -55,7 +54,7 @@
     "addressLocality": "Clermont-Ferrand",
     "addressCountry": "FR"
   },
-  "knowsAbout": ["PHP", "Symfony", "Docker", "PostgreSQL", "FrankenPHP", "Traefik", "CI/CD"],
+  "knowsAbout": ["PHP", "Symfony", "Docker", "PostgreSQL", "FrankenPHP", "CI/CD"],
   "alumniOf": {
     "@type": "CollegeOrUniversity",
     "name": "IUT Clermont Auvergne"
@@ -115,7 +114,7 @@
         <span class="hero-location">Clermont-Ferrand ☀️</span>
       </div>
       <h1 class="hero-title">
-        Développeur web,
+        Développeur Backend,
         <em>en prod</em><span class="hero-cursor anim-blink">.</span>
       </h1>
       <p class="hero-standfirst">
@@ -171,9 +170,9 @@
             Je crois aux API qui ne réveillent personne. Aux tests qu'on lit comme une histoire. Aux logs qu'on consulte <em>avec plaisir</em>.
           </p>
           <p>
-            Sept ans à faire vivre et grandir QuizzWeb, le SaaS de Quizzbox Solutions pour les centres de formation et d'examens (plusieurs dizaines de centres). J'y ai piloté la migration du socle,
-            de Symfony 2.8 à 7.4 et de PHP 7.0 à 8.3, de 2020 jusqu'à aujourd'hui, en gardant le legacy en production pendant que je le modernisais.
-            Du recueil du besoin au support, en passant par l'optimisation SQL et le déploiement.
+            Sept ans à faire vivre et grandir QuizzWeb, le SaaS de Quizzbox Solutions pour les centres de formation et d'examens (plusieurs dizaines de centres). J'ai participé à la migration du socle,
+            de Symfony 2.8 à 7.4 et de PHP 7.0 à 8.3, de 2020 jusqu'à aujourd'hui, en gardant le legacy en production pendant la modernisation.
+            Du recueil du besoin au support, en passant par l'optimisation SQL, le passage sous Docker et le déploiement.
           </p>
           <p>
             Avant ça : DUT Informatique puis Licence Pro Développement Web à l'IUT Clermont Auvergne, dont une année d'alternance déjà passée chez Quizzbox.
@@ -330,16 +329,8 @@
         <div class="tech-card">
           <img class="tech-card-logo" src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/nginx/nginx-original.svg" alt="Nginx">
           <div class="tech-card-body">
-            <p class="tech-card-name">Nginx</p>
-            <p class="tech-card-desc">Serveur web et reverse proxy. Virtual hosts, headers, HTTPS et la vraie satisfaction de comprendre les blocs <code>location {}</code> sans relire la doc.</p>
-          </div>
-        </div>
-
-        <div class="tech-card">
-          <img class="tech-card-logo" src="assets/logo-traefik.png" alt="Traefik">
-          <div class="tech-card-body">
-            <p class="tech-card-name">Traefik</p>
-            <p class="tech-card-desc">Routage automatique via labels Docker, TLS Let's Encrypt en deux lignes, middlewares et redirections. Plus jamais de conf Nginx à réécrire en urgence à 23h.</p>
+            <p class="tech-card-name">Nginx / Caddy</p>
+            <p class="tech-card-desc">Serveur web et reverse proxy. Nginx pour le contrôle fin, bloc <code>location {}</code> compris sans relire la doc ; Caddy pour le TLS automatique et un Caddyfile qui tient en dix lignes. C'est lui qui sert mon push-to-deploy.</p>
           </div>
         </div>
 
