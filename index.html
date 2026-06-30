@@ -5,7 +5,8 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link rel="stylesheet" href="/style.css">
- 
+<link rel="preload" as="font" type="font/woff2" href="/assets/fonts/inter-latin-wght-normal.woff2" crossorigin>
+
 <!-- Primary Meta -->
 <title>Thibault Lafaurie - Développeur Backend PHP / Symfony</title>
 <meta name="description" content="Développeur backend Symfony / PHP depuis 2017. PostgreSQL, Redis, Docker, FrankenPHP, CI/CD. Basé à Clermont-Ferrand, remote possible. En recherche d'un CDI.">
@@ -73,7 +74,7 @@
 </head>
 <body>
 
-<a class="skip-link" href="#index">Aller au contenu</a>
+<a class="skip-link" href="#main">Aller au contenu</a>
 
 <!--
   So you're reading the source. Welcome backstage.
@@ -112,6 +113,8 @@
       </div>
     </nav>
 
+
+    <main id="main">
 
     <!-- 01 - hero -->
     <section class="section hero" id="index">
@@ -638,7 +641,7 @@
                 <span>3 min</span>
               </div>
               <h3 class="journal-card-title">Migrer Symfony 2.8 à 7.4 sans geler les livraisons</h3>
-              <p class="journal-card-desc">112 000 lignes, une release par semaine, zéro gel de feature. Comment on fait passer une codebase de PHP 7.0 / Symfony 2.8 à PHP 8.3 / Symfony 7.4 en livrant, pas en s&#039;arrêtant.</p>
+              <p class="journal-card-desc">112 000 lignes, une release par semaine, zéro gel de feature. Comment on fait passer une codebase de PHP 7.0 / Symfony 2.8 à PHP 8.4 / Symfony 7.4 en livrant, pas en s&#039;arrêtant.</p>
             </div>
           </a>
           <a class="journal-card" href="/journal/greffer-une-api-rest-sur-dix-ans-de-legacy/">
@@ -710,9 +713,17 @@
              class="contact-social-link">
             github.com/Labault
           </a>
+          <!-- Les coulisses : ce site, sans framework ni bundler, en accès libre. -->
+          <a href="https://github.com/Labault/Portfolio"
+             target="_blank" rel="noopener"
+             class="contact-social-link">
+            github.com/Labault/Portfolio · le code de ce site
+          </a>
         </div>
       </div>
     </section>
+
+    </main>
 
   </div>
 </div>

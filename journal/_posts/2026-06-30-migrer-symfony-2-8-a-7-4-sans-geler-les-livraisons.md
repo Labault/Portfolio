@@ -1,7 +1,7 @@
 ---
 title: Migrer Symfony 2.8 à 7.4 sans geler les livraisons
 date: 2026-06-30
-description: 112 000 lignes, une release par semaine, zéro gel de feature. Comment on fait passer une codebase de PHP 7.0 / Symfony 2.8 à PHP 8.3 / Symfony 7.4 en livrant, pas en s'arrêtant.
+description: 112 000 lignes, une release par semaine, zéro gel de feature. Comment on fait passer une codebase de PHP 7.0 / Symfony 2.8 à PHP 8.4 / Symfony 7.4 en livrant, pas en s'arrêtant.
 thumbnail: assets/journal/migrer-symfony-2-8-a-7-4-sans-geler-les-livraisons.svg
 ---
 
@@ -9,7 +9,7 @@ Tout le monde connaît le piège. Une codebase qui a dix ans, un framework cinq 
 
 Sur QuizzWeb, un SaaS d'examens pour centres de formation, ce piège n'était même pas une option. 112 000 lignes de PHP, une centaine d'environnements clients, et une livraison par semaine non négociable. On ne pouvait pas s'arrêter de livrer pour migrer. Il fallait migrer **en** livrant.
 
-Voilà comment on est passés de PHP 7.0 / Symfony 2.8 à PHP 8.3 / Symfony 7.4 sans jamais geler une feature.
+Voilà comment on est passés de PHP 7.0 / Symfony 2.8 à PHP 8.4 / Symfony 7.4 sans jamais geler une feature.
 
 ## La règle : pas de branche au long cours
 
@@ -37,6 +37,6 @@ L'import/export XML qui dialogue avec un autre de nos produits. Sur le papier, u
 
 ## Le résultat
 
-PHP 8.3, Symfony 7.4, 251 releases plus loin. Pas un seul gel de feature sur toute la durée. Le produit a continué de sortir des évolutions pendant qu'il changeait de fondations, et les clients n'ont jamais vu la différence. C'est exactement le but.
+PHP 8.4, Symfony 7.4, 251 releases plus loin. Pas un seul gel de feature sur toute la durée. Le produit a continué de sortir des évolutions pendant qu'il changeait de fondations, et les clients n'ont jamais vu la différence. C'est exactement le but.
 
 La leçon, je la garde courte : la dette technique se rembourse en livrant, pas en arrêtant tout. Le grand rewrite est presque toujours le mauvais pari. La migration incrémentale est moins glorieuse à raconter, mais c'est elle qui arrive en prod.

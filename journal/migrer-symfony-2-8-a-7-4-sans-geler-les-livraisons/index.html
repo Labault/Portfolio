@@ -8,7 +8,7 @@
 
 <!-- Primary Meta -->
 <title>Migrer Symfony 2.8 à 7.4 sans geler les livraisons — Journal · Thibault Lafaurie</title>
-<meta name="description" content="112 000 lignes, une release par semaine, zéro gel de feature. Comment on fait passer une codebase de PHP 7.0 / Symfony 2.8 à PHP 8.3 / Symfony 7.4 en livrant, pas en s&#039;arrêtant.">
+<meta name="description" content="112 000 lignes, une release par semaine, zéro gel de feature. Comment on fait passer une codebase de PHP 7.0 / Symfony 2.8 à PHP 8.4 / Symfony 7.4 en livrant, pas en s&#039;arrêtant.">
 <meta name="author" content="Thibault Lafaurie">
 <meta name="robots" content="index, follow">
 <link rel="canonical" href="https://labault.dev/journal/migrer-symfony-2-8-a-7-4-sans-geler-les-livraisons/">
@@ -22,7 +22,7 @@
 <meta property="og:site_name" content="Thibault Lafaurie">
 <meta property="og:url" content="https://labault.dev/journal/migrer-symfony-2-8-a-7-4-sans-geler-les-livraisons/">
 <meta property="og:title" content="Migrer Symfony 2.8 à 7.4 sans geler les livraisons — Journal · Thibault Lafaurie">
-<meta property="og:description" content="112 000 lignes, une release par semaine, zéro gel de feature. Comment on fait passer une codebase de PHP 7.0 / Symfony 2.8 à PHP 8.3 / Symfony 7.4 en livrant, pas en s&#039;arrêtant.">
+<meta property="og:description" content="112 000 lignes, une release par semaine, zéro gel de feature. Comment on fait passer une codebase de PHP 7.0 / Symfony 2.8 à PHP 8.4 / Symfony 7.4 en livrant, pas en s&#039;arrêtant.">
 <meta property="og:image" content="https://labault.dev/og-image.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
@@ -31,7 +31,7 @@
 <!-- Twitter / X -->
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Migrer Symfony 2.8 à 7.4 sans geler les livraisons — Journal · Thibault Lafaurie">
-<meta name="twitter:description" content="112 000 lignes, une release par semaine, zéro gel de feature. Comment on fait passer une codebase de PHP 7.0 / Symfony 2.8 à PHP 8.3 / Symfony 7.4 en livrant, pas en s&#039;arrêtant.">
+<meta name="twitter:description" content="112 000 lignes, une release par semaine, zéro gel de feature. Comment on fait passer une codebase de PHP 7.0 / Symfony 2.8 à PHP 8.4 / Symfony 7.4 en livrant, pas en s&#039;arrêtant.">
 <meta name="twitter:image" content="https://labault.dev/og-image.png">
 <meta name="twitter:image:alt" content="Thibault Lafaurie - Développeur Backend en prod">
 
@@ -44,7 +44,7 @@
     "@context": "https://schema.org",
     "@type": "BlogPosting",
     "headline": "Migrer Symfony 2.8 à 7.4 sans geler les livraisons",
-    "description": "112 000 lignes, une release par semaine, zéro gel de feature. Comment on fait passer une codebase de PHP 7.0 / Symfony 2.8 à PHP 8.3 / Symfony 7.4 en livrant, pas en s'arrêtant.",
+    "description": "112 000 lignes, une release par semaine, zéro gel de feature. Comment on fait passer une codebase de PHP 7.0 / Symfony 2.8 à PHP 8.4 / Symfony 7.4 en livrant, pas en s'arrêtant.",
     "datePublished": "2026-06-30",
     "url": "https://labault.dev/journal/migrer-symfony-2-8-a-7-4-sans-geler-les-livraisons/",
     "author": {
@@ -112,7 +112,7 @@
       <div class="article-body">
 <p>Tout le monde connaît le piège. Une codebase qui a dix ans, un framework cinq versions en retard, et quelqu'un qui propose le grand rewrite. Six mois plus tard le rewrite n'est pas fini, le produit n'a pas avancé, et la dette a fait des petits sur les deux fronts.</p>
 <p>Sur QuizzWeb, un SaaS d'examens pour centres de formation, ce piège n'était même pas une option. 112 000 lignes de PHP, une centaine d'environnements clients, et une livraison par semaine non négociable. On ne pouvait pas s'arrêter de livrer pour migrer. Il fallait migrer <strong>en</strong> livrant.</p>
-<p>Voilà comment on est passés de PHP 7.0 / Symfony 2.8 à PHP 8.3 / Symfony 7.4 sans jamais geler une feature.</p>
+<p>Voilà comment on est passés de PHP 7.0 / Symfony 2.8 à PHP 8.4 / Symfony 7.4 sans jamais geler une feature.</p>
 <h2>La règle : pas de branche au long cours</h2>
 <p>La première décision, c'est ce qu'on ne fait pas. Pas de branche &quot;migration&quot; qui vit trois mois à côté de <code>main</code> et qu'on prie pour merger un jour. Chaque incrément part en production avec le reste, dans le cycle hebdomadaire normal. Si un changement ne peut pas cohabiter avec le code existant, c'est qu'il n'est pas prêt : on le redécoupe.</p>
 <p>Concrètement, on monte de version mineure en version mineure, on adapte ce que la nouvelle version casse, on livre, on recommence. C'est moins héroïque qu'un grand soir. C'est surtout beaucoup moins risqué.</p>
@@ -126,7 +126,7 @@
 <p>Un emoji. Saisi par un utilisateur dans un champ texte, et tout un pan de l'appli se couche, parce que l'encodage historique n'avait jamais prévu des caractères sur quatre octets. Le genre de bug sans aucune dignité : tu déroules une stack trace sérieuse pendant une heure pour finir devant un drapeau rouge tapé par un client. Une migration, ce n'est pas que des dépréciations de framework. C'est surtout dix ans de données réelles que personne n'avait encodées proprement, et qui choisissent ce moment pour se rappeler à toi.</p>
 <p>L'import/export XML qui dialogue avec un autre de nos produits. Sur le papier, un détail. En pratique, une laisse. Ce format était un contrat entre deux systèmes : impossible de faire évoluer le modèle de données d'un côté sans risquer de casser l'autre en bout de chaîne. Chaque refonte se cognait à la même question, est-ce que ça reste compatible avec le XML ? La migration interne, tu la pilotes. Un contrat partagé entre deux produits, c'est lui qui pilote ton calendrier. C'est là qu'on comprend que migrer, ce n'est pas un problème de code, c'est un problème de dépendances.</p>
 <h2>Le résultat</h2>
-<p>PHP 8.3, Symfony 7.4, 251 releases plus loin. Pas un seul gel de feature sur toute la durée. Le produit a continué de sortir des évolutions pendant qu'il changeait de fondations, et les clients n'ont jamais vu la différence. C'est exactement le but.</p>
+<p>PHP 8.4, Symfony 7.4, 251 releases plus loin. Pas un seul gel de feature sur toute la durée. Le produit a continué de sortir des évolutions pendant qu'il changeait de fondations, et les clients n'ont jamais vu la différence. C'est exactement le but.</p>
 <p>La leçon, je la garde courte : la dette technique se rembourse en livrant, pas en arrêtant tout. Le grand rewrite est presque toujours le mauvais pari. La migration incrémentale est moins glorieuse à raconter, mais c'est elle qui arrive en prod.</p>
 
       </div>

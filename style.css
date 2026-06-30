@@ -22,6 +22,45 @@
 
 
 /* ============================================================
+   00. Fonts (auto-hébergées, aucun CDN tiers)
+   ============================================================ */
+
+/* Inter : variable, droit + italique, plage de poids 400 à 600 */
+@font-face {
+  font-family : 'Inter';
+  font-style  : normal;
+  font-weight : 400 600;
+  font-display: swap;
+  src         : url('/assets/fonts/inter-latin-wght-normal.woff2') format('woff2');
+}
+
+@font-face {
+  font-family : 'Inter';
+  font-style  : italic;
+  font-weight : 400 600;
+  font-display: swap;
+  src         : url('/assets/fonts/inter-latin-wght-italic.woff2') format('woff2');
+}
+
+/* DM Serif Display : titres, 400 droit + 400 italique */
+@font-face {
+  font-family : 'DM Serif Display';
+  font-style  : normal;
+  font-weight : 400;
+  font-display: swap;
+  src         : url('/assets/fonts/dm-serif-display-latin-400-normal.woff2') format('woff2');
+}
+
+@font-face {
+  font-family : 'DM Serif Display';
+  font-style  : italic;
+  font-weight : 400;
+  font-display: swap;
+  src         : url('/assets/fonts/dm-serif-display-latin-400-italic.woff2') format('woff2');
+}
+
+
+/* ============================================================
    01. Variables & reset
    ============================================================ */
 
