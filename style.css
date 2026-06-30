@@ -949,6 +949,12 @@ section[id] {
 
 .contact-cv:hover { color: var(--accent); }
 
+.contact-note {
+  font-size : var(--text-sm);
+  color     : #8A7E72;
+  margin-top: 20px;
+}
+
 .contact-links {
   font-size  : 12px;
   color      : #C9BCA8;
