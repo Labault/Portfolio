@@ -17,6 +17,7 @@
    10. Animations
    11. Responsive - tablet (< 900px)
    12. Responsive - mobile (< 600px)
+   13. Journal & article - section 07 + /journal pages
    ============================================================ */
 
 
@@ -520,6 +521,7 @@ section[id] {
 }
 
 .tech-card {
+  background    : #FBF8F2;
   border        : 0.5px solid var(--border);
   border-radius : 6px;
   display       : flex;
@@ -665,10 +667,23 @@ section[id] {
   flex-shrink: 0;
 }
 
-/* Shared card behaviour */
+/* Shared card behaviour — framed surface, like the journal cards:
+   illustration as a cover up top, text on white below. */
 .project-card-link {
-  display: block;
-  color  : inherit;
+  display       : block;
+  color         : inherit;
+  background    : #FBF8F2;
+  border        : 0.5px solid var(--border);
+  border-radius : 8px;
+  overflow      : hidden;
+  box-shadow    : 0 1px 2px rgba(31, 26, 20, 0.04);
+  transition    : transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+}
+
+.project-card-link:hover {
+  transform   : translateY(-4px);
+  box-shadow  : 0 12px 26px rgba(31, 26, 20, 0.12);
+  border-color: #D9CDB8;
 }
 
 .project-card-link:hover .project-card-title,
@@ -676,8 +691,11 @@ section[id] {
   color: var(--accent);
 }
 
+/* The illustration sits flush to the card's top edge */
+.project-card-link .project-thumb { border-radius: 0; }
+
 .project-card-info {
-  margin-top: 16px;
+  padding: 16px 18px 20px;
 }
 
 .project-card-meta {
@@ -731,18 +749,10 @@ section[id] {
   transform-origin: center;
 }
 
-/* Survol : la vignette se soulève légèrement */
-.project-card-link:hover .project-thumb {
-  transform: translateY(-6px) scale(1.015);
-}
-
 @media (prefers-reduced-motion: reduce) {
-  .project-thumb,
-  .project-card-link:hover .project-thumb,
-  .project-grid-pinned .project-card-link .project-thumb,
-  .project-grid-pinned .project-card-link:hover .project-thumb {
-    transition: none;
+  .project-card-link:hover {
     transform : none;
+    box-shadow: 0 1px 2px rgba(31, 26, 20, 0.04);
   }
 }
 
@@ -778,29 +788,14 @@ section[id] {
 
 .project-grid-play .project-card-title { font-size: 18px; }
 
-/* Bac à sable : « mur d'atelier ».
-   4 colonnes pleine largeur (zéro vide), vignettes traitées comme des croquis
-   épinglés — légèrement inclinées, elles se redressent et se soulèvent au survol.
-   Le détail tilt est porté par une classe modifier (.project-grid-pinned),
-   réutilisable / désactivable sur n'importe quelle autre catégorie en tuiles. */
+/* Bac à sable : 4 colonnes pleine largeur, mêmes cartes encadrées que le reste. */
 .project-grid-play {
   grid-template-columns: repeat(4, 1fr);
   gap                  : 30px 32px;
 }
 
-/* La tuile remplit sa colonne (on lève le plafond 320px partagé) */
+/* La carte remplit sa colonne (on lève le plafond 320px partagé) */
 .project-grid-play .project-card-link { max-width: none; }
-
-/* Épinglage : la vignette est la pièce qui s'incline, la légende reste droite */
-.project-grid-pinned .project-card-link:nth-child(4n + 1) .project-thumb { transform: rotate(-1.8deg); }
-.project-grid-pinned .project-card-link:nth-child(4n + 2) .project-thumb { transform: rotate(1.5deg); }
-.project-grid-pinned .project-card-link:nth-child(4n + 3) .project-thumb { transform: rotate(1.1deg); }
-.project-grid-pinned .project-card-link:nth-child(4n + 4) .project-thumb { transform: rotate(-1.4deg); }
-
-/* Au survol : on redresse, puis on soulève comme les autres cartes */
-.project-grid-pinned .project-card-link:hover .project-thumb {
-  transform: rotate(0deg) translateY(-6px) scale(1.015);
-}
 
 /* L'établi: tool / repo cards */
 .project-tool {
@@ -1163,4 +1158,453 @@ a:not(.footer-duck):focus-visible {
   .project-group-note {
     display: none;
   }
+}
+
+
+/* ============================================================
+   13. Journal & article - section 07 + /journal pages
+
+   Two faces, one vocabulary. The home teaser shows cards (SVG on
+   top, text below) reusing the project-thumb behaviour; the
+   /journal index keeps a ruled list, each row fronted by the same
+   illustration. Same tokens as the rest of the site throughout.
+   ============================================================ */
+
+/* nav: mark the journal pages as current */
+.nav-link[aria-current="page"] { color: var(--accent); }
+
+/* Thumbnail fallback for a post that ships without an SVG */
+.journal-thumb-mono {
+  font-family: var(--font-serif);
+  font-style : italic;
+  font-size  : 30px;
+  color      : var(--ink-faint);
+}
+
+
+/* ---- 13a. Home teaser : cards (section 07) ----------------- */
+
+.journal-teaser-head { margin-bottom: 28px; }
+
+.journal-teaser-intro {
+  font-size  : var(--text-md);
+  color      : var(--ink-light);
+  font-style : italic;
+  line-height: 1.6;
+  margin-top : 12px;
+}
+
+.journal-cards {
+  display  : flex;
+  flex-wrap: wrap;
+  gap      : 26px;
+}
+
+/* A framed surface so each one reads as an article object, not a floating
+   image. Same bordered vocabulary as the tech cards. */
+.journal-card {
+  display       : flex;
+  flex-direction: column;
+  flex          : 0 1 320px;
+  color         : inherit;
+  background    : #FBF8F2;
+  border        : 0.5px solid var(--border);
+  border-radius : 8px;
+  overflow      : hidden;
+  box-shadow    : 0 1px 2px rgba(31, 26, 20, 0.04);
+  transition    : transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+}
+
+.journal-card:hover {
+  transform   : translateY(-4px);
+  box-shadow  : 0 12px 26px rgba(31, 26, 20, 0.12);
+  border-color: #D9CDB8;
+}
+
+/* The medallion as a cover, flush to the card's top edge */
+.journal-card .project-thumb {
+  background    : #0A1422;
+  border-radius : 0;
+}
+
+.journal-card-info { padding: 16px 18px 20px; }
+
+.journal-card-meta {
+  display        : flex;
+  justify-content: space-between;
+  gap            : 10px;
+  font-size      : var(--text-sm);
+  color          : var(--ink-faint);
+  margin-bottom  : 6px;
+}
+
+.journal-card-title {
+  font-family  : var(--font-serif);
+  font-size    : 18px;
+  line-height  : 1.25;
+  color        : var(--ink);
+  margin-bottom: 6px;
+  transition   : color 0.25s ease;
+}
+
+.journal-card:hover .journal-card-title { color: var(--accent); }
+
+.journal-card-desc {
+  font-size  : 12px;
+  color      : var(--ink-light);
+  line-height: 1.6;
+}
+
+.journal-teaser-all {
+  display   : inline-block;
+  margin-top: 28px;
+  font-size : var(--text-sm);
+  color     : var(--accent);
+  transition: opacity 0.2s ease;
+}
+
+.journal-teaser-all:hover { opacity: 0.7; }
+
+
+/* ---- 13b. /journal index : ruled list with thumbnail ------- */
+
+/* Centred column so a half-empty row doesn't strand the arrow at the
+   far edge of the frame. */
+.journal-index {
+  max-width   : 990px;
+  margin-left : auto;
+  margin-right: auto;
+}
+
+.journal-index-head { margin-bottom: 36px; }
+
+.journal-index-title {
+  font-family: var(--font-serif);
+  font-size  : var(--text-3xl);
+  color      : var(--ink);
+  font-weight: 400;
+  margin-top : 8px;
+}
+
+.journal-index-intro {
+  font-size  : var(--text-md);
+  color      : var(--ink-light);
+  font-style : italic;
+  line-height: 1.6;
+  margin-top : 12px;
+}
+
+.journal-year + .journal-year { margin-top: 40px; }
+
+.journal-year-label {
+  font-size     : var(--text-sm);
+  color         : var(--ink-faint);
+  letter-spacing: 0.2em;
+  font-weight   : 500;
+  margin-bottom : 12px;
+}
+
+.journal-list {
+  list-style    : none;
+  display       : flex;
+  flex-direction: column;
+  gap           : 14px;
+}
+
+/* Each entry is a framed horizontal card, same white surface as the rest. */
+.journal-entry {
+  display              : grid;
+  grid-template-columns: 128px 1fr auto;
+  gap                  : 24px;
+  align-items          : center;
+  padding              : 16px 22px 16px 16px;
+  background           : #FBF8F2;
+  border               : 0.5px solid var(--border);
+  border-radius        : 10px;
+  box-shadow           : 0 1px 2px rgba(31, 26, 20, 0.04);
+  transition           : transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+  color                : inherit;
+}
+
+.journal-entry:hover {
+  transform   : translateY(-3px);
+  box-shadow  : 0 12px 26px rgba(31, 26, 20, 0.12);
+  border-color: #D9CDB8;
+}
+
+.journal-entry-thumb {
+  display        : flex;
+  align-items    : center;
+  justify-content: center;
+  aspect-ratio   : 4 / 3;
+  border-radius  : 6px;
+  overflow       : hidden;
+  background     : #0A1422;
+}
+
+.journal-entry-thumb img {
+  display: block;
+  width  : 100%;
+  height : 100%;
+}
+
+.journal-entry-thumb .journal-thumb-mono { font-size: 22px; }
+
+.journal-entry-kicker {
+  display      : block;
+  margin-bottom: 5px;
+  font-size    : var(--text-sm);
+  color        : var(--ink-faint);
+  font-style   : italic;
+}
+
+.journal-entry-sep { margin: 0 3px; }
+
+.journal-entry-title {
+  display    : block;
+  font-family: var(--font-serif);
+  font-size  : var(--text-lg);
+  color      : var(--ink);
+  line-height: 1.25;
+  transition : color 0.25s ease;
+}
+
+.journal-entry-desc {
+  display   : block;
+  margin-top: 5px;
+  font-size : 12px;
+  color     : var(--ink-light);
+  line-height: 1.6;
+}
+
+.journal-entry-arrow {
+  color     : var(--accent);
+  font-size : var(--text-md);
+  transition: transform 0.25s ease;
+}
+
+.journal-entry:hover .journal-entry-title { color: var(--accent); }
+.journal-entry:hover .journal-entry-arrow { transform: translateX(4px); }
+
+
+/* ---- 13c. Article page ------------------------------------- */
+
+/* The article sits on a white sheet, centred on the cream page, so it stops
+   floating. Centred header (seal + title), left-aligned prose. */
+.article {
+  max-width    : 990px;
+  margin       : 36px auto;
+  background   : #FBF8F2;
+  border       : 0.5px solid var(--border);
+  border-radius: 14px;
+  padding      : 44px 56px 52px;
+  box-shadow   : 0 1px 3px rgba(31, 26, 20, 0.05);
+}
+
+.article-back {
+  display      : inline-block;
+  margin-bottom: 24px;
+  font-size    : var(--text-sm);
+  color        : var(--ink-faint);
+  transition   : color 0.25s ease;
+}
+
+.article-back:hover { color: var(--accent); }
+
+.article-head {
+  text-align    : center;
+  margin-bottom : 38px;
+  padding-bottom: 30px;
+  border-bottom : 0.5px solid var(--border);
+}
+
+/* The medallion as a centred seal at the top of the article */
+.article-hero {
+  width        : 220px;
+  margin       : 0 auto 22px;
+  border-radius: 10px;
+  overflow     : hidden;
+}
+
+.article-hero img { display: block; width: 100%; }
+
+.article-title {
+  font-family   : var(--font-serif);
+  font-size     : 38px;
+  line-height   : 1.12;
+  letter-spacing: -0.02em;
+  color         : var(--ink);
+  font-weight   : 400;
+  margin-top    : 8px;
+}
+
+.article-byline {
+  margin-top: 16px;
+  font-size : var(--text-sm);
+  color     : var(--ink-faint);
+  font-style: italic;
+}
+
+.article-byline-sep { margin: 0 4px; }
+
+/* The prose itself. Slightly darker than the rest of the site,
+   because long-form reading earns the extra contrast. */
+.article-body {
+  font-size  : 17px;
+  line-height: 1.6;
+  color      : var(--ink);
+}
+
+/* The prose keeps a readable measure, centred inside the wide sheet. */
+.article-body,
+.article-foot {
+  max-width   : 760px;
+  margin-left : auto;
+  margin-right: auto;
+}
+
+.article-body p,
+.article-body ul,
+.article-body ol,
+.article-body pre,
+.article-body blockquote {
+  margin-bottom: 20px;
+}
+
+.article-body h2 {
+  font-family   : var(--font-serif);
+  font-size     : var(--text-xl);
+  font-weight   : 400;
+  letter-spacing: -0.01em;
+  color         : var(--ink);
+  margin-top    : 44px;
+  margin-bottom : 14px;
+}
+
+.article-body h3 {
+  font-family  : var(--font-serif);
+  font-size    : var(--text-lg);
+  font-weight  : 400;
+  color        : var(--ink);
+  margin-top   : 32px;
+  margin-bottom: 12px;
+}
+
+.article-body strong {
+  font-weight: 600;
+  color      : var(--ink);
+}
+
+.article-body a {
+  color                : var(--accent);
+  text-decoration      : underline;
+  text-underline-offset: 2px;
+  transition           : opacity 0.2s ease;
+}
+
+.article-body a:hover { opacity: 0.7; }
+
+.article-body ul,
+.article-body ol { padding-left: 22px; }
+
+.article-body li + li { margin-top: 6px; }
+
+.article-body code {
+  font-family  : ui-monospace, 'SF Mono', Menlo, monospace;
+  font-size    : 0.88em;
+  background   : var(--cream-dark);
+  color        : var(--accent-dark);
+  padding      : 2px 6px;
+  border-radius: 4px;
+}
+
+.article-body pre {
+  background   : var(--ink);
+  color        : var(--cream);
+  padding      : 18px 20px;
+  border-radius: 6px;
+  overflow-x   : auto;
+  font-size    : 13px;
+  line-height  : 1.6;
+}
+
+.article-body pre code {
+  background: none;
+  color     : inherit;
+  padding   : 0;
+  font-size : inherit;
+}
+
+.article-body blockquote {
+  border-left : 2px solid var(--accent);
+  padding-left: 18px;
+  color       : var(--ink-light);
+  font-style  : italic;
+}
+
+.article-foot {
+  margin-top : 56px;
+  padding-top: 32px;
+  border-top : 0.5px solid var(--border);
+}
+
+.article-foot-cta {
+  font-family: var(--font-serif);
+  font-size  : var(--text-xl);
+  line-height: 1.35;
+  color      : var(--ink);
+}
+
+.article-foot-cta em {
+  color     : var(--accent);
+  font-style: italic;
+}
+
+.article-foot-mail {
+  display   : inline-block;
+  margin-top: 12px;
+  font-size : var(--text-base);
+  color     : var(--accent);
+  transition: opacity 0.2s ease;
+}
+
+.article-foot-mail:hover { opacity: 0.7; }
+
+.article-foot-back {
+  display   : block;
+  margin-top: 24px;
+  font-size : var(--text-sm);
+  color     : var(--ink-faint);
+  transition: color 0.25s ease;
+}
+
+.article-foot-back:hover { color: var(--accent); }
+
+
+/* ---- 13d. Journal & article responsive --------------------- */
+
+@media (prefers-reduced-motion: reduce) {
+  .journal-card:hover,
+  .journal-entry:hover { transform: none; box-shadow: 0 1px 2px rgba(31, 26, 20, 0.04); }
+  .journal-entry-arrow,
+  .journal-entry:hover .journal-entry-arrow { transition: none; transform: none; }
+}
+
+@media (max-width: 600px) {
+  .journal-cards { gap: 20px; }
+
+  .journal-card { flex: 1 1 100%; }
+
+  .journal-entry {
+    grid-template-columns: 96px 1fr;
+    gap                  : 16px;
+    padding              : 14px;
+  }
+
+  .journal-entry-arrow { display: none; }
+
+  .article         { padding: 28px 22px 32px; margin: 16px auto; }
+  .article-title   { font-size: 28px; }
+  .article-body    { font-size: 15px; }
+  .article-body h2 { margin-top: 36px; }
 }
