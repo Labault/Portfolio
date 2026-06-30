@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="/style.css">
+
+<!-- Primary Meta -->
+<title>No PaaS, no Friday — Journal · Thibault Lafaurie</title>
+<meta name="description" content="Pas de PaaS, pas de Kubernetes : un seul VPS que je gère de bout en bout. La condition pour que ça tienne, c&#039;est que déployer soit assez ennuyeux pour le faire un vendredi à 17h.">
+<meta name="author" content="Thibault Lafaurie">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://labault.dev/journal/no-paas-no-friday/">
+
+<!-- Theme -->
+<meta name="theme-color" content="#1e2327">
+
+<!-- Open Graph / Facebook / LinkedIn -->
+<meta property="og:type" content="article">
+<meta property="og:locale" content="fr_FR">
+<meta property="og:site_name" content="Thibault Lafaurie">
+<meta property="og:url" content="https://labault.dev/journal/no-paas-no-friday/">
+<meta property="og:title" content="No PaaS, no Friday — Journal · Thibault Lafaurie">
+<meta property="og:description" content="Pas de PaaS, pas de Kubernetes : un seul VPS que je gère de bout en bout. La condition pour que ça tienne, c&#039;est que déployer soit assez ennuyeux pour le faire un vendredi à 17h.">
+<meta property="og:image" content="https://labault.dev/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Thibault Lafaurie - Développeur Backend en prod">
+
+<!-- Twitter / X -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="No PaaS, no Friday — Journal · Thibault Lafaurie">
+<meta name="twitter:description" content="Pas de PaaS, pas de Kubernetes : un seul VPS que je gère de bout en bout. La condition pour que ça tienne, c&#039;est que déployer soit assez ennuyeux pour le faire un vendredi à 17h.">
+<meta name="twitter:image" content="https://labault.dev/og-image.png">
+<meta name="twitter:image:alt" content="Thibault Lafaurie - Développeur Backend en prod">
+
+<!-- Favicon : la mascotte Canard Dev -->
+<link rel="icon" type="image/png" href="/favicon.png">
+
+<!-- JSON-LD : BlogPosting -->
+<script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "headline": "No PaaS, no Friday",
+    "description": "Pas de PaaS, pas de Kubernetes : un seul VPS que je gère de bout en bout. La condition pour que ça tienne, c'est que déployer soit assez ennuyeux pour le faire un vendredi à 17h.",
+    "datePublished": "2026-06-16",
+    "url": "https://labault.dev/journal/no-paas-no-friday/",
+    "author": {
+        "@type": "Person",
+        "name": "Thibault Lafaurie",
+        "url": "https://labault.dev/"
+    },
+    "publisher": {
+        "@type": "Person",
+        "name": "Thibault Lafaurie"
+    },
+    "inLanguage": "fr-FR"
+}
+</script>
+</head>
+<body>
+
+<a class="skip-link" href="#main">Aller au contenu</a>
+
+<!--
+  Still reading the source on the journal pages too? Of course you are.
+  Same deal as the home page: no framework, no bundler, zero runtime JS.
+  These pages are generated locally by a small PHP script (build.php),
+  from Markdown. The thing you're reading is the plain HTML it spat out.
+-->
+
+<div class="browser-frame">
+  <div class="browser-chrome">
+    <div class="browser-chrome-dot" style="background: #C9BCA8;"></div>
+    <div class="browser-chrome-dot" style="background: #B5341A;"></div>
+    <div class="browser-chrome-dot" style="background: #5A7236;"></div>
+    <div class="browser-chrome-url">https://labault.dev/journal/no-paas-no-friday</div>
+  </div>
+
+  <div class="page">
+
+    <nav class="nav" aria-label="Navigation principale">
+      <a href="/#index" class="nav-logo">
+        <div class="nav-logo-dot" aria-hidden="true"></div>
+        <span class="nav-logo-name">Thibault Lafaurie</span>
+      </a>
+      <ul class="nav-links" role="list">
+        <li><a href="/#index"    class="nav-link">index</a></li>
+        <li><a href="/#parcours" class="nav-link">parcours</a></li>
+        <li><a href="/#stack"    class="nav-link">stack</a></li>
+        <li><a href="/#projets"  class="nav-link">projets</a></li>
+        <li><a href="/journal/"  class="nav-link" aria-current="page">journal</a></li>
+        <li><a href="/#contact"  class="nav-link">contact</a></li>
+      </ul>
+      <div class="nav-status" aria-label="Statut : en recherche d'un CDI">
+        <span class="nav-status-dot anim-pulse"></span>
+        <span class="nav-status-text">en recherche d'un CDI</span>
+      </div>
+    </nav>
+
+    <main id="main" class="section article">
+      <a class="article-back" href="/journal/">← journal</a>
+      <header class="article-head">
+      <figure class="article-hero"><img src="/assets/journal/no-paas-no-friday.svg" alt=""></figure>
+
+        <span class="section-label">journal</span>
+        <h1 class="article-title">No PaaS, no Friday</h1>
+        <p class="article-byline">16 juin 2026 <span class="article-byline-sep">·</span> 4 min de lecture</p>
+      </header>
+      <div class="article-body">
+<p>Tu as une app à mettre en ligne. Le réflexe par défaut aujourd'hui : un PaaS qui déploie en un clic, ou, si tu as vraiment envie de souffrir, un cluster Kubernetes pour faire tourner trois conteneurs. Moi, je mets ça sur un seul VPS que je gère de bout en bout. Et non, ce n'est pas de la nostalgie.</p>
+<h2>Le vrai coût d'un PaaS, ce n'est pas la facture</h2>
+<p>Un PaaS, c'est confortable jusqu'au jour où ça casse. Tant que tout va bien tu pushes, ça déploie, tu ne penses à rien. Le problème c'est exactement ça : tu ne penses à rien, donc tu ne sais plus où tourne ton app. Le jour où une requête part en vrille, où un build échoue sans raison claire, où une limite que tu ne connaissais pas te tombe dessus, tu débugges la plateforme de quelqu'un d'autre, à travers une couche d'abstraction que tu n'as pas écrite et que tu ne peux pas lire.</p>
+<p>Le coût d'un PaaS, ce ne sont pas les euros par mois. C'est la compréhension que tu abandonnes. Tu loues un truc qui marche, et tu pries pour qu'il continue.</p>
+<h2>Ce que je mets à la place</h2>
+<p>Un VPS. Un reverse-proxy Caddy devant. Un déploiement déclenché par un webhook signé : je push, un hook vérifie la signature HMAC, tire le code, reconstruit, bascule. Et bien sûr des sauvegardes automatisées et du monitoring, parce que s'héberger sans filet, ce n'est pas s'héberger, c'est jouer.</p>
+<p>Rien de magique là-dedans, et c'est justement le but : chaque morceau, je peux le lire, le raisonner, le reproduire. Quand ça casse, je sais où regarder, parce que c'est moi qui l'ai posé. Pas de ticket de support à ouvrir, pas de page de statut à rafraîchir en espérant que ce n'est pas de mon côté.</p>
+<h2>&quot;No Friday&quot;, c'est la condition, pas la blague</h2>
+<p>S'héberger soi-même n'est responsable qu'à une condition : que déployer soit ennuyeux. Si ta mise en prod te fait peur, tu n'as pas un problème d'hébergement, tu as un problème de déploiement, et c'est lui que tu règles d'abord.</p>
+<p>Chez moi, déployer c'est un push qui déclenche un webhook signé, reproductible, réversible. Tellement sans suspense que je peux le faire un vendredi à 17h sans transpirer. C'est ça qui rend le self-hosting tenable : pas le courage, l'absence de surprise. &quot;No Friday&quot; n'est pas une superstition, c'est le symptôme inverse. Le jour où déployer un vendredi ne change rien, c'est que tu as fait le travail en amont.</p>
+<h2>Le piège qu'on n'oublie qu'une fois</h2>
+<p>Tout n'est pas lisse pour autant. La config du reverse-proxy, par exemple, se gère par le flux de déploiement : en local, puis commit, puis deploy. Jamais à la main sur le serveur. Le jour où tu édites le fichier directement sur la machine et que tu fais un reload en pensant que ça suffit, tu découvres que non, le changement n'est pas pris, et tu perds une demi-heure à comprendre pourquoi. La leçon : sur une infra que tu gères toi-même, la source de vérité c'est le dépôt, pas le serveur. Tu bidouilles le serveur à la main, tu ouvres la porte à l'état qui dérive. Et l'état qui dérive, c'est exactement l'inverse de ce que tu cherchais en t'hébergeant toi-même.</p>
+<h2>Pour qui c'est, pour qui ça ne l'est pas</h2>
+<p>Je ne dis pas que le PaaS est une erreur. Pour une équipe qui veut zéro ops et qui a le budget, c'est un arbitrage légitime, et il m'arrive de faire l'exception quand le contexte le justifie. Ce que je dis, c'est que pour la plupart des produits, à l'échelle réelle qu'ils ont et pas celle qu'ils fantasment, un VPS bien tenu fait le travail, coûte moins cher, et te rend quelque chose que le PaaS te prend : tu sais comment ton app tourne.</p>
+<p>No PaaS, no Kubernetes, no Friday. Pas un slogan anti-cloud. Une préférence pour les choses que je comprends.</p>
+
+      </div>
+      <footer class="article-foot">
+        <p class="article-foot-cta">Un produit à faire tenir, une migration, un CDI à pourvoir ? <em>On en parle.</em></p>
+        <a href="mailto:contact@labault.dev" class="article-foot-mail">contact@labault.dev</a>
+        <a href="/journal/" class="article-foot-back">← tout le journal</a>
+      </footer>
+    </main>
+
+
+  </div>
+</div>
+
+</body>
+</html>
