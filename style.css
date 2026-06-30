@@ -539,6 +539,19 @@ section[id] {
   margin-top : 3px;
 }
 
+/* Deux logos empilés dans une même carte (ex. Nginx / Caddy) */
+.tech-card-logos {
+  flex-shrink   : 0;
+  display       : flex;
+  flex-direction: column;
+  gap           : 6px;
+  margin-top    : 3px;
+}
+
+.tech-card-logos .tech-card-logo {
+  margin-top: 0;
+}
+
 /* Monogram fallback for techs without a CDN logo */
 .tech-card-logo-mono {
   font-family : var(--font-serif);

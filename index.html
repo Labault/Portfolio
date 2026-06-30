@@ -8,7 +8,7 @@
  
 <!-- Primary Meta -->
 <title>Thibault Lafaurie - Développeur Backend PHP / Symfony</title>
-<meta name="description" content="Développeur Backend depuis 2017. PHP, Symfony et l'infra autour (Docker, FrankenPHP). Basé à Clermont-Ferrand, remote possible. En recherche d'un CDI, Clermont-Ferrand ou remote.">
+<meta name="description" content="Développeur backend Symfony / PHP depuis 2017. PostgreSQL, Redis, Docker, FrankenPHP, CI/CD. Basé à Clermont-Ferrand, remote possible. En recherche d'un CDI.">
 <meta name="author" content="Thibault Lafaurie">
 <meta name="robots" content="index, follow">
 <link rel="canonical" href="https://labault.dev/">
@@ -38,32 +38,35 @@
 <!-- Favicon : la mascotte Canard Dev -->
 <link rel="icon" type="image/png" href="/favicon.png">
  
-<!-- JSON-LD : Person (rich result / knowledge graph) -->
+<!-- JSON-LD : ProfilePage > Person (rich result / knowledge graph) -->
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
-  "@type": "Person",
-  "name": "Thibault Lafaurie",
-  "jobTitle": "Développeur Backend",
-  "url": "https://labault.dev/",
-  "image": "https://labault.dev/portrait-default.jpg",
-  "email": "contact@labault.dev",
-  "telephone": "+33676136797",
-  "address": {
-    "@type": "PostalAddress",
-    "addressLocality": "Clermont-Ferrand",
-    "addressCountry": "FR"
-  },
-  "knowsAbout": ["PHP", "Symfony", "Docker", "PostgreSQL", "FrankenPHP", "CI/CD"],
-  "alumniOf": {
-    "@type": "CollegeOrUniversity",
-    "name": "IUT Clermont Auvergne"
-  },
-  "sameAs": [
-    "https://github.com/Labault",
-    "https://www.linkedin.com/in/thibault-lafaurie/",
-    "https://www.instagram.com/labault.art/"
-  ]
+  "@type": "ProfilePage",
+  "mainEntity": {
+    "@type": "Person",
+    "name": "Thibault Lafaurie",
+    "jobTitle": "Développeur backend PHP / Symfony",
+    "url": "https://labault.dev/",
+    "image": "https://labault.dev/portrait-default.jpg",
+    "email": "contact@labault.dev",
+    "telephone": "+33676136797",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Clermont-Ferrand",
+      "addressCountry": "FR"
+    },
+    "knowsAbout": ["PHP", "Symfony", "PostgreSQL", "Redis", "Mercure", "Docker", "FrankenPHP", "CI/CD"],
+    "alumniOf": {
+      "@type": "CollegeOrUniversity",
+      "name": "IUT Clermont Auvergne"
+    },
+    "sameAs": [
+      "https://github.com/Labault",
+      "https://www.linkedin.com/in/thibault-lafaurie/",
+      "https://www.instagram.com/labault.art/"
+    ]
+  }
 }
 </script>
  
@@ -255,7 +258,7 @@
       <div class="tech-grid">
 
         <div class="tech-card">
-          <img class="tech-card-logo" src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/php/php-original.svg" alt="PHP">
+          <img class="tech-card-logo" src="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.17.0/icons/php/php-original.svg" alt="PHP">
           <div class="tech-card-body">
             <p class="tech-card-name">PHP <span class="tech-card-version">7.0 → 8.3</span></p>
             <p class="tech-card-desc">Présent depuis le début, souvent moqué, jamais remplacé. Migration de 7.0 à 8.3 sur le codebase Quizzbox. Un langage qui a grandi, et moi avec.</p>
@@ -263,7 +266,7 @@
         </div>
 
         <div class="tech-card">
-          <img class="tech-card-logo" src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/symfony/symfony-original.svg" alt="Symfony">
+          <img class="tech-card-logo" src="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.17.0/icons/symfony/symfony-original.svg" alt="Symfony">
           <div class="tech-card-body">
             <p class="tech-card-name">Symfony <span class="tech-card-version">2.8 → 7.4</span></p>
             <p class="tech-card-desc">Framework de référence. Maintenance du legacy 2.8, migrations successives jusqu'à 7.4 : Doctrine, Messenger, Security, Events... pas un composant qu'on n'ait pas retourné.</p>
@@ -271,7 +274,15 @@
         </div>
 
         <div class="tech-card">
-          <img class="tech-card-logo" src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/mysql/mysql-original.svg" alt="MySQL">
+          <span class="tech-card-logo tech-card-logo-mono">⇄</span>
+          <div class="tech-card-body">
+            <p class="tech-card-name">Messenger</p>
+            <p class="tech-card-desc">Le bus qui découple. Commandes asynchrones, retries, transport Redis ou Doctrine : les tâches lourdes sortent du cycle requête/réponse, l'utilisateur n'attend pas que le mail parte.</p>
+          </div>
+        </div>
+
+        <div class="tech-card">
+          <img class="tech-card-logo" src="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.17.0/icons/mysql/mysql-original.svg" alt="MySQL">
           <div class="tech-card-body">
             <p class="tech-card-name">MySQL / MariaDB</p>
             <p class="tech-card-desc">La base. Littéralement. Schémas relationnels, migrations Doctrine, index pour les requêtes qui s'emballent et du SQL brut quand l'ORM fait ses caprices.</p>
@@ -279,7 +290,7 @@
         </div>
 
         <div class="tech-card">
-          <img class="tech-card-logo" src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/postgresql/postgresql-original.svg" alt="PostgreSQL">
+          <img class="tech-card-logo" src="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.17.0/icons/postgresql/postgresql-original.svg" alt="PostgreSQL">
           <div class="tech-card-body">
             <p class="tech-card-name">PostgreSQL</p>
             <p class="tech-card-desc">Types riches, JSONB indexable, contraintes qui tiennent le modèle au carré. Mon défaut côté données sur les projets récents.</p>
@@ -287,7 +298,15 @@
         </div>
 
         <div class="tech-card">
-          <img class="tech-card-logo" src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/docker/docker-original.svg" alt="Docker">
+          <img class="tech-card-logo" src="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.17.0/icons/redis/redis-original.svg" alt="Redis">
+          <div class="tech-card-body">
+            <p class="tech-card-name">Redis</p>
+            <p class="tech-card-desc">Cache, sessions, files Messenger et compteurs temps réel. Ce qu'on dégaine quand déranger Postgres pour ça n'aurait aucun sens.</p>
+          </div>
+        </div>
+
+        <div class="tech-card">
+          <img class="tech-card-logo" src="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.17.0/icons/docker/docker-original.svg" alt="Docker">
           <div class="tech-card-body">
             <p class="tech-card-name">Docker</p>
             <p class="tech-card-desc">Stacks multi-services reproductibles : php-fpm, MariaDB, Redis, Mailpit... Fini le classique <em>ça tourne chez moi</em>.</p>
@@ -295,7 +314,7 @@
         </div>
 
         <div class="tech-card">
-          <img class="tech-card-logo" src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/git/git-original.svg" alt="Git">
+          <img class="tech-card-logo" src="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.17.0/icons/git/git-original.svg" alt="Git">
           <div class="tech-card-body">
             <p class="tech-card-name">Git</p>
             <p class="tech-card-desc">Versionning quotidien depuis le premier commit. GitHub Actions pour CI/CD, déploiement auto à chaque merge. L'historique dit tout (sauf les idées du vendredi soir).</p>
@@ -303,7 +322,15 @@
         </div>
 
         <div class="tech-card">
-          <img class="tech-card-logo" src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/html5/html5-original.svg" alt="HTML / CSS">
+          <span class="tech-card-logo tech-card-logo-mono">✓</span>
+          <div class="tech-card-body">
+            <p class="tech-card-name">PHPUnit</p>
+            <p class="tech-card-desc">Les tests qu'on lit comme une histoire, pour de vrai. Unitaires et fonctionnels, fixtures sous contrôle, et la CI au vert avant que le diff parte. Un filet, pas une case à cocher.</p>
+          </div>
+        </div>
+
+        <div class="tech-card">
+          <img class="tech-card-logo" src="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.17.0/icons/html5/html5-original.svg" alt="HTML / CSS">
           <div class="tech-card-body">
             <p class="tech-card-name">HTML / CSS</p>
             <p class="tech-card-desc">Les fondamentaux qu'on sous-estime, jusqu'au premier bug CSS en prod. Sémantique, responsive, animations... pour ne plus jamais inventer des noms de classes.</p>
@@ -311,7 +338,7 @@
         </div>
 
         <div class="tech-card">
-          <img class="tech-card-logo" src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/javascript/javascript-original.svg" alt="JavaScript">
+          <img class="tech-card-logo" src="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.17.0/icons/javascript/javascript-original.svg" alt="JavaScript">
           <div class="tech-card-body">
             <p class="tech-card-name">JavaScript</p>
             <p class="tech-card-desc">Vanilla d'abord, Hotwire (Turbo, Stimulus) quand ça le mérite. Le front juste ce qu'il faut, <em>pas un SPA pour afficher un formulaire</em>.</p>
@@ -327,10 +354,21 @@
         </div>
 
         <div class="tech-card">
-          <img class="tech-card-logo" src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/nginx/nginx-original.svg" alt="Nginx">
+          <span class="tech-card-logos">
+            <img class="tech-card-logo" src="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.17.0/icons/nginx/nginx-original.svg" alt="Nginx">
+            <img class="tech-card-logo" src="assets/logo-caddy.svg" alt="Caddy">
+          </span>
           <div class="tech-card-body">
             <p class="tech-card-name">Nginx / Caddy</p>
             <p class="tech-card-desc">Serveur web et reverse proxy. Nginx pour le contrôle fin, bloc <code>location {}</code> compris sans relire la doc ; Caddy pour le TLS automatique et un Caddyfile qui tient en dix lignes. C'est lui qui sert mon push-to-deploy.</p>
+          </div>
+        </div>
+
+        <div class="tech-card">
+          <img class="tech-card-logo" src="assets/logo-mercure.svg" alt="Mercure">
+          <div class="tech-card-body">
+            <p class="tech-card-name">Mercure</p>
+            <p class="tech-card-desc">Le temps réel sans gérer un WebSocket à la main : le serveur pousse, le navigateur écoute en SSE. En prod sur Red Flag Bingo et Le Canard du Vendredi. Du push natif, pas du polling déguisé.</p>
           </div>
         </div>
 
