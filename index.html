@@ -111,6 +111,19 @@
         <span class="nav-status-dot anim-pulse"></span>
         <span class="nav-status-text">en recherche d'un CDI</span>
       </div>
+
+      <!-- Menu déroulant, visible seulement sous 900px : restitue les ancres de section sans une ligne de JS -->
+      <details class="nav-menu">
+        <summary>menu</summary>
+        <ul class="nav-menu-links" role="list">
+          <li><a href="#index"    class="nav-link">index</a></li>
+          <li><a href="#parcours" class="nav-link">parcours</a></li>
+          <li><a href="#stack"    class="nav-link">stack</a></li>
+          <li><a href="#projets"  class="nav-link">projets</a></li>
+          <li><a href="#journal"  class="nav-link">journal</a></li>
+          <li><a href="#contact"  class="nav-link">contact</a></li>
+        </ul>
+      </details>
     </nav>
 
 
@@ -180,7 +193,7 @@
           </p>
           <p>
             Sept ans à faire vivre et grandir QuizzWeb, le SaaS de Quizzbox Solutions pour les centres de formation et d'examens (plusieurs dizaines de centres). J'ai participé à la migration du socle,
-            de Symfony 2.8 à 7.4 et de PHP 7.0 à 8.4, de 2020 jusqu'à aujourd'hui, en gardant le legacy en production pendant la modernisation.
+            de Symfony 2.8 à 7.4 et de PHP 7.0 à 8.4, de 2020 à janvier 2026, en gardant le legacy en production pendant la modernisation.
             Du recueil du besoin au support, en passant par l'optimisation SQL, le passage sous Docker et le déploiement.
           </p>
           <p>
@@ -191,80 +204,60 @@
     </section>
 
 
-    <!-- 03 - timeline & 04 - off-screen (two columns, one section) -->
-    <section class="section timeline-section" id="parcours">
-      <div class="timeline-layout">
+    <!-- 03 - experience (cards) -->
+    <section class="section" id="parcours">
+      <span class="section-label">03 - parcours</span>
+      <h2 class="section-title">Expérience</h2>
 
-        <div>
-          <span class="timeline-title">03 - parcours</span>
-          <h2 class="section-title">Expérience</h2>
+      <div class="xp-grid">
 
-          <div class="timeline-row">
-            <span class="timeline-year">2026</span>
-            <span class="timeline-company">Là où l'on va<span class="timeline-role"> · développeur indépendant</span></span>
-            <span class="timeline-location">remote · distanciel</span>
+        <!-- Featured role -->
+        <article class="xp-card">
+          <div class="xp-card-head">
+            <span class="xp-year">2020 → 26</span>
+            <h3 class="xp-company">Quizzbox Solutions<span class="xp-role"> · développeur backend PHP / Symfony</span></h3>
+            <span class="xp-location">Clermont-Ferrand</span>
           </div>
+          <p class="xp-summary">QuizzWeb, SaaS d'évaluation et d'examens : une centaine d'environnements clients, un monolithe Symfony de 112 000 lignes (68 entités, 115 migrations).</p>
+          <ul class="xp-points">
+            <li>Migration de PHP 7.0 / Symfony 2.8 à 8.4 / 7.4 sans geler les livraisons : 251 versions livrées, outillée Rector + PHPStan + CI.</li>
+            <li>API REST versionnée créée de zéro, aujourd'hui consommée par SignEval (front React).</li>
+            <li>Déploiements hebdomadaires dockerisés et des pages optimisées jusqu'à 10× plus rapides.</li>
+          </ul>
+        </article>
 
-          <div class="timeline-row">
-            <span class="timeline-year">2020 → 26</span>
-            <span class="timeline-company">Quizzbox Solutions<span class="timeline-role"> · développeur web</span></span>
-            <span class="timeline-location">Clermont-Ferrand</span>
-          </div>
-
-          <div class="timeline-row">
-            <span class="timeline-year">2019 - 20</span>
-            <span class="timeline-company">IUT Clermont Auvergne<span class="timeline-role"> · Licence Pro Dev Web</span></span>
-            <span class="timeline-location">alternance Quizzbox</span>
-          </div>
-
-          <div class="timeline-row">
-            <span class="timeline-year">2017 - 19</span>
-            <span class="timeline-company">IUT Clermont Auvergne<span class="timeline-role"> · DUT Informatique</span></span>
-            <span class="timeline-location">Clermont-Ferrand</span>
-          </div>
-        </div>
-
-        <!-- 04 - hobbies -->
-        <div>
-          <span class="hobbies-title">04 - hors écran</span>
-          <h2 class="section-title">Loisirs</h2>
-
-          <div class="hobbies-list">
-            Dessin
-            <span class="hobbies-comment">- encore débutant, mais qui ne tente rien n'a rien</span>
-            <a href="https://www.instagram.com/labault.art/" target="_blank" rel="noopener" class="hobbies-link">@labault.art</a>
-            <br>
-
-            Lecture
-            <span class="hobbies-comment">- thrillers et romans à suspense, j'adore</span>
-            <br>
-
-            Musique
-            <span class="hobbies-comment">- pas que de l'écoute</span>
-            <br>
-
-            Sport
-            <span class="hobbies-comment">- abonnement à la salle, maintenant faut y aller</span>
-            <br>
-
-            Jeux vidéos
-            <span class="hobbies-comment">- les meilleurs se jouent avec les amis</span>
-          </div>
+        <!-- Secondary roles -->
+        <div class="xp-row">
+          <article class="xp-card">
+            <span class="xp-year">2026</span>
+            <h3 class="xp-company">Là où l'on va<span class="xp-role"> · développeur indépendant</span></h3>
+            <span class="xp-location">remote · distanciel</span>
+          </article>
+          <article class="xp-card">
+            <span class="xp-year">2019 - 20</span>
+            <h3 class="xp-company">IUT Clermont Auvergne<span class="xp-role"> · Licence Pro Dev Web</span></h3>
+            <span class="xp-location">alternance Quizzbox</span>
+          </article>
+          <article class="xp-card">
+            <span class="xp-year">2017 - 19</span>
+            <h3 class="xp-company">IUT Clermont Auvergne<span class="xp-role"> · DUT Informatique</span></h3>
+            <span class="xp-location">Clermont-Ferrand</span>
+          </article>
         </div>
 
       </div>
     </section>
 
 
-    <!-- 05 - stack -->
+    <!-- 04 - stack -->
     <section class="section" id="stack">
-      <span class="section-label">05 - stack</span>
+      <span class="section-label">04 - stack</span>
       <h2 class="stack-title">Techniques &amp; maîtrise</h2>
 
       <div class="tech-grid">
 
         <div class="tech-card">
-          <img class="tech-card-logo" src="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.17.0/icons/php/php-original.svg" alt="PHP">
+          <img class="tech-card-logo" src="/assets/icons/php-original.svg" alt="PHP" width="128" height="128">
           <div class="tech-card-body">
             <p class="tech-card-name">PHP <span class="tech-card-version">7.0 → 8.4</span></p>
             <p class="tech-card-desc">Présent depuis le début, souvent moqué, jamais remplacé. Migration de 7.0 à 8.4 sur le codebase Quizzbox. Un langage qui a grandi, et moi avec.</p>
@@ -272,7 +265,7 @@
         </div>
 
         <div class="tech-card">
-          <img class="tech-card-logo" src="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.17.0/icons/symfony/symfony-original.svg" alt="Symfony">
+          <img class="tech-card-logo" src="/assets/icons/symfony-original.svg" alt="Symfony" width="128" height="128">
           <div class="tech-card-body">
             <p class="tech-card-name">Symfony <span class="tech-card-version">2.8 → 7.4</span></p>
             <p class="tech-card-desc">Framework de référence. Maintenance du legacy 2.8, migrations successives jusqu'à 7.4 : Doctrine, Messenger, Security, Events... pas un composant qu'on n'ait pas retourné.</p>
@@ -288,23 +281,23 @@
         </div>
 
         <div class="tech-card">
-          <img class="tech-card-logo" src="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.17.0/icons/mysql/mysql-original.svg" alt="MySQL">
-          <div class="tech-card-body">
-            <p class="tech-card-name">MySQL / MariaDB</p>
-            <p class="tech-card-desc">La base. Littéralement. Schémas relationnels, migrations Doctrine, index pour les requêtes qui s'emballent et du SQL brut quand l'ORM fait ses caprices.</p>
-          </div>
-        </div>
-
-        <div class="tech-card">
-          <img class="tech-card-logo" src="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.17.0/icons/postgresql/postgresql-original.svg" alt="PostgreSQL">
+          <img class="tech-card-logo" src="/assets/icons/postgresql-original.svg" alt="PostgreSQL" width="128" height="128">
           <div class="tech-card-body">
             <p class="tech-card-name">PostgreSQL</p>
-            <p class="tech-card-desc">Types riches, JSONB indexable, contraintes qui tiennent le modèle au carré. Mon défaut côté données sur les projets récents.</p>
+            <p class="tech-card-desc">Ma base de référence, celle qui tourne en prod. Types natifs, JSONB, contraintes qui tiennent, et du SQL brut quand l'ORM fait des siennes.</p>
           </div>
         </div>
 
         <div class="tech-card">
-          <img class="tech-card-logo" src="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.17.0/icons/redis/redis-original.svg" alt="Redis">
+          <img class="tech-card-logo" src="/assets/icons/mysql-original.svg" alt="MySQL" width="128" height="128">
+          <div class="tech-card-body">
+            <p class="tech-card-name">MySQL / MariaDB</p>
+            <p class="tech-card-desc">Aussi pratiqué, et longtemps. Schémas relationnels, migrations Doctrine, index pour les requêtes qui s'emballent.</p>
+          </div>
+        </div>
+
+        <div class="tech-card">
+          <img class="tech-card-logo" src="/assets/icons/redis-original.svg" alt="Redis" width="128" height="128">
           <div class="tech-card-body">
             <p class="tech-card-name">Redis</p>
             <p class="tech-card-desc">Cache, sessions, files Messenger et compteurs temps réel. Ce qu'on dégaine quand déranger Postgres pour ça n'aurait aucun sens.</p>
@@ -312,7 +305,7 @@
         </div>
 
         <div class="tech-card">
-          <img class="tech-card-logo" src="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.17.0/icons/docker/docker-original.svg" alt="Docker">
+          <img class="tech-card-logo" src="/assets/icons/docker-original.svg" alt="Docker" width="128" height="128">
           <div class="tech-card-body">
             <p class="tech-card-name">Docker</p>
             <p class="tech-card-desc">Stacks multi-services reproductibles : php-fpm, MariaDB, Redis, Mailpit... Fini le classique <em>ça tourne chez moi</em>.</p>
@@ -320,7 +313,7 @@
         </div>
 
         <div class="tech-card">
-          <img class="tech-card-logo" src="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.17.0/icons/git/git-original.svg" alt="Git">
+          <img class="tech-card-logo" src="/assets/icons/git-original.svg" alt="Git" width="128" height="128">
           <div class="tech-card-body">
             <p class="tech-card-name">Git</p>
             <p class="tech-card-desc">Versionning quotidien depuis le premier commit. GitHub Actions pour CI/CD, déploiement auto à chaque merge. L'historique dit tout (sauf les idées du vendredi soir).</p>
@@ -344,7 +337,7 @@
         </div>
 
         <div class="tech-card">
-          <img class="tech-card-logo" src="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.17.0/icons/html5/html5-original.svg" alt="HTML / CSS">
+          <img class="tech-card-logo" src="/assets/icons/html5-original.svg" alt="HTML / CSS" width="128" height="128">
           <div class="tech-card-body">
             <p class="tech-card-name">HTML / CSS</p>
             <p class="tech-card-desc">Les fondamentaux qu'on sous-estime, jusqu'au premier bug CSS en prod. Sémantique, responsive, animations... pour ne plus jamais inventer des noms de classes.</p>
@@ -352,7 +345,7 @@
         </div>
 
         <div class="tech-card">
-          <img class="tech-card-logo" src="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.17.0/icons/javascript/javascript-original.svg" alt="JavaScript">
+          <img class="tech-card-logo" src="/assets/icons/javascript-original.svg" alt="JavaScript" width="128" height="128">
           <div class="tech-card-body">
             <p class="tech-card-name">JavaScript</p>
             <p class="tech-card-desc">Vanilla d'abord, Hotwire (Turbo, Stimulus) quand ça le mérite. Le front juste ce qu'il faut, <em>pas un SPA pour afficher un formulaire</em>.</p>
@@ -360,7 +353,7 @@
         </div>
 
         <div class="tech-card">
-          <img class="tech-card-logo" src="assets/logo-frankenphp.svg" alt="FrankenPHP">
+          <img class="tech-card-logo" src="assets/logo-frankenphp.svg" alt="FrankenPHP" width="256" height="256">
           <div class="tech-card-body">
             <p class="tech-card-name">FrankenPHP</p>
             <p class="tech-card-desc">Serveur PHP nouvelle génération : HTTP/2 natif, worker mode, intégration Caddy. Déployé en prod sur Red Flag Bingo. <em>C'est PHP, mais il a survécu à l'expérience.</em></p>
@@ -369,8 +362,8 @@
 
         <div class="tech-card">
           <span class="tech-card-logos">
-            <img class="tech-card-logo" src="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.17.0/icons/nginx/nginx-original.svg" alt="Nginx">
-            <img class="tech-card-logo" src="assets/logo-caddy.svg" alt="Caddy">
+            <img class="tech-card-logo" src="/assets/icons/nginx-original.svg" alt="Nginx" width="128" height="128">
+            <img class="tech-card-logo" src="assets/logo-caddy.svg" alt="Caddy" width="24" height="24">
           </span>
           <div class="tech-card-body">
             <p class="tech-card-name">Nginx / Caddy</p>
@@ -379,7 +372,7 @@
         </div>
 
         <div class="tech-card">
-          <img class="tech-card-logo" src="assets/logo-mercure.svg" alt="Mercure">
+          <img class="tech-card-logo" src="assets/logo-mercure.svg" alt="Mercure" width="144" height="144">
           <div class="tech-card-body">
             <p class="tech-card-name">Mercure</p>
             <p class="tech-card-desc">Le temps réel sans gérer un WebSocket à la main : le serveur pousse, le navigateur écoute en SSE. En prod sur Red Flag Bingo et Le Canard du Vendredi. Du push natif, pas du polling déguisé.</p>
@@ -388,8 +381,8 @@
 
         <div class="tech-card">
           <span class="tech-card-logos">
-            <img class="tech-card-logo" src="assets/logo-claude.webp" alt="Claude">
-            <img class="tech-card-logo" src="assets/logo-codex.webp" alt="Codex">
+            <img class="tech-card-logo" src="assets/logo-claude.webp" alt="Claude" width="88" height="88">
+            <img class="tech-card-logo" src="assets/logo-codex.webp" alt="Codex" width="88" height="88">
           </span>
           <div class="tech-card-body">
             <p class="tech-card-name">IA assistée</p>
@@ -403,14 +396,14 @@
     </section>
 
 
-    <!-- 06 - projects -->
+    <!-- 05 - projects -->
     <!--
       Sorted by intent, not by date: what's live, what's polished,
       what's under the hood, and what's pure playground.
     -->
     <section class="section" id="projets">
       <header class="projects-header">
-        <span class="section-label">06 - projets</span>
+        <span class="section-label">05 - projets</span>
         <h2 class="projects-title">Quelques projets...</h2>
         <p class="projects-intro">Rangés par intention plutôt que par date : du livrable client à l'expérience du dimanche soir.</p>
       </header>
@@ -426,7 +419,7 @@
 
           <a href="https://docendo.fr" class="project-card-link" target="_blank" rel="noopener" aria-label="Voir Docendo">
             <div class="project-thumb">
-              <img src="assets/scene-docendo.svg" alt="">
+              <img src="assets/scene-docendo.svg" alt="" width="400" height="300">
             </div>
             <div class="project-card-info">
               <div class="project-card-meta">
@@ -441,7 +434,7 @@
 
           <a href="https://lolv.labault.dev/" class="project-card-link" target="_blank" rel="noopener" aria-label="Voir La où l'on va">
             <div class="project-thumb">
-              <img src="assets/scene-lolv.svg" alt="">
+              <img src="assets/scene-lolv.svg" alt="" width="400" height="300">
             </div>
             <div class="project-card-info">
               <div class="project-card-meta">
@@ -456,7 +449,7 @@
 
           <a href="https://humelis.labault.dev/" class="project-card-link" target="_blank" rel="noopener" aria-label="Voir Humelis">
             <div class="project-thumb">
-              <img src="assets/scene-humelis.svg" alt="">
+              <img src="assets/scene-humelis.svg" alt="" width="400" height="300">
             </div>
             <div class="project-card-info">
               <div class="project-card-meta">
@@ -483,7 +476,7 @@
 
           <a href="https://github.com/Labault/mac-dev-setup" class="project-card-link" target="_blank" rel="noopener" aria-label="Voir le repo mac-dev-setup">
             <div class="project-thumb">
-              <img src="assets/scene-mac.svg" alt="">
+              <img src="assets/scene-mac.svg" alt="" width="400" height="300">
             </div>
             <div class="project-card-info">
               <div class="project-card-meta">
@@ -498,7 +491,7 @@
 
           <a href="https://github.com/Labault/bootstrap-web-setup" class="project-card-link" target="_blank" rel="noopener" aria-label="Voir le repo bootstrap-web-setup">
             <div class="project-thumb">
-              <img src="assets/scene-bootstrap.svg" alt="">
+              <img src="assets/scene-bootstrap.svg" alt="" width="400" height="300">
             </div>
             <div class="project-card-info">
               <div class="project-card-meta">
@@ -513,7 +506,7 @@
 
           <a href="https://github.com/Labault/server-setup" class="project-card-link" target="_blank" rel="noopener" aria-label="Voir le repo server-setup">
             <div class="project-thumb">
-              <img src="assets/scene-server.svg" alt="">
+              <img src="assets/scene-server.svg" alt="" width="400" height="300">
             </div>
             <div class="project-card-info">
               <div class="project-card-meta">
@@ -528,7 +521,7 @@
 
           <a href="https://github.com/Labault/push-to-deploy" class="project-card-link" target="_blank" rel="noopener" aria-label="Voir le repo push-to-deploy">
             <div class="project-thumb">
-              <img src="assets/scene-deploy.svg" alt="">
+              <img src="assets/scene-deploy.svg" alt="" width="400" height="300">
             </div>
             <div class="project-card-info">
               <div class="project-card-meta">
@@ -555,7 +548,7 @@
 
           <a href="https://redflagbingo.fun/" class="project-card-link" target="_blank" rel="noopener" aria-label="Voir Red Flag Bingo">
             <div class="project-thumb">
-              <img src="assets/scene-rfb.svg" alt="">
+              <img src="assets/scene-rfb.svg" alt="" width="400" height="300">
             </div>
             <div class="project-card-info">
               <div class="project-card-meta">
@@ -570,7 +563,7 @@
 
           <a href="https://hush.labault.dev" class="project-card-link" target="_blank" rel="noopener" aria-label="Voir Hush">
             <div class="project-thumb">
-              <img src="assets/scene-hush.svg" alt="">
+              <img src="assets/scene-hush.svg" alt="" width="400" height="300">
             </div>
             <div class="project-card-info">
               <div class="project-card-meta">
@@ -585,7 +578,7 @@
 
           <a href="https://devspeak.labault.dev/" class="project-card-link" target="_blank" rel="noopener" aria-label="Voir DevSpeak">
             <div class="project-thumb">
-              <img src="assets/scene-devspeak.svg" alt="">
+              <img src="assets/scene-devspeak.svg" alt="" width="400" height="300">
             </div>
             <div class="project-card-info">
               <div class="project-card-meta">
@@ -600,7 +593,7 @@
 
           <a href="https://tibec.labault.dev" class="project-card-link" target="_blank" rel="noopener" aria-label="Voir Le Canard du Vendredi">
             <div class="project-thumb">
-              <img src="assets/scene-canard-vendredi.svg" alt="">
+              <img src="assets/scene-canard-vendredi.svg" alt="" width="400" height="300">
             </div>
             <div class="project-card-info">
               <div class="project-card-meta">
@@ -618,7 +611,7 @@
     </section>
 
 
-    <!-- 07 - journal -->
+    <!-- 06 - journal -->
     <!--
       The journal teasers below are generated by build.php and slotted in
       between the JOURNAL markers. Don't hand-edit between them — your changes
@@ -626,7 +619,7 @@
     -->
     <section class="section journal-teaser" id="journal">
       <header class="journal-teaser-head">
-        <span class="section-label">07 - journal</span>
+        <span class="section-label">06 - journal</span>
         <h2 class="section-title">Le journal</h2>
         <p class="journal-teaser-intro">Des notes de prod prises sur le terrain : migrations, legacy, infra, et les pièges qu'on ne voit qu'une fois dedans. Pas de tutoriel, du vécu.</p>
       </header>
@@ -634,7 +627,7 @@
       <!-- JOURNAL:START -->
         <div class="journal-cards">
           <a class="journal-card" href="/journal/migrer-symfony-2-8-a-7-4-sans-geler-les-livraisons/">
-            <div class="project-thumb"><img src="/assets/journal/migrer-symfony-2-8-a-7-4-sans-geler-les-livraisons.svg" alt="" loading="lazy"></div>
+            <div class="project-thumb"><img src="/assets/journal/migrer-symfony-2-8-a-7-4-sans-geler-les-livraisons.svg" alt="" width="400" height="300" loading="lazy"></div>
             <div class="journal-card-info">
               <div class="journal-card-meta">
                 <span>30 juin 2026</span>
@@ -645,7 +638,7 @@
             </div>
           </a>
           <a class="journal-card" href="/journal/greffer-une-api-rest-sur-dix-ans-de-legacy/">
-            <div class="project-thumb"><img src="/assets/journal/greffer-une-api-rest-sur-dix-ans-de-legacy.svg" alt="" loading="lazy"></div>
+            <div class="project-thumb"><img src="/assets/journal/greffer-une-api-rest-sur-dix-ans-de-legacy.svg" alt="" width="400" height="300" loading="lazy"></div>
             <div class="journal-card-info">
               <div class="journal-card-meta">
                 <span>23 juin 2026</span>
@@ -656,7 +649,7 @@
             </div>
           </a>
           <a class="journal-card" href="/journal/no-paas-no-friday/">
-            <div class="project-thumb"><img src="/assets/journal/no-paas-no-friday.svg" alt="" loading="lazy"></div>
+            <div class="project-thumb"><img src="/assets/journal/no-paas-no-friday.svg" alt="" width="400" height="300" loading="lazy"></div>
             <div class="journal-card-info">
               <div class="journal-card-meta">
                 <span>16 juin 2026</span>
@@ -672,7 +665,7 @@
     </section>
 
 
-    <!-- 08 - contact -->
+    <!-- 07 - contact -->
     <!--
       Made it to the bottom of the source? Respect.
       People who read the HTML all the way down deserve to work together.
@@ -689,7 +682,7 @@
       </a>
       <div class="contact-inner">
         <div class="contact-primary">
-          <span class="contact-label">08 - discutons</span>
+          <span class="contact-label">07 - discutons</span>
           <p class="contact-cta">On en parle ? <em>→</em></p>
           <a href="mailto:contact@labault.dev" class="contact-email">
             contact@labault.dev

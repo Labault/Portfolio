@@ -10,14 +10,14 @@
    03. Navigation
    04. Hero            - section 01
    05. About           - section 02
-   06. Timeline & hobbies - sections 03–04
-   07. Stack           - section 05
-   08. Projects        - section 06
+   06. Experience - section 03
+   07. Stack           - section 04
+   08. Projects        - section 05
    09. Contact         - section 07
    10. Animations
    11. Responsive - tablet (< 900px)
    12. Responsive - mobile (< 600px)
-   13. Journal & article - section 07 + /journal pages
+   13. Journal & article - section 06 + /journal pages
    ============================================================ */
 
 
@@ -71,7 +71,7 @@
   /* Core colors */
   --ink          : #1F1A14;   /* primary text */
   --ink-light    : #6B6258;   /* secondary text */
-  --ink-faint    : #736C63;   /* tertiary text / labels (AA on cream) */
+  --ink-faint    : #6B645C;   /* tertiary text / labels (AA on cream) */
   --cream        : #F5F0E8;   /* page background */
   --cream-dark   : #EBE6DD;   /* outer background */
   --border       : #E5DDD0;   /* separator lines */
@@ -81,19 +81,20 @@
   --accent-dark  : #5C1B0A;
 
   /* Secondary - sage green (status) */
-  --sage         : #5A7236;
+  --sage         : #566D34;
   --sage-dark    : #2E3D17;
 
-  /* Type scale */
-  --text-xs   : 10px;
-  --text-sm   : 11px;
-  --text-base : 13px;
-  --text-md   : 14px;
-  --text-lg   : 17px;
-  --text-xl   : 24px;
-  --text-2xl  : 26px;
-  --text-3xl  : 28px;
-  --text-hero : 62px;
+  /* Type scale - six tailles, point. Les blocs s'y conforment, pas l'inverse. */
+  --text-sm   : 11px;   /* labels, méta, légendes */
+  --text-base : 13px;   /* corps & descriptions */
+  --text-lg   : 17px;   /* titres de carte, sous-titres */
+  --text-xl   : 24px;   /* chapôs, h2 d'article */
+  --text-3xl  : 28px;   /* titres de section */
+  --text-hero : 62px;   /* display hero */
+  /* alias : les anciens noms retombent sur l'échelle ci-dessus */
+  --text-xs   : var(--text-sm);
+  --text-md   : var(--text-base);
+  --text-2xl  : var(--text-xl);
 
   /* Spacing */
   --section-pad-h : 36px;
@@ -225,7 +226,7 @@ section[id] {
 }
 
 .nav-logo-name {
-  font-size      : 12px;
+  font-size      : var(--text-sm);
   font-weight    : 500;
   letter-spacing : 0.02em;
 }
@@ -233,7 +234,7 @@ section[id] {
 .nav-links {
   display : flex;
   gap     : 24px;
-  font-size: 12px;
+  font-size: var(--text-sm);
 }
 
 .nav-link {
@@ -242,6 +243,9 @@ section[id] {
 }
 
 .nav-link:hover { color: var(--accent); }
+
+/* Menu déroulant mobile : masqué par défaut, révélé sous 900px (cf. responsive). Zéro JS. */
+.nav-menu { display: none; }
 
 .nav-status {
   display    : flex;
@@ -450,98 +454,106 @@ section[id] {
 
 
 /* ============================================================
-   06. Timeline & hobbies - sections 03–04
+   06. Experience - section 03
    ============================================================ */
 
-.timeline-section {
-  padding-top   : 44px;
-  padding-bottom: 44px;
+/* Experience : carte large pour le poste clé, cartes courtes pour le reste */
+.xp-grid {
+  display       : flex;
+  flex-direction: column;
+  gap           : 16px;
+  margin-bottom : 40px;
 }
 
-.timeline-layout {
-  display              : grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap                  : 48px;
-  align-items          : start;
+/* Coquille de carte, même langage que les cartes stack / projets */
+.xp-card {
+  background   : #FBF8F2;
+  border       : 0.5px solid var(--border);
+  border-radius: 6px;
+  padding      : 20px 22px;
 }
 
-/* Timeline column */
-.timeline-title {
-  font-size      : var(--text-sm);
-  color          : var(--accent);
-  letter-spacing : 0.2em;
-  margin-bottom  : 16px;
-  display        : block;
+.xp-card-head {
+  display      : flex;
+  flex-wrap    : wrap;
+  align-items  : baseline;
+  gap          : 4px 14px;
+  margin-bottom: 14px;
 }
 
-.timeline-row {
-  display              : grid;
-  grid-template-columns: 95px 1fr auto;
-  gap                  : 18px;
-  font-size            : var(--text-base);
-  color                : var(--ink);
-  padding              : 10px 0;
-  border-bottom        : 0.5px solid var(--border);
-  align-items          : baseline;
+.xp-year {
+  font-size: var(--text-sm);
+  color    : var(--ink-faint);
 }
 
-.timeline-row:last-child {
-  border-bottom: none;
-}
-
-.timeline-year {
-  color: var(--ink-faint);
-}
-
-.timeline-company {
+.xp-company {
+  font-size  : var(--text-lg);
   font-weight: 500;
+  color      : var(--ink);
 }
 
-.timeline-role {
-  color: var(--ink-light);
+.xp-role {
+  font-size  : var(--text-base);
+  font-weight: 400;
+  color      : var(--ink-light);
 }
 
-.timeline-location {
-  color      : var(--ink-faint);
-  font-style : italic;
+.xp-location {
+  margin-left: auto;
   font-size  : var(--text-sm);
+  font-style : italic;
+  color      : var(--ink-faint);
   white-space: nowrap;
 }
 
-/* Hobbies column */
-.hobbies-title {
-  font-size      : var(--text-sm);
-  color          : var(--accent);
-  letter-spacing : 0.2em;
-  margin-bottom  : 16px;
-  display        : block;
+.xp-summary {
+  font-size    : var(--text-base);
+  color        : var(--ink-light);
+  line-height  : 1.6;
+  margin-bottom: 14px;
 }
 
-.hobbies-list {
-  font-family: var(--font-serif);
-  font-size  : 16px;
-  color      : var(--ink);
-  line-height: 1.7;
-  font-weight: 400;
+.xp-points {
+  list-style    : none;
+  display       : flex;
+  flex-direction: column;
+  gap           : 8px;
+  font-size     : var(--text-base);
+  color         : var(--ink-light);
+  line-height   : 1.55;
 }
 
-.hobbies-comment {
-  color      : var(--ink-faint);
-  font-style : italic;
-  font-size  : var(--text-base);
+.xp-points li {
+  position    : relative;
+  padding-left: 14px;
 }
 
-.hobbies-link {
-  color      : var(--accent);
-  font-style : italic;
-  transition : opacity 0.2s;
+.xp-points li::before {
+  content : "–";
+  position: absolute;
+  left    : 0;
+  color   : var(--ink-faint);
 }
 
-.hobbies-link:hover { opacity: 0.7; }
+/* Trois postes secondaires côte à côte */
+.xp-row {
+  display              : grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap                  : 16px;
+}
+
+.xp-row .xp-card {
+  display       : flex;
+  flex-direction: column;
+  gap           : 5px;
+}
+
+.xp-row .xp-company  { font-size: var(--text-base); }
+.xp-row .xp-location { margin-left: 0; white-space: normal; }
 
 
 /* ============================================================
-   07. Stack - section 05
+   07. Stack - section 04
    ============================================================ */
 
 .stack-title {
@@ -635,7 +647,7 @@ section[id] {
 .tech-card-desc {
   font-size  : var(--text-sm);
   color      : var(--ink-light);
-  line-height: 1.65;
+  line-height: 1.6;
 }
 
 .tech-note {
@@ -648,7 +660,7 @@ section[id] {
 
 
 /* ============================================================
-   08. Projects - section 06
+   08. Projects - section 05
    ============================================================ */
 
 .projects-header {
@@ -669,7 +681,6 @@ section[id] {
   font-style : italic;
   line-height: 1.6;
   margin-top : 12px;
-  max-width  : 540px;
 }
 
 /* Category group */
@@ -748,14 +759,14 @@ section[id] {
 
 .project-card-title {
   font-family  : var(--font-serif);
-  font-size    : 20px;
+  font-size    : var(--text-lg);
   color        : var(--ink);
   margin-bottom: 6px;
   transition   : color 0.25s ease;
 }
 
 .project-card-desc {
-  font-size  : 12px;
+  font-size  : var(--text-base);
   color      : var(--ink-light);
   line-height: 1.6;
 }
@@ -825,7 +836,7 @@ section[id] {
 .project-grid-feature { grid-template-columns: repeat(3, 1fr); }
 .project-grid-tools   { grid-template-columns: repeat(4, 1fr); }
 
-.project-grid-play .project-card-title { font-size: 18px; }
+.project-grid-play .project-card-title { font-size: var(--text-lg); }
 
 /* Bac à sable : 4 colonnes pleine largeur, mêmes cartes encadrées que le reste. */
 .project-grid-play {
@@ -864,7 +875,7 @@ section[id] {
 
 .project-tool-title {
   font-family  : var(--font-serif);
-  font-size    : 18px;
+  font-size    : var(--text-lg);
   color        : var(--ink);
   margin-bottom: 6px;
   transition   : color 0.25s ease;
@@ -896,7 +907,7 @@ section[id] {
 
 .contact-cta {
   font-family: var(--font-serif);
-  font-size  : 42px;
+  font-size  : var(--text-3xl);
   color      : var(--cream);
   line-height: 1;
   font-weight: 400;
@@ -934,7 +945,7 @@ section[id] {
 }
 
 .contact-links {
-  font-size  : 12px;
+  font-size  : var(--text-sm);
   color      : #C9BCA8;
   line-height: 1.9;
   text-align : right;
@@ -1017,7 +1028,7 @@ a:not(.footer-duck):focus-visible {
 .footer-duck-quack {
   font-family: var(--font-serif);
   font-style : italic;
-  font-size  : 13px;
+  font-size  : var(--text-sm);
   color      : #C9BCA8;
   opacity    : 0;
   transform  : translateX(6px);
@@ -1092,10 +1103,6 @@ a:not(.footer-duck):focus-visible {
     grid-template-columns: 1fr;
   }
 
-  .timeline-layout {
-    grid-template-columns: 1fr;
-  }
-
   /* Stack: 2 columns on tablet */
   .tech-grid {
     grid-template-columns: repeat(2, 1fr);
@@ -1127,9 +1134,45 @@ a:not(.footer-duck):focus-visible {
     text-align: left;
   }
 
-  /* Nav: hide the middle links */
+  /* Nav: swap the inline links for a zero-JS dropdown (<details>) */
   .nav-links {
     display: none;
+  }
+
+  .nav-menu {
+    display : block;
+    position: relative;
+  }
+
+  .nav-menu > summary {
+    list-style: none;
+    cursor    : pointer;
+    font-size : var(--text-sm);
+    color     : var(--ink-light);
+    transition: color 0.25s ease;
+  }
+
+  .nav-menu > summary::-webkit-details-marker { display: none; }
+
+  .nav-menu[open] > summary,
+  .nav-menu > summary:hover { color: var(--accent); }
+
+  .nav-menu-links {
+    list-style    : none;
+    position      : absolute;
+    top           : calc(100% + 12px);
+    right         : 0;
+    z-index       : 20;
+    display       : flex;
+    flex-direction: column;
+    gap           : 14px;
+    padding       : 16px 20px;
+    background    : var(--cream);
+    border        : 0.5px solid var(--border);
+    border-radius : 8px;
+    box-shadow    : 0 10px 28px rgba(31, 26, 20, 0.12);
+    font-size     : var(--text-base);
+    white-space   : nowrap;
   }
 
   /* Projects: feature, play & tools to 2 cols, wide stack */
@@ -1146,6 +1189,11 @@ a:not(.footer-duck):focus-visible {
    ============================================================ */
 
 @media (max-width: 600px) {
+
+  /* Experience: secondary roles stack */
+  .xp-row {
+    grid-template-columns: 1fr;
+  }
 
   /* Headings */
   .hero-title {
@@ -1177,7 +1225,7 @@ a:not(.footer-duck):focus-visible {
 
   /* Contact */
   .contact-cta {
-    font-size: 30px;
+    font-size: var(--text-xl);
   }
 
   /* Projects: everything to a single column */
@@ -1201,7 +1249,7 @@ a:not(.footer-duck):focus-visible {
 
 
 /* ============================================================
-   13. Journal & article - section 07 + /journal pages
+   13. Journal & article - section 06 + /journal pages
 
    Two faces, one vocabulary. The home teaser shows cards (SVG on
    top, text below) reusing the project-thumb behaviour; the
@@ -1221,7 +1269,7 @@ a:not(.footer-duck):focus-visible {
 }
 
 
-/* ---- 13a. Home teaser : cards (section 07) ----------------- */
+/* ---- 13a. Home teaser : cards (section 06) ----------------- */
 
 .journal-teaser-head { margin-bottom: 28px; }
 
@@ -1278,7 +1326,7 @@ a:not(.footer-duck):focus-visible {
 
 .journal-card-title {
   font-family  : var(--font-serif);
-  font-size    : 18px;
+  font-size    : var(--text-lg);
   line-height  : 1.25;
   color        : var(--ink);
   margin-bottom: 6px;
@@ -1288,7 +1336,7 @@ a:not(.footer-duck):focus-visible {
 .journal-card:hover .journal-card-title { color: var(--accent); }
 
 .journal-card-desc {
-  font-size  : 12px;
+  font-size  : var(--text-base);
   color      : var(--ink-light);
   line-height: 1.6;
 }
@@ -1297,7 +1345,7 @@ a:not(.footer-duck):focus-visible {
 .journal-teaser-all {
   display   : inline-block;
   margin-top: 30px;
-  font-size : 16px;
+  font-size : var(--text-base);
   color     : var(--accent);
   transition: opacity 0.2s ease;
 }
@@ -1411,7 +1459,7 @@ a:not(.footer-duck):focus-visible {
 .journal-entry-desc {
   display   : block;
   margin-top: 5px;
-  font-size : 12px;
+  font-size : var(--text-base);
   color     : var(--ink-light);
   line-height: 1.6;
 }
@@ -1469,7 +1517,7 @@ a:not(.footer-duck):focus-visible {
 
 .article-title {
   font-family   : var(--font-serif);
-  font-size     : 38px;
+  font-size     : var(--text-3xl);
   line-height   : 1.12;
   letter-spacing: -0.02em;
   color         : var(--ink);
@@ -1489,7 +1537,7 @@ a:not(.footer-duck):focus-visible {
 /* The prose itself. Slightly darker than the rest of the site,
    because long-form reading earns the extra contrast. */
 .article-body {
-  font-size  : 17px;
+  font-size  : var(--text-lg);
   line-height: 1.6;
   color      : var(--ink);
 }
@@ -1641,7 +1689,7 @@ a:not(.footer-duck):focus-visible {
   .journal-entry-arrow { display: none; }
 
   .article         { padding: 28px 22px 32px; margin: 16px auto; }
-  .article-title   { font-size: 28px; }
-  .article-body    { font-size: 15px; }
+  .article-title   { font-size: var(--text-3xl); }
+  .article-body    { font-size: var(--text-base); }
   .article-body h2 { margin-top: 36px; }
 }

@@ -86,7 +86,7 @@ function readingTime(string $markdown): string
 function thumb(array $post): string
 {
     if ($post['thumbnail'] !== '') {
-        return '<img src="/' . esc($post['thumbnail']) . '" alt="" loading="lazy">';
+        return '<img src="/' . esc($post['thumbnail']) . '" alt="" width="400" height="300" loading="lazy">';
     }
 
     $initial = mb_strtoupper(mb_substr($post['title'], 0, 1));
@@ -174,7 +174,7 @@ foreach ($posts as $post) {
     ], JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE | JSON_PRETTY_PRINT);
 
     $hero = $post['thumbnail'] !== ''
-        ? '      <figure class="article-hero"><img src="/' . esc($post['thumbnail']) . '" alt=""></figure>' . "\n"
+        ? '      <figure class="article-hero"><img src="/' . esc($post['thumbnail']) . '" alt="" width="400" height="300"></figure>' . "\n"
         : '';
 
     $main = render($articleTpl, [

@@ -97,7 +97,7 @@
   <g font-family="'DM Serif Display', Georgia, serif">
     <text x="70" y="270" font-size="68" fill="#1F1A14">Thibault</text>
     <text x="70" y="338" font-size="68" fill="#B5341A">Lafaurie</text>
-    <text x="72" y="388" font-size="27" font-style="italic" fill="#6B6258">Développeur web, <tspan fill="#B5341A">en prod.</tspan></text>
+    <text x="72" y="388" font-size="27" font-style="italic" fill="#6B6258">Développeur Backend, <tspan fill="#B5341A">en prod.</tspan></text>
   </g>
   <g font-family="'Inter', system-ui, sans-serif">
     <rect x="70" y="544" width="8" height="8" rx="1" fill="#B5341A"/>
