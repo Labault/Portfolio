@@ -597,18 +597,12 @@ section[id] {
   line-height: 1.65;
 }
 
-.tech-card-learning {
-  border-style: dashed;
-  opacity     : 0.8;
-}
-
-.tech-card-learning .tech-card-name {
-  color      : var(--accent);
+.tech-note {
+  margin-top : 20px;
+  font-size  : var(--text-xs);
+  color      : var(--ink-faint);
   font-style : italic;
-}
-
-.tech-card-learning .tech-card-logo-mono {
-  color: var(--accent);
+  line-height: 1.6;
 }
 
 
