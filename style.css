@@ -724,19 +724,16 @@ section[id] {
   transform-origin: center;
 }
 
-/* Survol : la vignette se soulève légèrement (tout type de carte) */
-.project-card-link:hover .project-thumb,
-.project-wide:hover .project-wide-image {
+/* Survol : la vignette se soulève légèrement */
+.project-card-link:hover .project-thumb {
   transform: translateY(-6px) scale(1.015);
 }
 
 @media (prefers-reduced-motion: reduce) {
   .project-thumb,
-  .project-wide-image,
   .project-card-link:hover .project-thumb,
   .project-grid-pinned .project-card-link .project-thumb,
-  .project-grid-pinned .project-card-link:hover .project-thumb,
-  .project-wide:hover .project-wide-image {
+  .project-grid-pinned .project-card-link:hover .project-thumb {
     transition: none;
     transform : none;
   }
@@ -797,66 +794,6 @@ section[id] {
 .project-grid-pinned .project-card-link:hover .project-thumb {
   transform: rotate(0deg) translateY(-6px) scale(1.015);
 }
-
-/* Perso & soigné: wide horizontal card (compacte, centrée) */
-.project-wide {
-  display              : grid;
-  grid-template-columns: 0.85fr 1.4fr;
-  gap                  : 28px;
-  align-items          : stretch;
-  border               : 0.5px solid var(--border);
-  border-radius        : 8px;
-  padding              : 22px;
-  max-width            : 860px;
-  margin               : 0 auto;
-}
-
-.project-wide-image {
-  overflow     : hidden;
-  border-radius: 6px;
-  aspect-ratio : 4 / 3;
-  align-self   : center;
-  transition   : transform 0.3s ease;
-}
-
-.project-wide-image img,
-.project-wide-image svg {
-  display: block;
-  width  : 100%;
-  height : 100%;
-}
-
-/* Le corps occupe toute la hauteur : contenu en haut, CTA ancré en bas */
-.project-wide-body {
-  display       : flex;
-  flex-direction: column;
-}
-
-.project-wide-body .project-card-cta {
-  margin-top : auto;
-  padding-top: 18px;
-}
-
-/* Chips de caractéristiques : remplissent le creux et résument le projet */
-.project-wide-tags {
-  display  : flex;
-  flex-wrap: wrap;
-  gap      : 8px;
-  margin-top: 16px;
-}
-
-.project-wide-tag {
-  font-size    : var(--text-sm);
-  color        : var(--ink-light);
-  background   : var(--cream);
-  border       : 0.5px solid var(--border);
-  border-radius: 999px;
-  padding      : 4px 12px;
-  white-space  : nowrap;
-}
-
-.project-wide:hover .project-card-title { color: var(--accent); }
-.project-wide .project-card-title       { font-size: 24px; }
 
 /* L'établi: tool / repo cards */
 .project-tool {
@@ -1121,11 +1058,6 @@ section[id] {
   .project-grid-play,
   .project-grid-tools {
     grid-template-columns: repeat(2, 1fr);
-  }
-
-  .project-wide {
-    grid-template-columns: 1fr;
-    gap                  : 20px;
   }
 }
 
