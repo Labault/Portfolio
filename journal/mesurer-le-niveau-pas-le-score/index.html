@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="/style.css">
+
+<!-- Primary Meta -->
+<title>Ce n&#039;est pas le nombre de bonnes réponses qui compte — Journal · Thibault Lafaurie</title>
+<meta name="description" content="Deux élèves à 15/20 n&#039;ont pas le même niveau. Comment Docendo mesure le niveau matière par matière avec de la théorie de réponse à l&#039;item, et pourquoi le vrai travail n&#039;est pas le moteur mais la calibration des questions.">
+<meta name="author" content="Thibault Lafaurie">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://labault.dev/journal/mesurer-le-niveau-pas-le-score/">
+
+<!-- Theme -->
+<meta name="theme-color" content="#1e2327">
+
+<!-- Open Graph / Facebook / LinkedIn -->
+<meta property="og:type" content="article">
+<meta property="og:locale" content="fr_FR">
+<meta property="og:site_name" content="Thibault Lafaurie">
+<meta property="og:url" content="https://labault.dev/journal/mesurer-le-niveau-pas-le-score/">
+<meta property="og:title" content="Ce n&#039;est pas le nombre de bonnes réponses qui compte — Journal · Thibault Lafaurie">
+<meta property="og:description" content="Deux élèves à 15/20 n&#039;ont pas le même niveau. Comment Docendo mesure le niveau matière par matière avec de la théorie de réponse à l&#039;item, et pourquoi le vrai travail n&#039;est pas le moteur mais la calibration des questions.">
+<meta property="og:image" content="https://labault.dev/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Thibault Lafaurie - Développeur Backend en prod">
+
+<!-- Twitter / X -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Ce n&#039;est pas le nombre de bonnes réponses qui compte — Journal · Thibault Lafaurie">
+<meta name="twitter:description" content="Deux élèves à 15/20 n&#039;ont pas le même niveau. Comment Docendo mesure le niveau matière par matière avec de la théorie de réponse à l&#039;item, et pourquoi le vrai travail n&#039;est pas le moteur mais la calibration des questions.">
+<meta name="twitter:image" content="https://labault.dev/og-image.png">
+<meta name="twitter:image:alt" content="Thibault Lafaurie - Développeur Backend en prod">
+
+<!-- Favicon : la mascotte Canard Dev -->
+<link rel="icon" type="image/png" href="/favicon.png">
+
+<!-- JSON-LD : BlogPosting -->
+<script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "headline": "Ce n'est pas le nombre de bonnes réponses qui compte",
+    "description": "Deux élèves à 15/20 n'ont pas le même niveau. Comment Docendo mesure le niveau matière par matière avec de la théorie de réponse à l'item, et pourquoi le vrai travail n'est pas le moteur mais la calibration des questions.",
+    "datePublished": "2026-06-09",
+    "url": "https://labault.dev/journal/mesurer-le-niveau-pas-le-score/",
+    "author": {
+        "@type": "Person",
+        "name": "Thibault Lafaurie",
+        "url": "https://labault.dev/"
+    },
+    "publisher": {
+        "@type": "Person",
+        "name": "Thibault Lafaurie"
+    },
+    "inLanguage": "fr-FR"
+}
+</script>
+</head>
+<body>
+
+<a class="skip-link" href="#main">Aller au contenu</a>
+
+<!--
+  Still reading the source on the journal pages too? Of course you are.
+  Same deal as the home page: no framework, no bundler, zero runtime JS.
+  These pages are generated locally by a small PHP script (build.php),
+  from Markdown. The thing you're reading is the plain HTML it spat out.
+-->
+
+<div class="browser-frame">
+  <div class="browser-chrome">
+    <div class="browser-chrome-dot" style="background: #C9BCA8;"></div>
+    <div class="browser-chrome-dot" style="background: #B5341A;"></div>
+    <div class="browser-chrome-dot" style="background: #5A7236;"></div>
+    <div class="browser-chrome-url">https://labault.dev/journal/mesurer-le-niveau-pas-le-score</div>
+  </div>
+
+  <div class="page">
+
+    <nav class="nav" aria-label="Navigation principale">
+      <a href="/#index" class="nav-logo">
+        <div class="nav-logo-dot" aria-hidden="true"></div>
+        <span class="nav-logo-name">Thibault Lafaurie</span>
+      </a>
+      <ul class="nav-links" role="list">
+        <li><a href="/#index"    class="nav-link">index</a></li>
+        <li><a href="/#parcours" class="nav-link">parcours</a></li>
+        <li><a href="/#stack"    class="nav-link">stack</a></li>
+        <li><a href="/#projets"  class="nav-link">projets</a></li>
+        <li><a href="/journal/"  class="nav-link" aria-current="page">journal</a></li>
+        <li><a href="/#contact"  class="nav-link">contact</a></li>
+      </ul>
+      <div class="nav-status" aria-label="Statut : en recherche d'un CDI">
+        <span class="nav-status-dot anim-pulse"></span>
+        <span class="nav-status-text">en recherche d'un CDI</span>
+      </div>
+    </nav>
+
+    <main id="main" class="section article">
+      <a class="article-back" href="/journal/">← journal</a>
+      <header class="article-head">
+      <figure class="article-hero"><img src="/assets/journal/mesurer-le-niveau-pas-le-score.svg" alt=""></figure>
+
+        <span class="section-label">journal</span>
+        <h1 class="article-title">Ce n&#039;est pas le nombre de bonnes réponses qui compte</h1>
+        <p class="article-byline">9 juin 2026 <span class="article-byline-sep">·</span> 3 min de lecture</p>
+      </header>
+      <div class="article-body">
+<p>Sur un test classique, on compte les bonnes réponses. Quinze sur vingt, tu es &quot;moyen-bon&quot;, et on passe à autre chose. Le problème, c'est que cette mesure ment. Deux élèves à quinze sur vingt n'ont pas le même niveau : l'un a survolé des questions faciles, l'autre s'est battu sur des questions dures. Le score est identique, le niveau n'a rien à voir.</p>
+<p>Ce qui compte, ce n'est pas combien de questions tu réussis. C'est jusqu'à quelle difficulté tu tiens.</p>
+<h2>Pourquoi on en avait besoin</h2>
+<p>Sur Docendo, tout repose sur une estimation précise du niveau de l'élève. Sans elle, impossible de proposer le bon suivi : les bonnes leçons, les bons exercices, au bon endroit. Et un élève n'a pas un &quot;niveau&quot;, il en a autant que de thèmes. Très bon en géométrie, perdu dans les fractions. Une note globale écrase exactement l'information dont on a besoin.</p>
+<p>Il nous fallait donc mesurer le niveau thème par thème, finement, et vite. Pas un examen de trois heures. Une dizaine de minutes, à l'arrivée sur la plateforme.</p>
+<h2>Comment ça marche</h2>
+<p>L'élève passe une trentaine de questions, une dizaine de minutes. À la fin, on n'additionne pas ses bonnes réponses : on croise sa réussite avec la difficulté estimée de chaque question. Réussir une question dure ne pèse pas comme réussir une question facile, et échouer sur une facile coûte plus que d'échouer sur une dure. De ce croisement sort une estimation de niveau par matière, un ratio, qui sert ensuite à rediriger l'élève vers les questionnaires et les leçons qui visent ses failles, pas ses points forts.</p>
+<p>Les maths derrière, c'est de la théorie de réponse à l'item. Ce n'est pas un secret : les formules sont documentées, il y a des décennies de papiers dessus. Les implémenter, ce n'est pas là que se joue la difficulté.</p>
+<h2>Là où ça s'est joué : calibrer ses propres questions</h2>
+<p>Voilà le piège que personne ne voit venir. Le modèle estime le niveau de l'élève à partir de la difficulté de tes questions. Donc si tu te trompes sur la difficulté de tes questions, tu te trompes sur le niveau de tes élèves. Tout l'édifice repose sur une chose que tu dois fournir toi-même : la vraie difficulté de chaque item.</p>
+<p>On a estimé cette difficulté en amont, question par question. Et on s'est trompés. En test, les élèves butaient sur des questions qu'on avait classées plus faciles qu'elles ne l'étaient vraiment. Résultat : le modèle les estimait plus faibles qu'ils n'étaient, et les ratios sortaient déséquilibrés. Des élèves échouaient là où ils auraient dû réussir.</p>
+<p>On a donc revu à la baisse une grande partie de nos estimations, puis lancé un audit complet : toutes les questions, tous les niveaux, toutes les matières. Pas une retouche cosmétique, une reprise de fond du barème de difficulté.</p>
+<p>La leçon : en test adaptatif, ton test ne vaut que ce que vaut la calibration de tes questions. Le moteur, c'est la moitié facile. La banque de questions, c'est la moitié qui fait mal.</p>
+<h2>Où on en est</h2>
+<p>On est encore en phase de test, avec de vraies personnes qui passent le process. C'est précisément ce qui a révélé le déséquilibre, et c'est tout l'intérêt de tester avant d'ouvrir en grand : on a recalibré pendant que ça ne coûtait que du temps, pas la confiance des utilisateurs.</p>
+<p>Le moteur, n'importe qui peut le coder à partir d'un papier. Calibrer des centaines de questions pour qu'elles disent la vérité sur un élève, ça, c'est le vrai travail. Et ça ne se trouve dans aucun papier.</p>
+
+      </div>
+      <footer class="article-foot">
+        <p class="article-foot-cta">Un produit à faire tenir, une migration, un CDI à pourvoir ? <em>On en parle.</em></p>
+        <a href="mailto:contact@labault.dev" class="article-foot-mail">contact@labault.dev</a>
+        <a href="/journal/" class="article-foot-back">← tout le journal</a>
+      </footer>
+    </main>
+
+
+  </div>
+</div>
+
+</body>
+</html>
