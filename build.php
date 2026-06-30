@@ -255,11 +255,15 @@ foreach (array_slice($posts, 0, TEASER_COUNT) as $post) {
     ]);
 }
 
+$total = count($posts);
+$cta   = $total > 1 ? "Voir les $total articles →" : "Voir l'article →";
+
 $home  = (string) file_get_contents(ROOT . '/index.html');
 $block = "<!-- JOURNAL:START -->\n"
        . "        <div class=\"journal-cards\">\n"
        . $cards
        . "        </div>\n"
+       . "        <a class=\"journal-teaser-all\" href=\"/journal/\">$cta</a>\n"
        . "        <!-- JOURNAL:END -->";
 
 $home = preg_replace(

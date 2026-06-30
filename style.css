@@ -1195,9 +1195,9 @@ a:not(.footer-duck):focus-visible {
 }
 
 .journal-cards {
-  display  : flex;
-  flex-wrap: wrap;
-  gap      : 26px;
+  display              : grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap                  : 26px;
 }
 
 /* A framed surface so each one reads as an article object, not a floating
@@ -1205,7 +1205,6 @@ a:not(.footer-duck):focus-visible {
 .journal-card {
   display       : flex;
   flex-direction: column;
-  flex          : 0 1 320px;
   color         : inherit;
   background    : #FBF8F2;
   border        : 0.5px solid var(--border);
@@ -1255,10 +1254,11 @@ a:not(.footer-duck):focus-visible {
   line-height: 1.6;
 }
 
+/* The article count, stated plainly, so it's clear there are more than the teasers. */
 .journal-teaser-all {
   display   : inline-block;
-  margin-top: 28px;
-  font-size : var(--text-sm);
+  margin-top: 30px;
+  font-size : 16px;
   color     : var(--accent);
   transition: opacity 0.2s ease;
 }
@@ -1591,9 +1591,7 @@ a:not(.footer-duck):focus-visible {
 }
 
 @media (max-width: 600px) {
-  .journal-cards { gap: 20px; }
-
-  .journal-card { flex: 1 1 100%; }
+  .journal-cards { grid-template-columns: 1fr; gap: 20px; }
 
   .journal-entry {
     grid-template-columns: 96px 1fr;
