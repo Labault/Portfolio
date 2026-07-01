@@ -934,7 +934,7 @@ section[id] {
 
 .contact-cv {
   font-size  : var(--text-sm);
-  color      : #766C62;
+  color      : #C9BCA8;
   margin-top : 20px;
   display    : block;
   transition : color 0.25s ease;
@@ -944,7 +944,7 @@ section[id] {
 
 .contact-note {
   font-size : var(--text-sm);
-  color     : #766C62;
+  color     : #C9BCA8;
   margin-top: 20px;
 }
 
