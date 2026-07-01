@@ -836,6 +836,10 @@ section[id] {
 .project-grid-feature { grid-template-columns: repeat(3, 1fr); }
 .project-grid-tools   { grid-template-columns: repeat(4, 1fr); }
 
+/* En prod : la carte remplit toute sa colonne (on lève le plafond 320px partagé
+   qui la centrait et laissait du blanc autour). */
+.project-grid-feature .project-card-link { max-width: none; }
+
 .project-grid-play .project-card-title { font-size: var(--text-lg); }
 
 /* Bac à sable : 4 colonnes pleine largeur, mêmes cartes encadrées que le reste. */
