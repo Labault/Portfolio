@@ -944,7 +944,7 @@ section[id] {
 
 .contact-note {
   font-size : var(--text-sm);
-  color     : #C9BCA8;
+  color     : #94897A;
   margin-top: 20px;
 }
 
@@ -956,12 +956,25 @@ section[id] {
 }
 
 .contact-social-link {
-  display   : block;
-  color     : #C9BCA8;
-  transition: color 0.25s ease;
+  display        : flex;
+  align-items    : center;
+  justify-content: flex-end;
+  gap            : 8px;
+  color          : #C9BCA8;
+  transition     : color 0.25s ease;
 }
 
 .contact-social-link:hover { color: var(--accent); }
+
+/* Glyphe monochrome adouci : hérite du crème via currentColor, discret en
+   opacité, puis se réveille avec le texte au survol. */
+.contact-social-icon {
+  flex-shrink: 0;
+  opacity    : 0.45;
+  transition : opacity 0.25s ease;
+}
+
+.contact-social-link:hover .contact-social-icon { opacity: 1; }
 
 
 /* ============================================================
