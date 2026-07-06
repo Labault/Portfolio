@@ -54,10 +54,10 @@ without a 200 KB runtime.
 
 The blog lives at [/journal](https://labault.dev/journal/). Each article is one
 Markdown file in `journal/_posts/`. `build.php` turns each into its own static
-page with a clean URL, builds the year-grouped index, drops the latest few as
-teasers on the home page, and refreshes the sitemap. Per-article `<title>`, meta
-description, Open Graph and JSON-LD come for free, so every entry is its own
-front door for Google.
+page with a clean URL, draws its cover, builds the year-grouped index, drops the
+latest few as teasers on the home page, and refreshes the sitemap. Per-article
+`<title>`, meta description, Open Graph and JSON-LD come for free, so every entry
+is its own front door for Google.
 
 ### Writing a new entry
 
@@ -80,15 +80,49 @@ front door for Google.
 
    ```bash
    composer install   # once: restores vendor/ (never deployed)
-   php build.php
+   php build.php       # generates a cover on first run, needs a key (see below)
    ```
 
-4. Read the result, commit the generated HTML, push. The deploy does the rest.
+4. Read the result, commit the generated HTML *and* the new cover, push. The
+   deploy does the rest.
 
 Two warnings the code already gives you, repeated here for the people who read
 READMEs and not comments: don't hand-edit anything between the `JOURNAL:START`
 and `JOURNAL:END` markers in `index.html` (the build overwrites it), and don't
 edit the generated `journal/**/index.html` files (edit the Markdown instead).
+
+### The covers
+
+Every article wears a bronze-medallion cover, one SVG per post in
+`assets/journal/<slug>.svg`. You don't draw it and you don't reference it: on the
+first build, if a post has no cover, `build.php` asks Claude for one and writes it
+next to the others. After that it's a plain committed asset, served like any other
+file. The build only calls out when a cover is missing, so a normal rebuild is
+offline and free.
+
+The house style (night-blue field, bronze coin, engraved emblem) lives in one
+constant, `MEDALLION_BRIEF`, at the top of `build.php`. Edit it to move the whole
+series at once; steer a single cover with an optional `illustration:` line in the
+front matter (`illustration: a test tube holding a chip`). Set an explicit
+`thumbnail:` and the build leaves it alone. To redraw: `php build.php --force` for
+all, `php build.php --force=the-slug` for one.
+
+It reads the key from a gitignored `.env.local` it loads on its own, so `php
+build.php` just works:
+
+```bash
+# .env.local, never committed
+ANTHROPIC_API_KEY=sk-ant-...
+```
+
+Prefer an `export ANTHROPIC_API_KEY=...` in `~/.zshrc`? That works too, and wins
+over the file.
+
+No key, no drama: existing covers stay put, and a new post without one falls back
+to a serif monogram (the build says so). The request goes over plain curl, so this
+buys a runtime, not a dependency, the Markdown parser is still the only line in
+`composer.json`. And like the rest of the build, it runs on my machine, never the
+server.
 
 ## Stack
 

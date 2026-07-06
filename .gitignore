@@ -9,6 +9,10 @@
 # Logs & misc
 *.log
 
+# Secrets : the API key build.php uses to draw covers. Local only, never committed.
+.env
+.env.local
+
 # Build tooling : vendor is restored locally via `composer install`,
 # never deployed (the live site serves the committed HTML only).
 /vendor/
