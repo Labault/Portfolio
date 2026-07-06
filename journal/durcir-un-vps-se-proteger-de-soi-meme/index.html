@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="/style.css">
+
+<!-- Primary Meta -->
+<title>Durcir un VPS, c&#039;est surtout se protéger de soi-même - Journal · Thibault Lafaurie</title>
+<meta name="description" content="Le vrai danger quand tu sécurises un serveur, ce n&#039;est pas le botnet qui scanne ton port 22. C&#039;est toi, à 23h, avec un port oublié dans ta règle de pare-feu.">
+<meta name="author" content="Thibault Lafaurie">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://labault.dev/journal/durcir-un-vps-se-proteger-de-soi-meme/">
+
+<!-- Theme -->
+<meta name="theme-color" content="#1e2327">
+
+<!-- Open Graph / Facebook / LinkedIn -->
+<meta property="og:type" content="article">
+<meta property="og:locale" content="fr_FR">
+<meta property="og:site_name" content="Thibault Lafaurie">
+<meta property="og:url" content="https://labault.dev/journal/durcir-un-vps-se-proteger-de-soi-meme/">
+<meta property="og:title" content="Durcir un VPS, c&#039;est surtout se protéger de soi-même - Journal · Thibault Lafaurie">
+<meta property="og:description" content="Le vrai danger quand tu sécurises un serveur, ce n&#039;est pas le botnet qui scanne ton port 22. C&#039;est toi, à 23h, avec un port oublié dans ta règle de pare-feu.">
+<meta property="og:image" content="https://labault.dev/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Thibault Lafaurie - Développeur Backend en prod">
+
+<!-- Twitter / X -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Durcir un VPS, c&#039;est surtout se protéger de soi-même - Journal · Thibault Lafaurie">
+<meta name="twitter:description" content="Le vrai danger quand tu sécurises un serveur, ce n&#039;est pas le botnet qui scanne ton port 22. C&#039;est toi, à 23h, avec un port oublié dans ta règle de pare-feu.">
+<meta name="twitter:image" content="https://labault.dev/og-image.png">
+<meta name="twitter:image:alt" content="Thibault Lafaurie - Développeur Backend en prod">
+
+<!-- Favicon : la mascotte Canard Dev -->
+<link rel="icon" type="image/png" href="/favicon.png">
+
+<!-- Analytics : Umami self-hosted (stats.labault.dev) -->
+<script defer src="/tracker.js" data-website-id="b345c42f-7848-43cb-a86e-927df3eae2e8" data-host-url="https://stats.labault.dev"></script>
+
+<!-- JSON-LD : BlogPosting -->
+<script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "headline": "Durcir un VPS, c'est surtout se protéger de soi-même",
+    "description": "Le vrai danger quand tu sécurises un serveur, ce n'est pas le botnet qui scanne ton port 22. C'est toi, à 23h, avec un port oublié dans ta règle de pare-feu.",
+    "datePublished": "2026-07-07",
+    "url": "https://labault.dev/journal/durcir-un-vps-se-proteger-de-soi-meme/",
+    "author": {
+        "@type": "Person",
+        "name": "Thibault Lafaurie",
+        "url": "https://labault.dev/"
+    },
+    "publisher": {
+        "@type": "Person",
+        "name": "Thibault Lafaurie"
+    },
+    "inLanguage": "fr-FR"
+}
+</script>
+</head>
+<body>
+
+<a class="skip-link" href="#main">Aller au contenu</a>
+
+<!--
+  Still reading the source on the journal pages too? Of course you are.
+  Same deal as the home page: no framework, no bundler, zero runtime JS.
+  These pages are generated locally by a small PHP script (build.php),
+  from Markdown. The thing you're reading is the plain HTML it spat out.
+-->
+
+<div class="browser-frame">
+  <div class="browser-chrome">
+    <div class="browser-chrome-dot" style="background: #C9BCA8;"></div>
+    <div class="browser-chrome-dot" style="background: #B5341A;"></div>
+    <div class="browser-chrome-dot" style="background: #5A7236;"></div>
+    <div class="browser-chrome-url">https://labault.dev/journal/durcir-un-vps-se-proteger-de-soi-meme</div>
+  </div>
+
+  <div class="page">
+
+    <nav class="nav" aria-label="Navigation principale">
+      <a href="/#index" class="nav-logo">
+        <div class="nav-logo-dot" aria-hidden="true"></div>
+        <span class="nav-logo-name">Thibault Lafaurie</span>
+      </a>
+      <ul class="nav-links" role="list">
+        <li><a href="/#index"    class="nav-link">index</a></li>
+        <li><a href="/#parcours" class="nav-link">parcours</a></li>
+        <li><a href="/#stack"    class="nav-link">stack</a></li>
+        <li><a href="/#projets"  class="nav-link">projets</a></li>
+        <li><a href="/journal/"  class="nav-link" aria-current="page">journal</a></li>
+        <li><a href="/#contact"  class="nav-link">contact</a></li>
+      </ul>
+      <div class="nav-status" aria-label="Statut : en recherche d'un CDI">
+        <span class="nav-status-dot anim-pulse"></span>
+        <span class="nav-status-text">en recherche d'un CDI</span>
+      </div>
+    </nav>
+
+    <main id="main" class="section article">
+      <a class="article-back" href="/journal/">← journal</a>
+      <header class="article-head">
+      <figure class="article-hero"><img src="/assets/journal/durcir-un-vps-se-proteger-de-soi-meme.svg" alt="" width="400" height="300"></figure>
+
+        <span class="section-label">journal</span>
+        <h1 class="article-title">Durcir un VPS, c&#039;est surtout se protéger de soi-même</h1>
+        <p class="article-byline">7 juillet 2026 <span class="article-byline-sep">·</span> 3 min de lecture</p>
+      </header>
+      <div class="article-body">
+<p>Il est 23h. Tu es en SSH sur un VPS tout neuf, et tu colles la règle de pare-feu qui ferme tout, sauf les ports de ta liste. Tu valides.</p>
+<p>Une demi-seconde trop tard, la question froide arrive : le 22, je l'ai mis dans la liste ?</p>
+<p>Le terminal ne répond plus. Tu viens peut-être de te bannir de ta propre machine, et la seule personne habilitée à rouvrir la porte, c'était toi.</p>
+<p>Tout le monde a vécu cette seconde-là. Ou la vivra. C'est un rite de passage de l'auto-hébergement, au même titre que le premier <code>rm -rf</code> un cran trop haut dans l'arborescence.</p>
+<p>Quand on parle de durcir un serveur, on imagine l'ennemi dehors : le bot qui scanne ton port 22 douze fois par minute, le scan de vulnérabilités automatisé, la Chine dans tes logs d'auth. Vrai, mais ce n'est pas là que ça fait mal. Le type qui casse vraiment ta prod, c'est toi. Trois cafés dans le sang, une règle de pare-feu à laquelle il manque un port, et te voilà dehors, sans clé, avec un serveur parfaitement sécurisé contre son propriétaire légitime.</p>
+<p>C'est le scénario que server-setup, mon converger de VPS, traite en priorité. Pas les attaquants. Moi.</p>
+<p>L'idée tient en une phrase : aucune modification qui peut te verrouiller ne s'applique sans filet. La règle risquée part bien, mais elle part armée d'un minuteur. Le serveur attend que tu confirmes, depuis ta session, que tu es toujours là. Si la confirmation arrive, la modif est gravée. Si elle n'arrive pas dans le délai, parce que tu t'es coupé la connexion tout seul, le converger considère que quelque chose a mal tourné et annule tout ce qu'il vient de faire.</p>
+<p>Tu te bannis. Tu attends. La porte se rouvre. Tu jures un peu, tu corriges ta liste de ports, tu recommences. Personne n'a eu besoin de la console de secours de l'hébergeur, personne n'a réinstallé quoi que ce soit.</p>
+<p>C'est un pattern connu sous le nom de dead-man's switch : si l'humain lâche le bouton, le système revient de lui-même à un état sûr. On l'utilise pour les trains et les presses industrielles. Il se trouve qu'il marche aussi bien pour t'empêcher de te sécuriser jusqu'à l'asphyxie.</p>
+<p>Le pendant, c'est une commande <code>doctor</code>. Avant de toucher au moindre réglage, elle inspecte l'état de la machine et te dit ce qui est cohérent et ce qui ne l'est pas. Durcir, c'est bien. Durcir en aveugle sur une machine dont tu ne connais plus l'état exact, c'est comme ça qu'on obtient une brique, très bien protégée, mais une brique.</p>
+<p>Parce que c'est ça, le vrai risque. Un pare-feu que tu ne peux pas annuler n'est pas une mesure de sécurité, c'est un pistolet chargé braqué sur ton propre uptime. La question n'est jamais « est-ce que c'est verrouillé », c'est « est-ce que je peux revenir si je me suis trompé ».</p>
+<p>On peut trouver ça parano pour un VPS à cinq euros par mois. L'hébergeur a une console de secours, non ? Si. Sauf que la console de secours, on la découvre toujours au pire moment, et jamais avec le bon layout clavier. Un dead-man's switch, c'est juste refuser de dépendre de son pire quart d'heure.</p>
+<p>L'infra que personne ne documente, celle qui n'a pas de tuto sexy et qu'on découvre le soir où on est coincé dehors, c'est exactement celle qui décide si « durci » veut dire sécurisé, ou juste inaccessible. Y compris à toi.</p>
+
+      </div>
+      <footer class="article-foot">
+        <p class="article-foot-cta">Un produit à faire tenir, une migration, un CDI à pourvoir ? <em>On en parle.</em></p>
+        <a href="mailto:contact@labault.dev" class="article-foot-mail">contact@labault.dev</a>
+        <a href="/journal/" class="article-foot-back">← tout le journal</a>
+      </footer>
+    </main>
+
+
+  </div>
+</div>
+
+</body>
+</html>
