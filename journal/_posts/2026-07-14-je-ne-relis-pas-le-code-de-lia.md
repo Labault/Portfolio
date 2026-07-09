@@ -1,6 +1,6 @@
 ---
 title: Je ne relis pas le code de l'IA, je l'empêche de faire des bêtises
-date: 2026-07-08
+date: 2026-07-14
 description: Superviser une IA, ce n'est pas relire chaque ligne, c'est construire des garde-fous qu'elle ne peut pas franchir. Le prompt parfait se banalise en six mois. Le jugement et la vérification automatisée, non.
 illustration: un rempart de pierre (garde-fous)
 ---
