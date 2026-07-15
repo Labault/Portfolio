@@ -531,7 +531,7 @@ foreach ($posts as $post) {
     ]);
 
     $page = render($layout, [
-        'TITLE'       => esc($post['title']) . ' - Journal · Thibault Lafaurie',
+        'TITLE'       => esc($post['title']) . ' · Journal · Thibault Lafaurie',
         'DESCRIPTION' => esc($post['description']),
         'CANONICAL'   => $url,
         'OG_TYPE'     => 'article',
@@ -573,7 +573,7 @@ foreach ($byYear as $year => $yearPosts) {
 
 $indexMain = render(tpl('list'), ['GROUPS' => $groups]);
 $indexPage = render($layout, [
-    'TITLE'       => 'Journal - Thibault Lafaurie',
+    'TITLE'       => 'Journal · Thibault Lafaurie',
     'DESCRIPTION' => 'Notes de prod : migrations, legacy, infra et les pièges du terrain. Le journal de Thibault Lafaurie, développeur backend PHP / Symfony.',
     'CANONICAL'   => BASE_URL . '/journal/',
     'OG_TYPE'     => 'website',
