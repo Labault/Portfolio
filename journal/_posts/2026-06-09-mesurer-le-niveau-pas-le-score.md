@@ -1,5 +1,5 @@
 ---
-title: Ce n'est pas le nombre de bonnes réponses qui compte
+title: Ce n’est pas le nombre de bonnes réponses qui compte
 date: 2026-06-09
 description: Deux élèves à 15/20 n'ont pas le même niveau. Comment Docendo mesure le niveau matière par matière avec de la théorie de réponse à l'item, et pourquoi le vrai travail n'est pas le moteur mais la calibration des questions.
 thumbnail: assets/journal/mesurer-le-niveau-pas-le-score.svg

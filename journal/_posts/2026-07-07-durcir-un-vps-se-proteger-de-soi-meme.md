@@ -1,5 +1,5 @@
 ---
-title: Durcir un VPS, c'est surtout se protéger de soi-même
+title: Durcir un VPS, c’est surtout se protéger de soi-même
 date: 2026-07-07
 description: Le vrai danger quand tu sécurises un serveur, ce n'est pas le botnet qui scanne ton port 22. C'est toi, à 23h, avec un port oublié dans ta règle de pare-feu.
 ---
