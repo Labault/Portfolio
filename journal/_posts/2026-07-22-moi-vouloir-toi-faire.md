@@ -1,6 +1,6 @@
 ---
 title: Moi vouloir, toi faire
-date: 2026-07-28
+date: 2026-07-22
 description: Un prompt d'agent n'est pas une commande qu'on exécute, c'est un extrait de texte que le modèle complète. Cadrage et politesse ne sont pas du bruit, ils orientent la complétion vers les bonnes réponses.
 illustration: une paroi de grotte avec des pictogrammes peints à la main (pas de clavier, pas de tech, du pariétal pur)
 ---
