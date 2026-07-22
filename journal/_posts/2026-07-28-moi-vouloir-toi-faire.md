@@ -2,7 +2,7 @@
 title: Moi vouloir, toi faire
 date: 2026-07-28
 description: Un prompt d'agent n'est pas une commande qu'on exécute, c'est un extrait de texte que le modèle complète. Cadrage et politesse ne sont pas du bruit, ils orientent la complétion vers les bonnes réponses.
-illustration: une tablette gravée de pictogrammes qui se change en clavier
+illustration: une paroi de grotte avec des pictogrammes peints à la main (pas de clavier, pas de tech, du pariétal pur)
 ---
 
 Mes prompts d'agent ressemblent à du langage préhistorique. `MOI VOULOIR`, `TOI FAIRE`, des impératifs chiffrés, pas un "merci". Neuf prompts de feature dans Mariol-API, zéro politesse. J'étais convaincu que c'était la forme la plus rigoureuse : que du signal, aucun gras.
