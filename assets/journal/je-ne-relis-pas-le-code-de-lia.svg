@@ -101,7 +101,7 @@
 
   <!-- Emblème gravé en relief, dans le bronze de la pièce -->
   <g filter="url(#emboss)">
-<path d="M170 178 L170 130 L230 130 L230 178" fill="none" stroke="url(#coin)" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/><path d="M170 130 L177 122 L186 130 L195 122 L204 130 L213 122 L222 130 L230 130" fill="none" stroke="url(#coin)" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/><line x1="188" y1="130" x2="188" y2="178" stroke="url(#coin)" stroke-width="3" stroke-linecap="round"/><line x1="212" y1="130" x2="212" y2="178" stroke="url(#coin)" stroke-width="3" stroke-linecap="round"/><line x1="170" y1="150" x2="230" y2="150" stroke="url(#coin)" stroke-width="3" stroke-linecap="round"/><circle cx="200" cy="144" r="2.5" fill="url(#coin)"/>
+<path d="M170 178 L170 130 L230 130 L230 178 Z" fill="none" stroke="url(#coin)" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/><path d="M170 130 L177 122 L186 130 L195 122 L204 130 L213 122 L222 130 L230 130" fill="none" stroke="url(#coin)" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/><path d="M170 150 L230 150 M190 130 L190 150 M210 130 L210 150 M180 150 L180 178 M200 150 L200 178 M220 150 L220 178" fill="none" stroke="url(#coin)" stroke-width="3" stroke-linecap="round"/><circle cx="200" cy="144" r="2.5" fill="url(#coin)"/>
   </g>
 
   <text x="200" y="285" text-anchor="middle" font-family="Inter, system-ui, sans-serif" font-size="11" letter-spacing="0.33em" fill="#D29A66">REMPARTS</text>
