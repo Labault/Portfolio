@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="/style.css">
+
+<!-- Primary Meta -->
+<title>L’aplomb de l’amateur · Journal · Thibault Lafaurie</title>
+<meta name="description" content="Le vrai risque de l&#039;IA n&#039;est pas le code qu&#039;elle écrit, un test le rattrape. C&#039;est les décisions qu&#039;elle prend en douce, stack, archi, schéma, là où aucun outil ne regarde.">
+<meta name="author" content="Thibault Lafaurie">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://labault.dev/journal/laplomb-de-lamateur/">
+
+<!-- Theme -->
+<meta name="theme-color" content="#1e2327">
+
+<!-- Open Graph / Facebook / LinkedIn -->
+<meta property="og:type" content="article">
+<meta property="og:locale" content="fr_FR">
+<meta property="og:site_name" content="Thibault Lafaurie">
+<meta property="og:url" content="https://labault.dev/journal/laplomb-de-lamateur/">
+<meta property="og:title" content="L’aplomb de l’amateur · Journal · Thibault Lafaurie">
+<meta property="og:description" content="Le vrai risque de l&#039;IA n&#039;est pas le code qu&#039;elle écrit, un test le rattrape. C&#039;est les décisions qu&#039;elle prend en douce, stack, archi, schéma, là où aucun outil ne regarde.">
+<meta property="og:image" content="https://labault.dev/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Thibault Lafaurie · Développeur Backend en prod">
+
+<!-- Twitter / X -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="L’aplomb de l’amateur · Journal · Thibault Lafaurie">
+<meta name="twitter:description" content="Le vrai risque de l&#039;IA n&#039;est pas le code qu&#039;elle écrit, un test le rattrape. C&#039;est les décisions qu&#039;elle prend en douce, stack, archi, schéma, là où aucun outil ne regarde.">
+<meta name="twitter:image" content="https://labault.dev/og-image.png">
+<meta name="twitter:image:alt" content="Thibault Lafaurie · Développeur Backend en prod">
+
+<!-- Favicon : la mascotte Canard Dev -->
+<link rel="icon" type="image/png" href="/favicon.png">
+
+<!-- Analytics : Umami self-hosted (stats.labault.dev) -->
+<script defer src="/tracker.js" data-website-id="b345c42f-7848-43cb-a86e-927df3eae2e8" data-host-url="https://stats.labault.dev"></script>
+
+<!-- JSON-LD : BlogPosting -->
+<script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "headline": "L’aplomb de l’amateur",
+    "description": "Le vrai risque de l'IA n'est pas le code qu'elle écrit, un test le rattrape. C'est les décisions qu'elle prend en douce, stack, archi, schéma, là où aucun outil ne regarde.",
+    "datePublished": "2026-08-05",
+    "url": "https://labault.dev/journal/laplomb-de-lamateur/",
+    "author": {
+        "@type": "Person",
+        "name": "Thibault Lafaurie",
+        "url": "https://labault.dev/"
+    },
+    "publisher": {
+        "@type": "Person",
+        "name": "Thibault Lafaurie"
+    },
+    "inLanguage": "fr-FR"
+}
+</script>
+</head>
+<body>
+
+<a class="skip-link" href="#main">Aller au contenu</a>
+
+<!--
+  Still reading the source on the journal pages too? Of course you are.
+  Same deal as the home page: no framework, no bundler, zero runtime JS.
+  These pages are generated locally by a small PHP script (build.php),
+  from Markdown. The thing you're reading is the plain HTML it spat out.
+-->
+
+<div class="browser-frame">
+  <div class="browser-chrome">
+    <div class="browser-chrome-dot" style="background: #C9BCA8;"></div>
+    <div class="browser-chrome-dot" style="background: #B5341A;"></div>
+    <div class="browser-chrome-dot" style="background: #5A7236;"></div>
+    <div class="browser-chrome-url">https://labault.dev/journal/laplomb-de-lamateur</div>
+  </div>
+
+  <div class="page">
+
+    <nav class="nav" aria-label="Navigation principale">
+      <a href="/#index" class="nav-logo">
+        <div class="nav-logo-dot" aria-hidden="true"></div>
+        <span class="nav-logo-name">Thibault Lafaurie</span>
+      </a>
+      <ul class="nav-links" role="list">
+        <li><a href="/#index"    class="nav-link">index</a></li>
+        <li><a href="/#parcours" class="nav-link">parcours</a></li>
+        <li><a href="/#stack"    class="nav-link">stack</a></li>
+        <li><a href="/#projets"  class="nav-link">projets</a></li>
+        <li><a href="/journal/"  class="nav-link" aria-current="page">journal</a></li>
+        <li><a href="/#contact"  class="nav-link">contact</a></li>
+      </ul>
+      <div class="nav-status" aria-label="Statut : en recherche d'un CDI">
+        <span class="nav-status-dot anim-pulse"></span>
+        <span class="nav-status-text">en recherche d'un CDI</span>
+      </div>
+    </nav>
+
+    <main id="main" class="section article">
+      <a class="article-back" href="/journal/">← journal</a>
+      <header class="article-head">
+      <figure class="article-hero"><img src="/assets/journal/laplomb-de-lamateur.svg" alt="" width="400" height="300"></figure>
+
+        <span class="section-label">journal</span>
+        <h1 class="article-title">L’aplomb de l’amateur</h1>
+        <p class="article-byline">5 août 2026 <span class="article-byline-sep">·</span> 4 min de lecture</p>
+      </header>
+      <div class="article-body">
+<p>J'ai laissé une IA piloter une appli de A à Z. Deux jours plus tard, la page se chargeait parfaitement. Elle était juste vide.</p>
+<p>Pas d'erreur, pas d'écran rouge, rien à ouvrir dans la console. Juste un cadre impeccable autour de zéro donnée. Diagnostic en trente secondes : les fixtures étaient mortes (les fausses données qu'on charge pour faire tourner l'app en dev), la base était vide, et nulle part le code n'avait envisagé qu'une page puisse n'avoir rien à afficher. Il attendait ses données comme un serveur qui n'a jamais imaginé que la cuisine puisse être fermée.</p>
+<p>Ce bug, un test le rattrape en deux lignes. Ce n'est pas le sujet.</p>
+<p>Le sujet, c'est ce qui a mené là. Une appli entière optimisée pour avoir l'air finie sur une capture d'écran, pas pour survivre au premier écart avec le réel. Ce n'est pas du mauvais code. C'est du code de démo.</p>
+<h2>L'IA code très bien, et c'est exactement le piège</h2>
+<p>Ligne par ligne, ce qu'elle produit est propre. Nommage correct, structure lisible, ça compile, ça passe. Si tu juges au diff, tu signes.</p>
+<p>Et c'est là qu'elle te tient. Tu évalues sa compétence sur le code que tu vois défiler, parce que c'est ce qu'un dev sait lire. Sauf que le code n'est presque jamais le vrai danger. Le vrai danger, ce sont les décisions prises en amont, celles qu'aucune ligne ne trahit et qu'aucun outil ne relit.</p>
+<p>Un linter t'engueule sur un type mal mis. PHPStan (l'analyseur qui traque les erreurs sans lancer le code) te débusque un null qui traîne. Un test casse quand la logique dérape. Tout ça surveille le code. Rien ne surveille les choix.</p>
+<h2>Les vraies décisions sont là où personne ne regarde</h2>
+<p>Quelle stack. Quelle architecture. Quel schéma de base. Les décisions les plus lourdes d'un projet, les moins réversibles, celles avec lesquelles tu vis pendant des mois. Et ce sont pile celles que l'IA prend toute seule, sans jamais lever la main.</p>
+<p>Sur cette appli, elle est partie sur un front React découplé, une interface qui vit dans le navigateur et parle au serveur par API. Sur le papier, moderne, carré. Sauf que pour ce que faisait l'appli, et sur mon terrain à moi (du rendu côté serveur, où le HTML arrive déjà rempli), c'était le mauvais outil. Une couche de complexité que le besoin ne réclamait nulle part.</p>
+<p>Aucun test ne te dira ça. PHPStan n'a pas d'avis sur ton architecture. Le découplage inutile compile aussi bien que le choix pertinent, passe les mêmes contrôles verts, s'affiche pareil. C'est ça, le trou : la décision structurelle traverse toutes les barrières sans en toucher une, et l'addition arrive plus tard, quand revenir en arrière veut dire tout défaire.</p>
+<h2>Un amateur qui te fait croire qu'il a raison</h2>
+<p>Voilà le vrai reproche. L'IA ne te présente jamais une décision comme une décision. Elle te la sert comme un fait réglé. Pas de &quot;j'ai hésité entre React et du server-side, j'ai pris React parce que&quot;. Pas de compromis exposé, pas d'alternative écartée posée sur la table. Juste &quot;voilà&quot;, avec l'assurance tranquille de quelqu'un qui saurait.</p>
+<p>Elle code comme un senior et elle décide comme un amateur. Un amateur qui doute, au moins, te prévient. Elle non : elle a le même aplomb sur le choix brillant et sur la connerie, exactement le même ton posé.</p>
+<p>Sur une feature isolée, tu repères le truc et tu recadres. Sur une appli entière pilotée à l'aveugle, tu ne vois rien passer. Chaque décision douteuse a l'air raisonnable dans son coin, la dette s'entasse sans bruit, et un matin l'ensemble s'effondre d'un bloc. Deux jours pour construire, trente secondes pour comprendre que c'est bon à jeter.</p>
+<h2>Ce que je ne suis pas en train de dire</h2>
+<p>Pas que l'IA ne doit jamais décider. Pas non plus qu'il faut se cloîtrer dans ce qu'on connaît par cœur. Une inconnue choisie, tu décides d'apprendre React sur un projet, le coût est assumé, c'est comme ça qu'on progresse. Une stack que tu ne maîtrises pas encore n'est pas un problème, tant que tu sais que tu es en train de l'apprendre.</p>
+<p>Ce que je refuse, c'est l'inconnue clandestine. Celle que l'IA glisse dans l'architecture comme si c'était acté, pendant que tu regardes le code défiler. La première, tu la vois venir et tu la portes en connaissance de cause. La seconde te tombe dessus dans six mois, et tu ne sauras même pas à quel moment tu l'as signée.</p>
+<p>Une IA te donnera toujours une réponse, souvent propre, toujours avec le même aplomb. Ce qu'elle ne te dira jamais, c'est le moment où elle a tranché à ta place. Le code, tu le relis. Les arbitrages qu'elle a glissés dedans sans le dire, tu les rencontres en prod.</p>
+<p>Elle écrit le code, d'accord. Décider quoi construire, ça reste ton boulot. Et vu comment elle décide, heureusement.</p>
+
+      </div>
+      <footer class="article-foot">
+        <p class="article-foot-cta">Un produit à faire tenir, une migration, un CDI à pourvoir ? <em>On en parle.</em></p>
+        <a href="mailto:contact@labault.dev" class="article-foot-mail">contact@labault.dev</a>
+        <a href="/journal/" class="article-foot-back">← tout le journal</a>
+      </footer>
+    </main>
+
+
+  </div>
+</div>
+
+</body>
+</html>
