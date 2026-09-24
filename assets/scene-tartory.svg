@@ -1,0 +1,104 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 300" role="img" aria-label="Tartory, synthèse IA des données patient pour le praticien">
+  <style>
+    .background { fill: #17140E; }
+    .domain-mood-line { stroke: #9DB0D8; }
+    .domain-nutrition-line { stroke: #AAB881; }
+    .domain-sport-line { stroke: #E0958A; }
+    .ink { fill: #F0E7D6; }
+    .line-primary { stroke: #A9BE72; }
+    .line-secondary { stroke: #C49A6A; }
+    .muted { fill: #A99A7D; }
+    .paper { fill: #F0E7D6; }
+    .primary { fill: #A9BE72; }
+    .secondary { fill: #C49A6A; }
+  </style>
+
+  <rect width="400" height="300" class="background"/>
+  <path d="M319-28c43 23 73 57 89 102" fill="none" stroke="#2C251A" stroke-width="54" opacity=".8"/>
+
+  <!-- Brand line. -->
+  <g class="ink">
+    <circle cx="31" cy="29" r="12"/>
+    <path d="M22 23c4 1 6 3 10 3s6-2 9-3M32 26c-1 6-1 10 1 15M32 32c-4 1-6 4-8 7M33 35c3 1 5 3 7 6" fill="none" stroke="#17140E" stroke-width="2" stroke-linecap="round"/>
+    <text x="52" y="34" font-family="Inter, Arial, sans-serif" font-size="17" font-weight="600">Tartory</text>
+  </g>
+  <text x="371" y="32" text-anchor="end" font-family="Inter, Arial, sans-serif" font-size="8" font-weight="700" letter-spacing="1.4" class="muted">ESPACE PRATICIEN</text>
+  <line x1="28" y1="51" x2="372" y2="51" stroke="#3A3123"/>
+
+  <!-- Patient signals, kept open and editorial rather than boxed in a dashboard. -->
+  <g>
+    <text x="29" y="78" font-family="Inter, Arial, sans-serif" font-size="8" font-weight="700" letter-spacing="1.4" class="muted">SIGNAUX · 30 JOURS</text>
+
+    <g stroke="#3A3123" stroke-width="1">
+      <line x1="30" y1="101" x2="208" y2="101"/>
+      <line x1="30" y1="137" x2="208" y2="137"/>
+      <line x1="30" y1="173" x2="208" y2="173"/>
+      <line x1="30" y1="209" x2="208" y2="209"/>
+    </g>
+
+    <path d="M30 182C53 177 59 153 82 158s31 18 50 4 25-55 48-47 14 30 28 22v72H30z" fill="#A9BE72" opacity=".09"/>
+    <path d="M30 182C53 177 59 153 82 158s31 18 50 4 25-55 48-47 14 30 28 22" fill="none" class="line-primary" stroke-width="3.5" stroke-linecap="round"/>
+    <path d="M30 199c20-2 34-22 52-14s31 11 50 0 31-8 48 2 17-1 28-12" fill="none" class="line-secondary" stroke-width="2" stroke-linecap="round" stroke-dasharray="3 6"/>
+
+    <g class="primary">
+      <circle cx="30" cy="182" r="3.5"/>
+      <circle cx="82" cy="158" r="3.5"/>
+      <circle cx="132" cy="162" r="3.5"/>
+      <circle cx="180" cy="115" r="4"/>
+      <circle cx="208" cy="137" r="3.5"/>
+    </g>
+    <circle cx="180" cy="115" r="10" fill="none" class="line-primary" stroke-width="1.5" opacity=".5"/>
+
+    <g font-family="Inter, Arial, sans-serif" font-size="7" class="muted">
+      <text x="30" y="223">S1</text>
+      <text x="79" y="223">S2</text>
+      <text x="129" y="223">S3</text>
+      <text x="177" y="223">S4</text>
+      <text x="198" y="223">AUJ.</text>
+    </g>
+  </g>
+
+  <!-- AI is a typographic link, not a competing badge. -->
+  <g>
+    <path d="M208 137c10 0 14 5 18 11M256 148c6-7 10-10 16-12" fill="none" stroke="#75674C" stroke-width="1.4" stroke-dasharray="2 5" stroke-linecap="round"/>
+    <text x="241" y="161" text-anchor="middle" font-family="Fraunces, Georgia, serif" font-size="31" font-weight="600" class="primary">IA</text>
+  </g>
+
+  <!-- Open patient file, reduced to a few strong geometric planes. -->
+  <g>
+    <path d="M277 102h27l9-11h44c8 0 13 5 13 13v116h-93z" fill="#7B8C4E"/>
+    <g transform="rotate(-4 324 143)">
+      <rect x="289" y="104" width="70" height="100" rx="2" class="paper"/>
+      <circle cx="305" cy="125" r="7" class="secondary"/>
+      <path d="M318 121h27M318 127h20M299 146h47M299 155h38M299 164h43" fill="none" stroke="#A99A7D" stroke-width="1.5" stroke-linecap="round"/>
+      <text x="299" y="184" font-family="Inter, Arial, sans-serif" font-size="6.5" font-weight="700" letter-spacing=".8" fill="#665A45">DOSSIER PATIENT</text>
+    </g>
+    <path d="M268 139l14-24h91l14 28v81H268z" class="secondary"/>
+    <path d="M268 139l14-24h91l14 28" fill="none" stroke="#F0E7D6" stroke-width="1.5" opacity=".45"/>
+    <path d="M285 205h84" fill="none" stroke="#735B3F"/>
+    <text x="327" y="218" text-anchor="middle" font-family="Inter, Arial, sans-serif" font-size="7" font-weight="800" letter-spacing="1" fill="#17140E">CONSULTATIONS</text>
+  </g>
+
+  <!-- Three tracked domains, presented as a single quiet legend. -->
+  <g transform="translate(28 248)" font-family="Inter, Arial, sans-serif" font-size="8" font-weight="700" class="ink">
+    <g>
+      <path d="M10 3c-2-2-6-.8-5.5 2.4-2.8-.1-3.8 3.5-1.5 5.2-1.5 2.4 1 5.1 3.4 3.7 1 2.4 3.6 1.2 3.6-.8zm0 0c2-2 6-.8 5.5 2.4 2.8-.1 3.8 3.5 1.5 5.2 1.5 2.4-1 5.1-3.4 3.7-1 2.4-3.6 1.2-3.6-.8z" fill="none" class="domain-mood-line" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
+      <text x="25" y="12">HUMEUR</text>
+    </g>
+    <line x1="92" y1="1" x2="92" y2="17" stroke="#3A3123"/>
+    <g transform="translate(110)">
+      <circle cx="9" cy="9" r="7" fill="none" class="domain-nutrition-line" stroke-width="1.2"/>
+      <circle cx="9" cy="9" r="3.5" fill="none" class="domain-nutrition-line" stroke-width="1"/>
+      <path d="M9 0v4M0 9h4" fill="none" class="domain-nutrition-line" stroke-width="1.2" stroke-linecap="round"/>
+      <text x="23" y="12">NUTRITION</text>
+    </g>
+    <line x1="222" y1="1" x2="222" y2="17" stroke="#3A3123"/>
+    <g transform="translate(240)">
+      <path d="M1 15 7 5l5 4 7-8" fill="none" class="domain-sport-line" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+      <text x="27" y="12">SPORT</text>
+    </g>
+  </g>
+
+  <text x="28" y="283" font-family="Georgia, serif" font-size="11" font-style="italic" fill="#A99A7D">des données utiles, une décision humaine.</text>
+  <rect x="371" y="272" width="9" height="9" rx="2" class="primary"/>
+</svg>
