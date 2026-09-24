@@ -398,216 +398,128 @@
 
     <!-- 05 - projects -->
     <!--
-      Sorted by intent, not by date: what's live, what's polished,
-      what's under the hood, and what's pure playground.
+      The home page is a selection, not the stockroom. The complete inventory
+      lives at /projets/; what stays here has a job in the story.
     -->
     <section class="section" id="projets">
       <header class="projects-header">
         <span class="section-label">05 - projets</span>
-        <h2 class="projects-title">Quelques projets...</h2>
-        <p class="projects-intro">Rangés par intention plutôt que par date : du livrable client à l'expérience du dimanche soir.</p>
+        <h2 class="projects-title">Quelques projets bien choisis.</h2>
+        <p class="projects-intro">Des produits, des commandes client et quelques détours utiles. Le reste n’est pas caché, seulement rangé.</p>
       </header>
 
-      <!-- En prod -->
+      <!-- Produits phares -->
       <div class="project-group">
         <div class="project-group-head">
-          <span class="project-group-label">En prod</span>
+          <span class="project-group-label">Produits</span>
           <span class="project-group-rule" aria-hidden="true"></span>
-          <span class="project-group-note">déployés, utilisés (pour de vrai)</span>
         </div>
-        <div class="project-grid project-grid-feature">
-
-          <a href="https://docendo.fr" class="project-card-link" target="_blank" rel="noopener" aria-label="Voir Docendo">
-            <div class="project-thumb">
-              <img src="assets/scene-docendo.svg" alt="" width="400" height="300">
-            </div>
-            <div class="project-card-info">
-              <div class="project-card-meta">
-                <span>edtech · production</span>
-                <span>2026</span>
-              </div>
-              <h3 class="project-card-title">Docendo</h3>
-              <p class="project-card-desc">SaaS d'accompagnement scolaire du CP à la 3e, co-fondé et construit de zéro. Milo, le tuteur IA, guide l'élève sans jamais souffler les réponses : récitation orale notée via Whisper auto-hébergé, et un moteur d'adaptation qui cible les sessions sur les lacunes réelles. Données d'élèves mineurs obligent, conforme RGPD de bout en bout. Milo, lui, ne copie jamais depuis Stack Overflow.</p>
-              <span class="project-card-cta">voir le site ↗</span>
-            </div>
+        <div class="project-summary-list">
+          <a href="https://docendo.fr" class="project-summary-link" target="_blank" rel="noopener" aria-label="Voir Docendo">
+            <span class="project-summary-thumb"><img src="assets/scene-docendo.svg" alt="" width="400" height="300"></span>
+            <span class="project-summary-copy">
+              <span class="project-summary-meta">edtech · production</span>
+              <span class="project-summary-title">Docendo</span>
+              <span class="project-summary-desc">Un SaaS éducatif avec tuteur IA, récitation orale et moteur IRT.</span>
+            </span>
           </a>
 
-          <a href="https://lolv.labault.dev/" class="project-card-link" target="_blank" rel="noopener" aria-label="Voir La où l'on va">
-            <div class="project-thumb">
-              <img src="assets/scene-lolv.svg" alt="" width="400" height="300">
-            </div>
-            <div class="project-card-info">
-              <div class="project-card-meta">
-                <span>client · vitrine</span>
-                <span>2026</span>
-              </div>
-              <h3 class="project-card-title">La où l'on va</h3>
-              <p class="project-card-desc">Site vitrine sous WordPress pour un accompagnateur de randonnées : ses parcours, ses services, et de quoi le faire évoluer lui-même. Léger, nature, avec quelques plantes d'Auvergne qui cachent une histoire. Mes seules dépendances ici ? Une bonne paire de chaussures de marche.</p>
-              <span class="project-card-cta">voir le site ↗</span>
-            </div>
+          <a href="https://tartory.com" class="project-summary-link" target="_blank" rel="noopener" aria-label="Voir Tartory">
+            <span class="project-summary-thumb"><img src="assets/scene-tartory.svg" alt="" width="400" height="300"></span>
+            <span class="project-summary-copy">
+              <span class="project-summary-meta">suivi · IA</span>
+              <span class="project-summary-title">Tartory</span>
+              <span class="project-summary-desc">Un suivi quotidien assisté par IA qui prépare la décision du praticien.</span>
+            </span>
+          </a>
+        </div>
+      </div>
+
+      <!-- Commandes client -->
+      <div class="project-group">
+        <div class="project-group-head">
+          <span class="project-group-label">Pour des clients</span>
+          <span class="project-group-rule" aria-hidden="true"></span>
+        </div>
+        <div class="project-summary-list">
+          <a href="https://lolv.labault.dev/" class="project-summary-link" target="_blank" rel="noopener" aria-label="Voir La où l’on va">
+            <span class="project-summary-thumb"><img src="assets/scene-lolv.svg" alt="" width="400" height="300"></span>
+            <span class="project-summary-copy">
+              <span class="project-summary-meta">client · vitrine</span>
+              <span class="project-summary-title">La où l’on va</span>
+              <span class="project-summary-desc">Un site autonome pour présenter des randonnées.</span>
+            </span>
           </a>
 
-          <a href="https://tartory.com" class="project-card-link" target="_blank" rel="noopener" aria-label="Voir Tartory">
-            <div class="project-thumb">
-              <img src="assets/scene-tartory.svg" alt="" width="400" height="300">
-            </div>
-            <div class="project-card-info">
-              <div class="project-card-meta">
-                <span>suivi · IA · PWA</span>
-                <span>2026</span>
-              </div>
-              <h3 class="project-card-title">Tartory</h3>
-              <p class="project-card-desc">PWA de suivi au quotidien : repas, activité et humeur réunis dans un journal simple à tenir. L’IA estime les apports, adapte recettes et séances, puis synthétise la semaine pour faire ressortir les tendances. Le praticien retrouve les courbes, habitudes et consultations dans un dossier patient lisible, sans réclamer un tableur en pièce jointe. L’IA mâche les données, pas les décisions.</p>
-              <span class="project-card-cta">voir le site ↗</span>
-            </div>
+          <a href="https://shanna.labault.dev/" class="project-summary-link" target="_blank" rel="noopener" aria-label="Voir Vlad Tattoo">
+            <span class="project-summary-thumb"><img src="assets/scene-vlad.svg" alt="" width="400" height="300"></span>
+            <span class="project-summary-copy">
+              <span class="project-summary-meta">client · WordPress</span>
+              <span class="project-summary-title">Vlad Tattoo</span>
+              <span class="project-summary-desc">Une vitrine sur mesure pour une tatoueuse indépendante.</span>
+            </span>
           </a>
-
         </div>
       </div>
 
       <!-- L'établi -->
       <div class="project-group">
         <div class="project-group-head">
-          <span class="project-group-label">L'établi</span>
+          <span class="project-group-label">L’établi</span>
           <span class="project-group-rule" aria-hidden="true"></span>
-          <span class="project-group-note">ma chaîne perso, de la machine à la prod</span>
         </div>
-        <div class="project-grid project-grid-tools">
-
-          <a href="https://github.com/Labault/mac-dev-setup" class="project-card-link" target="_blank" rel="noopener" aria-label="Voir le repo mac-dev-setup">
-            <div class="project-thumb">
-              <img src="assets/scene-mac.svg" alt="" width="400" height="300">
-            </div>
-            <div class="project-card-info">
-              <div class="project-card-meta">
-                <span>01 · ta machine</span>
-                <span>open source</span>
-              </div>
-              <h3 class="project-card-title">Environnement de dev</h3>
-              <p class="project-card-desc">Premier maillon : ma station de dev macOS montée en une commande, Homebrew, Zsh, VS Code, PHP/Symfony et le reste. La machine prête avant que le café refroidisse.</p>
-              <span class="project-card-cta">voir le repo ↗</span>
-            </div>
-          </a>
-
-          <a href="https://github.com/Labault/bootstrap-web-setup" class="project-card-link" target="_blank" rel="noopener" aria-label="Voir le repo bootstrap-web-setup">
-            <div class="project-thumb">
-              <img src="assets/scene-bootstrap.svg" alt="" width="400" height="300">
-            </div>
-            <div class="project-card-info">
-              <div class="project-card-meta">
-                <span>02 · ton projet</span>
-                <span>open source</span>
-              </div>
-              <h3 class="project-card-title">Socle qualité</h3>
-              <p class="project-card-desc">La machine prête, place au projet : ce CLI y dépose d'un coup ma couche qualité, CI et sécurité, CS-Fixer, PHPStan, GitHub Actions, secrets. Que des fichiers de config, jamais un binaire. Il pose les règles du jeu, pas les joueurs.</p>
-              <span class="project-card-cta">voir le repo ↗</span>
-            </div>
-          </a>
-
-          <a href="https://github.com/Labault/server-setup" class="project-card-link" target="_blank" rel="noopener" aria-label="Voir le repo server-setup">
-            <div class="project-thumb">
-              <img src="assets/scene-server.svg" alt="" width="400" height="300">
-            </div>
-            <div class="project-card-info">
-              <div class="project-card-meta">
-                <span>03 · ton serveur</span>
-                <span>open source</span>
-              </div>
-              <h3 class="project-card-title">Socle serveur</h3>
-              <p class="project-card-desc">Le projet est carré, reste à l'héberger : server-setup change un VPS nu en serveur de prod, Docker, reverse-proxy Caddy, firewall, SSH durci et TLS, en un script. De la boîte vide au serveur blindé, sans la nuit blanche de sysadmin qui va d'habitude avec.</p>
-              <span class="project-card-cta">voir le repo ↗</span>
-            </div>
-          </a>
-
-          <a href="https://github.com/Labault/push-to-deploy" class="project-card-link" target="_blank" rel="noopener" aria-label="Voir le repo push-to-deploy">
-            <div class="project-thumb">
-              <img src="assets/scene-deploy.svg" alt="" width="400" height="300">
-            </div>
-            <div class="project-card-info">
-              <div class="project-card-meta">
-                <span>04 · ta prod</span>
-                <span>open source</span>
-              </div>
-              <h3 class="project-card-title">Push-to-deploy</h3>
-              <p class="project-card-desc">Le dernier maillon, qui referme la boucle : un push sur main déclenche un webhook, le VPS récupère le code et joue le déploiement. À jour en quelques secondes, plus jamais à la main. Et toujours pas le vendredi, on a des principes.</p>
-              <span class="project-card-cta">voir le repo ↗</span>
-            </div>
-          </a>
-
-        </div>
+        <ol class="project-summary-list">
+          <li>
+            <a href="https://github.com/Labault/bootstrap-web-setup" class="project-summary-link" target="_blank" rel="noopener" aria-label="Voir bootstrap-web-setup sur GitHub">
+              <span class="project-summary-thumb"><img src="assets/scene-bootstrap.svg" alt="" width="400" height="300"></span>
+              <span class="project-summary-copy">
+                <span class="project-summary-meta">outil · qualité</span>
+                <span class="project-summary-title">Socle qualité</span>
+                <span class="project-summary-desc">PHPStan, CI et sécurité dès le premier commit.</span>
+              </span>
+            </a>
+          </li>
+          <li>
+            <a href="https://github.com/Labault/push-to-deploy" class="project-summary-link" target="_blank" rel="noopener" aria-label="Voir push-to-deploy sur GitHub">
+              <span class="project-summary-thumb"><img src="assets/scene-deploy.svg" alt="" width="400" height="300"></span>
+              <span class="project-summary-copy">
+                <span class="project-summary-meta">outil · déploiement</span>
+                <span class="project-summary-title">Push-to-deploy</span>
+                <span class="project-summary-desc">Un push signé, un déploiement jusqu’au healthcheck.</span>
+              </span>
+            </a>
+          </li>
+        </ol>
       </div>
 
-      <!-- Bac à sable -->
+      <!-- Expériences sélectionnées -->
       <div class="project-group">
         <div class="project-group-head">
-          <span class="project-group-label">Bac à sable</span>
+          <span class="project-group-label">Expériences</span>
           <span class="project-group-rule" aria-hidden="true"></span>
-          <span class="project-group-note">pour apprendre, ou juste pour rire</span>
         </div>
-        <div class="project-grid project-grid-play project-grid-pinned">
-
-          <a href="https://redflagbingo.fun/" class="project-card-link" target="_blank" rel="noopener" aria-label="Voir Red Flag Bingo">
-            <div class="project-thumb">
-              <img src="assets/scene-rfb.svg" alt="" width="400" height="300">
-            </div>
-            <div class="project-card-info">
-              <div class="project-card-meta">
-                <span>jeu · fun</span>
-                <span>2026</span>
-              </div>
-              <h3 class="project-card-title">Red Flag Bingo</h3>
-              <p class="project-card-desc">Bingo collaboratif en temps réel, à prendre au second degré : on choisit son thème, on joue seul ou à plusieurs, et on coche les cases jusqu'à décrocher la ligne. Synchro live entre joueurs via Mercure. Ici, au moins, accumuler les red flags fait gagner.</p>
-              <span class="project-card-cta">voir le site ↗</span>
-            </div>
+        <div class="project-summary-list">
+          <a href="https://redflagbingo.fun/" class="project-summary-link" target="_blank" rel="noopener" aria-label="Voir Red Flag Bingo">
+            <span class="project-summary-thumb"><img src="assets/scene-rfb.svg" alt="" width="400" height="300"></span>
+            <span class="project-summary-copy">
+              <span class="project-summary-meta">jeu · temps réel</span>
+              <span class="project-summary-title">Red Flag Bingo</span>
+              <span class="project-summary-desc">Un bingo collaboratif en temps réel où les red flags font gagner.</span>
+            </span>
           </a>
 
-          <a href="https://hush.labault.dev" class="project-card-link" target="_blank" rel="noopener" aria-label="Voir Hush">
-            <div class="project-thumb">
-              <img src="assets/scene-hush.svg" alt="" width="400" height="300">
-            </div>
-            <div class="project-card-info">
-              <div class="project-card-meta">
-                <span>exp. · fun</span>
-                <span>2026</span>
-              </div>
-              <h3 class="project-card-title">Hush</h3>
-              <p class="project-card-desc">L'appli faite pour ne jamais être utilisée : on lance le chrono, on change d'onglet… et surtout on ne revient pas. Le score monte tant qu'on reste loin ; revenir met fin à la partie. Le meilleur, c'est donc celui qui l'oublie le plus longtemps, un peu comme ce ticket tout en bas du backlog.</p>
-              <span class="project-card-cta">voir le site ↗</span>
-            </div>
+          <a href="https://whykipedia.xyz/" class="project-summary-link" target="_blank" rel="noopener" aria-label="Voir Whykipédia">
+            <span class="project-summary-thumb"><img src="assets/scene-whykipedia.svg" alt="" width="400" height="300"></span>
+            <span class="project-summary-copy">
+              <span class="project-summary-meta">Wikipédia · quiz</span>
+              <span class="project-summary-title">Whykipédia</span>
+              <span class="project-summary-desc">Des questions aléatoires tirées de Wikipédia, avec un classement.</span>
+            </span>
           </a>
-
-          <a href="https://devspeak.labault.dev/" class="project-card-link" target="_blank" rel="noopener" aria-label="Voir DevSpeak">
-            <div class="project-thumb">
-              <img src="assets/scene-devspeak.svg" alt="" width="400" height="300">
-            </div>
-            <div class="project-card-info">
-              <div class="project-card-meta">
-                <span>exp. · fun</span>
-                <span>2026</span>
-              </div>
-              <h3 class="project-card-title">DevSpeak</h3>
-              <p class="project-card-desc">Le petit traducteur pour parler comme un dev (ou presque) : tu écris ta phrase, tu choisis un profil et DevSpeak te la ressort avec le ton, l'intonation et le jargon qui vont avec. Du moldu au barbu, en un clic.</p>
-              <span class="project-card-cta">voir le site ↗</span>
-            </div>
-          </a>
-
-          <a href="https://tibec.labault.dev" class="project-card-link" target="_blank" rel="noopener" aria-label="Voir Le Canard du Vendredi">
-            <div class="project-thumb">
-              <img src="assets/scene-canard-vendredi.svg" alt="" width="400" height="300">
-            </div>
-            <div class="project-card-info">
-              <div class="project-card-meta">
-                <span>exp. · fun</span>
-                <span>2026</span>
-              </div>
-              <h3 class="project-card-title">Le Canard du Vendredi</h3>
-              <p class="project-card-desc">L'appli qui ne bosse qu'un jour par semaine, et l'assume pleinement. Du lundi au jeudi, le canard dort et la porte reste close ; le vendredi venu, il se réveille, s'étire et se laisse enfin approcher. Une seule règle : revenez un vendredi, ou patientez.</p>
-              <span class="project-card-cta">voir le site ↗</span>
-            </div>
-          </a>
-
         </div>
       </div>
+
+      <a class="projects-all-link" href="/projets/">Voir tous les projets →</a>
     </section>
 
 

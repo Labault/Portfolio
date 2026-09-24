@@ -75,6 +75,7 @@
   --cream        : #F5F0E8;   /* page background */
   --cream-dark   : #EBE6DD;   /* outer background */
   --border       : #E5DDD0;   /* separator lines */
+  --surface      : #FBF8F2;   /* raised content */
 
   /* Accent - terracotta */
   --accent       : #B5341A;
@@ -100,6 +101,16 @@
   --section-pad-h : 36px;
   --section-pad-v : 64px;
   --section-pad-v-sm : 56px;
+
+  /* Shared component rhythm */
+  --radius-sm: 4px;
+  --radius-md: 6px;
+  --radius-lg: 8px;
+  --space-xs : 6px;
+  --space-sm : 10px;
+  --space-md : 16px;
+  --space-lg : 24px;
+  --space-xl : 32px;
 }
 
 * {
@@ -717,80 +728,10 @@ section[id] {
   flex-shrink: 0;
 }
 
-/* Shared card behaviour — framed surface, like the journal cards:
-   illustration as a cover up top, text on white below. */
-.project-card-link {
-  display       : block;
-  color         : inherit;
-  background    : #FBF8F2;
-  border        : 0.5px solid var(--border);
-  border-radius : 8px;
-  overflow      : hidden;
-  box-shadow    : 0 1px 2px rgba(31, 26, 20, 0.04);
-  transition    : transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
-}
-
-.project-card-link:hover {
-  transform   : translateY(-4px);
-  box-shadow  : 0 12px 26px rgba(31, 26, 20, 0.12);
-  border-color: #D9CDB8;
-}
-
-.project-card-link:hover .project-card-title,
-.project-card-link:hover .project-tool-title {
-  color: var(--accent);
-}
-
-/* The illustration sits flush to the card's top edge */
-.project-card-link .project-thumb { border-radius: 0; }
-
-.project-card-info {
-  padding: 16px 18px 20px;
-}
-
-.project-card-meta {
-  display        : flex;
-  justify-content: space-between;
-  gap            : 10px;
-  font-size      : var(--text-sm);
-  color          : var(--ink-faint);
-  margin-bottom  : 6px;
-}
-
-.project-card-title {
-  font-family  : var(--font-serif);
-  font-size    : var(--text-lg);
-  color        : var(--ink);
-  margin-bottom: 6px;
-  transition   : color 0.25s ease;
-}
-
-.project-card-desc {
-  font-size  : var(--text-base);
-  color      : var(--ink-light);
-  line-height: 1.6;
-}
-
-.project-card-cta {
-  font-size : var(--text-sm);
-  color     : var(--accent);
-  margin-top: 10px;
-  display   : block;
-}
-
-.project-card-cta-muted {
-  color     : var(--ink-faint);
-  font-style: italic;
-}
-
-.project-card-soon {
-  cursor: default;
-}
-
 /* Thumbnail (illustration or monogram placeholder) */
 .project-thumb {
   overflow        : hidden;
-  border-radius   : 4px;
+  border-radius   : var(--radius-sm);
   aspect-ratio    : 4 / 3;
   display         : flex;
   align-items     : center;
@@ -800,16 +741,9 @@ section[id] {
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .project-card-link:hover {
-    transform : none;
-    box-shadow: 0 1px 2px rgba(31, 26, 20, 0.04);
+  .project-index-entry:hover .project-index-arrow {
+    transform: none;
   }
-}
-
-/* Each grid card = one tidy column (thumb + text same width, well separated) */
-.project-grid .project-card-link {
-  max-width: 320px;
-  margin   : 0 auto;
 }
 
 .project-thumb img,
@@ -819,70 +753,193 @@ section[id] {
   height : 100%;
 }
 
-.project-thumb-mono {
-  font-family   : var(--font-serif);
-  font-style    : italic;
-  font-size     : 34px;
-  letter-spacing: 0.02em;
-  line-height   : 1;
+/* Every project group shares one compact, scan-friendly treatment. */
+.project-summary-list {
+  display              : grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  column-gap           : var(--space-xl);
+  list-style           : none;
 }
 
-/* Grids */
-.project-grid {
-  display: grid;
-  gap    : 26px;
+.project-summary-link {
+  display              : grid;
+  grid-template-columns: 104px minmax(0, 1fr);
+  gap                  : var(--space-md);
+  align-items           : center;
+  padding               : var(--space-sm) 0;
+  border-bottom         : 0.5px solid var(--border);
 }
 
-.project-grid-feature { grid-template-columns: repeat(3, 1fr); }
-.project-grid-tools   { grid-template-columns: repeat(4, 1fr); }
-
-/* En prod : la carte remplit toute sa colonne (on lève le plafond 320px partagé
-   qui la centrait et laissait du blanc autour). */
-.project-grid-feature .project-card-link { max-width: none; }
-
-.project-grid-play .project-card-title { font-size: var(--text-lg); }
-
-/* Bac à sable : 4 colonnes pleine largeur, mêmes cartes encadrées que le reste. */
-.project-grid-play {
-  grid-template-columns: repeat(4, 1fr);
-  gap                  : 30px 32px;
+.project-summary-thumb {
+  aspect-ratio : 4 / 3;
+  overflow     : hidden;
+  border-radius: var(--radius-sm);
 }
 
-/* La carte remplit sa colonne (on lève le plafond 320px partagé) */
-.project-grid-play .project-card-link { max-width: none; }
-
-/* L'établi: tool / repo cards */
-.project-tool {
-  display      : flex;
-  gap          : 16px;
-  border       : 0.5px solid var(--border);
-  border-radius: 6px;
-  padding      : 20px;
-  align-items  : flex-start;
+.project-summary-thumb img {
+  display: block;
+  width  : 100%;
+  height : 100%;
 }
 
-.project-tool-glyph {
-  flex-shrink    : 0;
-  width          : 44px;
-  height         : 44px;
-  border-radius  : 6px;
-  background     : var(--ink);
-  color          : var(--cream);
-  display        : flex;
-  align-items    : center;
-  justify-content: center;
-  font-family    : ui-monospace, 'SF Mono', Menlo, monospace;
-  font-size      : 16px;
+.project-summary-copy {
+  display       : flex;
+  flex-direction: column;
+  min-width     : 0;
 }
 
-.project-tool-body { flex: 1; }
+.project-summary-meta {
+  margin-bottom : var(--space-xs);
+  color         : var(--ink-faint);
+  font-size     : var(--text-sm);
+  letter-spacing: 0.04em;
+}
 
-.project-tool-title {
-  font-family  : var(--font-serif);
-  font-size    : var(--text-lg);
-  color        : var(--ink);
-  margin-bottom: 6px;
-  transition   : color 0.25s ease;
+.project-summary-title {
+  width      : fit-content;
+  color      : var(--ink);
+  font-family: var(--font-serif);
+  font-size  : var(--text-lg);
+  line-height: 1.2;
+  transition : color 0.2s ease;
+}
+
+.project-summary-title::after {
+  content       : '↗';
+  margin-left   : var(--space-xs);
+  color         : var(--ink-faint);
+  font-family   : var(--font-sans);
+  font-size     : var(--text-sm);
+  vertical-align: 0.08em;
+  transition    : color 0.2s ease;
+}
+
+.project-summary-desc {
+  overflow     : hidden;
+  margin-top   : var(--space-xs);
+  color        : var(--ink-light);
+  font-size    : var(--text-base);
+  line-height  : 1.4;
+  text-overflow: ellipsis;
+  white-space  : nowrap;
+}
+
+.project-summary-link:hover .project-summary-title,
+.project-summary-link:hover .project-summary-title::after {
+  color: var(--accent);
+}
+
+.projects-all-link {
+  display   : inline-block;
+  margin-top: var(--space-xl);
+  color     : var(--accent);
+  font-size : var(--text-base);
+  transition: opacity 0.2s ease;
+}
+
+.projects-all-link:hover { opacity: 0.7; }
+
+/* Full project index: a scan-friendly archive, not thirteen more cards. */
+.projects-index {
+  max-width   : 1040px;
+  margin-left : auto;
+  margin-right: auto;
+}
+
+.projects-index-head {
+  margin-bottom: 52px;
+}
+
+.projects-index-title {
+  color      : var(--ink);
+  font-family: var(--font-serif);
+  font-size  : var(--text-3xl);
+  font-weight: 400;
+}
+
+.projects-index-intro {
+  max-width  : 680px;
+  margin-top : 12px;
+  color      : var(--ink-light);
+  font-size  : var(--text-md);
+  font-style : italic;
+  line-height: 1.6;
+}
+
+.project-index-group + .project-index-group {
+  margin-top: 56px;
+}
+
+.project-index-list {
+  list-style: none;
+  border-top: 0.5px solid var(--border);
+}
+
+.project-index-entry {
+  display              : grid;
+  grid-template-columns: 168px minmax(0, 1fr) auto;
+  gap                  : var(--space-lg);
+  align-items           : center;
+  padding               : var(--space-md) 0;
+  border-bottom         : 0.5px solid var(--border);
+}
+
+.project-index-thumb {
+  aspect-ratio : 4 / 3;
+  overflow     : hidden;
+  border-radius: var(--radius-sm);
+}
+
+.project-index-thumb img {
+  display: block;
+  width  : 100%;
+  height : 100%;
+}
+
+.project-index-text {
+  display       : flex;
+  flex-direction: column;
+  min-width     : 0;
+}
+
+.project-index-meta {
+  margin-bottom : var(--space-xs);
+  color         : var(--ink-faint);
+  font-size     : var(--text-sm);
+  letter-spacing: 0.04em;
+}
+
+.project-index-meta span { color: var(--border); }
+
+.project-index-title {
+  color      : var(--ink);
+  font-family: var(--font-serif);
+  font-size  : var(--text-xl);
+  line-height: 1.2;
+  transition : color 0.2s ease;
+}
+
+.project-index-desc {
+  max-width  : 720px;
+  margin-top : var(--space-xs);
+  color      : var(--ink-light);
+  font-size  : var(--text-base);
+  line-height: 1.6;
+}
+
+.project-index-arrow {
+  color     : var(--ink-faint);
+  font-size : var(--text-lg);
+  transition: color 0.2s ease, transform 0.2s ease;
+}
+
+.project-index-entry:hover .project-index-title,
+.project-index-entry:hover .project-index-arrow {
+  color: var(--accent);
+}
+
+.project-index-entry:hover .project-index-arrow {
+  transform: translate(2px, -2px);
 }
 
 
@@ -1109,6 +1166,12 @@ a:not(.footer-duck):focus-visible {
    11. Responsive - tablet (< 900px)
    ============================================================ */
 
+@media (max-width: 1100px) {
+  .project-summary-list {
+    grid-template-columns: 1fr;
+  }
+}
+
 @media (max-width: 900px) {
 
   body {
@@ -1192,11 +1255,8 @@ a:not(.footer-duck):focus-visible {
     white-space   : nowrap;
   }
 
-  /* Projects: feature, play & tools to 2 cols, wide stack */
-  .project-grid-feature,
-  .project-grid-play,
-  .project-grid-tools {
-    grid-template-columns: repeat(2, 1fr);
+  .project-index-entry {
+    grid-template-columns: 140px minmax(0, 1fr) auto;
   }
 }
 
@@ -1245,17 +1305,38 @@ a:not(.footer-duck):focus-visible {
     font-size: var(--text-xl);
   }
 
-  /* Projects: everything to a single column */
-  .project-grid-feature,
-  .project-grid-play,
-  .project-grid-tools {
-    grid-template-columns: 1fr;
-    gap                  : 28px;
+  .project-summary-link {
+    grid-template-columns: 88px minmax(0, 1fr);
+    gap                  : var(--space-md);
   }
 
-  /* Vignettes droites une fois empilées (plus d'épinglage en mono-colonne) */
-  .project-grid-pinned .project-card-link .project-thumb {
-    transform: none;
+  .project-summary-title {
+    font-size: var(--text-lg);
+  }
+
+  .project-summary-desc {
+    display: none;
+  }
+
+  .projects-index-head {
+    margin-bottom: 40px;
+  }
+
+  .project-index-group + .project-index-group {
+    margin-top: 44px;
+  }
+
+  .project-index-entry {
+    grid-template-columns: 88px minmax(0, 1fr) auto;
+    gap                  : var(--space-md);
+  }
+
+  .project-index-title {
+    font-size: var(--text-lg);
+  }
+
+  .project-index-desc {
+    display: none;
   }
 
   /* Group head: drop the note so the label + rule keep their line */

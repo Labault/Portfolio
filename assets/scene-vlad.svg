@@ -1,0 +1,44 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 300" role="img" aria-label="Vlad Tattoo">
+  <rect width="400" height="300" fill="#ECE8E0"/>
+  <circle cx="270" cy="146" r="112" fill="#E2DCE7"/>
+
+  <!-- Registration marks, borrowed from the studio's tracing-paper language -->
+  <g fill="none" stroke="#5B5752" stroke-width="1" opacity="0.38">
+    <path d="M26 34h28M40 20v28"/>
+    <circle cx="40" cy="34" r="4"/>
+    <path d="M346 266h28M360 252v28"/>
+    <circle cx="360" cy="266" r="4"/>
+  </g>
+
+  <text x="30" y="71" font-family="Inter, system-ui, sans-serif" font-size="10" letter-spacing="0.18em" fill="#5D4773">TATOUAGES AU TRAIT FIN</text>
+  <text x="30" y="113" font-family="Georgia, 'DM Serif Display', serif" font-size="40" fill="#161513">Vlad</text>
+  <text x="31" y="135" font-family="Inter, system-ui, sans-serif" font-size="11" fill="#5B5752">une ligne juste, au bon endroit.</text>
+
+  <!-- Sheet of flash drawings -->
+  <g transform="translate(165 18) rotate(3 88 112) scale(1.1)">
+    <rect x="8" y="9" width="174" height="224" rx="2" fill="#161513" opacity="0.08"/>
+    <rect width="174" height="224" rx="2" fill="#FEFEFE" stroke="#D8D6D0"/>
+
+    <!-- Ginkgo leaf -->
+    <g transform="translate(23 20)" fill="none" stroke="#161513" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M52 79C32 70 17 53 14 31C29 29 44 33 54 44C61 28 75 16 93 12C99 32 94 51 79 66C69 74 60 78 52 79Z" stroke-width="1.6"/>
+      <path d="M52 79C56 58 57 44 54 20M52 79C65 57 77 40 91 23M52 79C43 56 31 43 17 34" stroke-width="1" opacity="0.76"/>
+      <path d="M52 79C47 95 44 111 45 128" stroke-width="1.8"/>
+    </g>
+
+    <!-- Abstract continuous-line flash -->
+    <path d="M32 169C50 145 74 147 78 168C82 190 48 199 52 177C56 155 101 150 121 164C143 180 133 206 107 205C91 205 83 195 87 184C91 174 108 175 111 186" fill="none" stroke="#5D4773" stroke-width="2" stroke-linecap="round"/>
+    <circle cx="145" cy="187" r="4" fill="#5D4773"/>
+  </g>
+
+  <!-- Tattoo needle / pen -->
+  <g transform="translate(61 179) rotate(-16 38 47)">
+    <rect x="26" y="4" width="25" height="83" rx="12" fill="#161513"/>
+    <rect x="30" y="13" width="17" height="33" rx="8" fill="#5B5752"/>
+    <path d="M30 83h17l-5 35H35Z" fill="#D8D6D0" stroke="#161513" stroke-width="1"/>
+    <path d="M38.5 118v22" stroke="#161513" stroke-width="1.5"/>
+  </g>
+
+  <path d="M29 257C76 240 119 241 165 256" fill="none" stroke="#5D4773" stroke-width="1.5" stroke-linecap="round" opacity="0.72"/>
+  <text x="30" y="280" font-family="Georgia, 'DM Serif Display', serif" font-size="15" font-style="italic" fill="#5B5752">dessiné à la main, pensé pour la peau.</text>
+</svg>

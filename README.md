@@ -147,6 +147,8 @@ little.
 ├── style.css               # the whole style. still one file.
 ├── build.php               # the journal generator. runs on my machine, never the server.
 ├── composer.json           # one dependency: league/commonmark
+├── projets/
+│   └── index.html          # the complete project archive
 ├── journal/
 │   ├── _posts/             # articles in Markdown - the source you actually edit
 │   ├── _templates/         # the shared shell + the list/article markup

@@ -1,0 +1,43 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 300" role="img" aria-label="Whykipédia">
+  <defs>
+    <linearGradient id="whykipedia-sky" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#33466D"/>
+      <stop offset="1" stop-color="#172138"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="400" height="300" fill="url(#whykipedia-sky)"/>
+  <circle cx="200" cy="154" r="122" fill="#7184A8" opacity="0.28"/>
+
+  <text x="30" y="35" font-family="Inter, system-ui, sans-serif" font-size="10" letter-spacing="0.13em" fill="#F7ECD8">WIKIPÉDIA A TOUJOURS UNE QUESTION</text>
+
+  <!-- Des sujets tirés au hasard, sans transformer la miniature en capture d’écran. -->
+  <g fill="#AFC0DD" opacity="0.42">
+    <circle cx="52" cy="102" r="6"/>
+    <circle cx="346" cy="88" r="4"/>
+    <circle cx="336" cy="224" r="7"/>
+  </g>
+
+  <!-- Wikipédia rencontre le quiz : un symbole, une question, deux choix. -->
+  <g>
+    <circle cx="150" cy="145" r="68" fill="#FBF4E7"/>
+    <circle cx="150" cy="145" r="54" fill="#253555"/>
+    <text x="150" y="166" text-anchor="middle" font-family="Georgia, 'DM Serif Display', serif" font-size="64" font-weight="700" fill="#FBF4E7">W</text>
+
+    <text x="252" y="184" text-anchor="middle" font-family="Georgia, 'DM Serif Display', serif" font-size="118" font-weight="700" fill="#FBF4E7">?</text>
+
+    <g font-family="Inter, system-ui, sans-serif" font-size="10" font-weight="700" letter-spacing="0.08em" text-anchor="middle">
+      <rect x="92" y="218" width="92" height="32" rx="8" fill="#4D785B"/>
+      <text x="138" y="239" fill="#FFF9EE">VRAI</text>
+      <rect x="208" y="218" width="92" height="32" rx="8" fill="#A64043"/>
+      <text x="254" y="239" fill="#FFF9EE">FAUX</text>
+    </g>
+  </g>
+
+  <g font-family="ui-monospace, Menlo, monospace" font-size="9">
+    <text x="30" y="274" fill="#AFC0DD">QUESTION 7 / 10</text>
+    <text x="330" y="274" text-anchor="end" fill="#E2B45F">#12</text>
+  </g>
+
+  <rect x="361" y="279" width="9" height="9" rx="2" fill="#B5341A"/>
+</svg>

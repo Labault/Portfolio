@@ -630,6 +630,7 @@ file_put_contents(ROOT . '/index.html', $home);
 $latest = $posts[0]['date']->format('Y-m-d');
 $urls   = [];
 $urls[] = ['loc' => BASE_URL . '/',         'lastmod' => $latest, 'changefreq' => 'monthly', 'priority' => '1.0'];
+$urls[] = ['loc' => BASE_URL . '/projets/', 'lastmod' => '2026-09-24', 'changefreq' => 'monthly', 'priority' => '0.8'];
 $urls[] = ['loc' => BASE_URL . '/journal/', 'lastmod' => $latest, 'changefreq' => 'weekly',  'priority' => '0.8'];
 foreach ($posts as $post) {
     $urls[] = [
