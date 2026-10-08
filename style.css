@@ -546,10 +546,10 @@ section[id] {
   color   : var(--ink-faint);
 }
 
-/* Trois postes secondaires côte à côte */
+/* Expériences secondaires sur deux colonnes */
 .xp-row {
   display              : grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(2, minmax(0, 1fr));
   gap                  : 16px;
 }
 
