@@ -68,22 +68,33 @@
   --font-sans    : 'Inter', system-ui, sans-serif;
   --font-serif   : 'DM Serif Display', Georgia, serif;
 
-  /* Core colors */
-  --ink          : #1F1A14;   /* primary text */
-  --ink-light    : #6B6258;   /* secondary text */
-  --ink-faint    : #6B645C;   /* tertiary text / labels (AA on cream) */
-  --cream        : #F5F0E8;   /* page background */
-  --cream-dark   : #EBE6DD;   /* outer background */
-  --border       : #E5DDD0;   /* separator lines */
-  --surface      : #FBF8F2;   /* raised content */
+  /* Core colors - v2 "salle de controle", ardoise froide.
+     Les noms de la v1 sont conserves : --ink reste la couleur du
+     texte, --cream le fond de page. Seules les valeurs s'inversent.
+     Chaque paire texte/fond ci-dessous passe WCAG AA. */
+  --ink          : #E6EAF0;   /* primary text          15.1:1 sur --cream */
+  --ink-light    : #99A4B2;   /* secondary text         7.2:1 */
+  --ink-faint    : #7B8795;   /* tertiary / labels      4.9:1 */
+  --ink-mute     : #5E6977;   /* decoratif, non essentiel */
+  --cream        : #11151B;   /* page background */
+  --cream-dark   : #0B0E12;   /* outer background */
+  --border       : #1F2730;   /* separator lines */
+  --border-strong: #2B3540;   /* separators au survol */
+  --surface      : #161B22;   /* raised content : cartes, panneaux */
+  --inset        : #0B0E12;   /* creux : code, log, contact */
 
   /* Accent - terracotta */
-  --accent       : #B5341A;
-  --accent-dark  : #5C1B0A;
+  --accent       : #FF6B3D;   /*                        5.7:1 sur --cream */
+  --accent-deep  : #8A2F12;   /* rails et bordures, pas du texte */
+  --accent-soft  : #FFA383;   /* accent en texte sur un creux */
 
-  /* Secondary - sage green (status) */
-  --sage         : #566D34;
-  --sage-dark    : #2E3D17;
+  /* Secondary - vert statut */
+  --sage         : #4CA98C;   /*                        7.0:1 */
+  --sage-deep    : #2E6553;
+
+  /* Champ des medaillons du journal : deja sombre en v1, il devient
+     la seule couleur de la charte que le v2 n'a pas eu a toucher. */
+  --medallion    : #0A1422;
 
   /* Type scale - six tailles, point. Les blocs s'y conforment, pas l'inverse. */
   --text-sm   : 11px;   /* labels, méta, légendes */
@@ -166,12 +177,17 @@ a {
   height       : 10px;
   border-radius: 50%;
 }
+/* Les trois pastilles portaient leurs couleurs en attribut style.
+   Elles sont dans la feuille, donc dans la charte. */
+.browser-chrome-dot-idle   { background: var(--ink-mute); }
+.browser-chrome-dot-accent { background: var(--accent); }
+.browser-chrome-dot-ok     { background: var(--sage); }
 
 .browser-chrome-url {
   flex        : 1;
   text-align  : center;
   font-size   : var(--text-sm);
-  color       : #888780;
+  color       : var(--ink-faint);
 }
 
 /* Main content */
@@ -274,7 +290,7 @@ section[id] {
 
 .nav-status-text {
   font-size: var(--text-sm);
-  color    : var(--sage-dark);
+  color    : var(--sage);
 }
 
 
@@ -408,7 +424,7 @@ section[id] {
   overflow    : hidden;
   cursor      : pointer;
   border-radius: 4px;
-  background  : #EDD8C7;
+  background  : var(--surface);
   max-width   : 220px;
   margin      : 0 auto;
 }
@@ -478,7 +494,7 @@ section[id] {
 
 /* Coquille de carte, même langage que les cartes stack / projets */
 .xp-card {
-  background   : #FBF8F2;
+  background   : var(--surface);
   border       : 0.5px solid var(--border);
   border-radius: 6px;
   padding      : 20px 22px;
@@ -583,7 +599,7 @@ section[id] {
 }
 
 .tech-card {
-  background    : #FBF8F2;
+  background    : var(--surface);
   border        : 0.5px solid var(--border);
   border-radius : 6px;
   display       : flex;
@@ -948,7 +964,7 @@ section[id] {
    ============================================================ */
 
 .contact {
-  background: var(--ink);
+  background: var(--inset);
   position  : relative;
 }
 
@@ -969,7 +985,7 @@ section[id] {
 .contact-cta {
   font-family: var(--font-serif);
   font-size  : var(--text-3xl);
-  color      : var(--cream);
+  color      : var(--ink);
   line-height: 1;
   font-weight: 400;
 }
@@ -981,7 +997,7 @@ section[id] {
 
 .contact-email {
   font-size : var(--text-base);
-  color     : #C9BCA8;
+  color     : var(--ink-light);
   margin-top: 20px;
   display   : block;
   transition: color 0.25s ease;
@@ -991,7 +1007,7 @@ section[id] {
 
 .contact-cv {
   font-size  : var(--text-sm);
-  color      : #C9BCA8;
+  color      : var(--ink-light);
   margin-top : 20px;
   display    : block;
   transition : color 0.25s ease;
@@ -1001,13 +1017,13 @@ section[id] {
 
 .contact-note {
   font-size : var(--text-sm);
-  color     : #94897A;
+  color     : var(--ink-faint);
   margin-top: 20px;
 }
 
 .contact-links {
   font-size  : var(--text-sm);
-  color      : #C9BCA8;
+  color      : var(--ink-light);
   line-height: 1.9;
   text-align : right;
 }
@@ -1017,7 +1033,7 @@ section[id] {
   align-items    : center;
   justify-content: flex-end;
   gap            : 8px;
-  color          : #C9BCA8;
+  color          : var(--ink-light);
   transition     : color 0.25s ease;
 }
 
@@ -1058,8 +1074,8 @@ section[id] {
   left         : -9999px;
   top          : 0;
   z-index      : 100;
-  background   : var(--ink);
-  color        : var(--cream);
+  background   : var(--inset);
+  color        : var(--ink);
   padding      : 10px 16px;
   border-radius: 0 0 6px 0;
 }
@@ -1077,7 +1093,7 @@ a:not(.footer-duck):focus-visible {
 
 /* Section contact sur fond sombre : anneau clair pour rester lisible */
 .contact a:not(.footer-duck):focus-visible {
-  outline-color: var(--cream);
+  outline-color: var(--ink);
 }
 
 .footer-duck:hover,
@@ -1103,7 +1119,7 @@ a:not(.footer-duck):focus-visible {
   font-family: var(--font-serif);
   font-style : italic;
   font-size  : var(--text-sm);
-  color      : #C9BCA8;
+  color      : var(--ink-light);
   opacity    : 0;
   transform  : translateX(6px);
   transition : opacity 0.4s ease, transform 0.4s ease;
@@ -1250,7 +1266,7 @@ a:not(.footer-duck):focus-visible {
     background    : var(--cream);
     border        : 0.5px solid var(--border);
     border-radius : 8px;
-    box-shadow    : 0 10px 28px rgba(31, 26, 20, 0.12);
+    box-shadow    : 0 10px 28px rgba(0, 0, 0, 0.45);
     font-size     : var(--text-base);
     white-space   : nowrap;
   }
@@ -1391,23 +1407,23 @@ a:not(.footer-duck):focus-visible {
   display       : flex;
   flex-direction: column;
   color         : inherit;
-  background    : #FBF8F2;
+  background    : var(--surface);
   border        : 0.5px solid var(--border);
   border-radius : 8px;
   overflow      : hidden;
-  box-shadow    : 0 1px 2px rgba(31, 26, 20, 0.04);
+  box-shadow    : 0 1px 2px rgba(0, 0, 0, 0.30);
   transition    : transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
 }
 
 .journal-card:hover {
   transform   : translateY(-4px);
-  box-shadow  : 0 12px 26px rgba(31, 26, 20, 0.12);
-  border-color: #D9CDB8;
+  box-shadow  : 0 12px 26px rgba(0, 0, 0, 0.45);
+  border-color: var(--border-strong);
 }
 
 /* The medallion as a cover, flush to the card's top edge */
 .journal-card .project-thumb {
-  background    : #0A1422;
+  background    : var(--medallion);
   border-radius : 0;
 }
 
@@ -1503,18 +1519,18 @@ a:not(.footer-duck):focus-visible {
   gap                  : 24px;
   align-items          : center;
   padding              : 16px 22px 16px 16px;
-  background           : #FBF8F2;
+  background           : var(--surface);
   border               : 0.5px solid var(--border);
   border-radius        : 10px;
-  box-shadow           : 0 1px 2px rgba(31, 26, 20, 0.04);
+  box-shadow           : 0 1px 2px rgba(0, 0, 0, 0.30);
   transition           : transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
   color                : inherit;
 }
 
 .journal-entry:hover {
   transform   : translateY(-3px);
-  box-shadow  : 0 12px 26px rgba(31, 26, 20, 0.12);
-  border-color: #D9CDB8;
+  box-shadow  : 0 12px 26px rgba(0, 0, 0, 0.45);
+  border-color: var(--border-strong);
 }
 
 .journal-entry-thumb {
@@ -1524,7 +1540,7 @@ a:not(.footer-duck):focus-visible {
   aspect-ratio   : 4 / 3;
   border-radius  : 6px;
   overflow       : hidden;
-  background     : #0A1422;
+  background     : var(--medallion);
 }
 
 .journal-entry-thumb img {
@@ -1579,11 +1595,11 @@ a:not(.footer-duck):focus-visible {
 .article {
   max-width    : 990px;
   margin       : 36px auto;
-  background   : #FBF8F2;
+  background   : var(--surface);
   border       : 0.5px solid var(--border);
   border-radius: 14px;
   padding      : 44px 56px 52px;
-  box-shadow   : 0 1px 3px rgba(31, 26, 20, 0.05);
+  box-shadow   : 0 1px 3px rgba(0, 0, 0, 0.30);
 }
 
 .article-back {
@@ -1698,14 +1714,14 @@ a:not(.footer-duck):focus-visible {
   font-family  : ui-monospace, 'SF Mono', Menlo, monospace;
   font-size    : 0.88em;
   background   : var(--cream-dark);
-  color        : var(--accent-dark);
+  color        : var(--accent-soft);
   padding      : 2px 6px;
   border-radius: 4px;
 }
 
 .article-body pre {
-  background   : var(--ink);
-  color        : var(--cream);
+  background   : var(--inset);
+  color        : var(--ink);
   padding      : 18px 20px;
   border-radius: 6px;
   overflow-x   : auto;
@@ -1770,7 +1786,7 @@ a:not(.footer-duck):focus-visible {
 
 @media (prefers-reduced-motion: reduce) {
   .journal-card:hover,
-  .journal-entry:hover { transform: none; box-shadow: 0 1px 2px rgba(31, 26, 20, 0.04); }
+  .journal-entry:hover { transform: none; box-shadow: 0 1px 2px rgba(0, 0, 0, 0.30); }
   .journal-entry-arrow,
   .journal-entry:hover .journal-entry-arrow { transition: none; transform: none; }
 }
