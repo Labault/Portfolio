@@ -112,6 +112,7 @@
   --section-pad-h : 36px;
   --section-pad-v : 64px;
   --section-pad-v-sm : 56px;
+  --page-tail        : 140px;  /* respiration apres le dernier contenu */
 
   /* Shared component rhythm */
   --radius-sm: 4px;
@@ -2177,4 +2178,25 @@ a:not(.footer-duck):focus-visible {
     animation: none !important;
   }
   .footer-duck { --duck-wake: 1; }
+}
+
+
+/* ============================================================
+   17. v2 - Respiration en fin de page
+   L'accueil se termine sur le bloc contact, qui porte son fond
+   jusqu'au bord du cadre : lui ajouter du rembourrage ferait
+   apparaitre une bande claire sous lui. Les autres pages, elles,
+   s'arretent net sur leur dernier paragraphe. Elles seules
+   recoivent la queue, et ca laisse aussi aux dernieres
+   revelations la distance de defilement pour se terminer.
+   ============================================================ */
+/* Descendant et pas enfant direct : le bloc contact vit dans <main>,
+   donc "> .contact" ne l'attrapait pas et l'accueil heritait de la
+   queue qu'il n'est pas cense avoir. */
+.page:not(:has(.contact)) {
+  padding-bottom: var(--page-tail);
+}
+
+@media (max-width: 600px) {
+  :root { --page-tail: 72px; }
 }
