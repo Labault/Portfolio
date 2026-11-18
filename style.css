@@ -1957,6 +1957,10 @@ a:not(.footer-duck):focus-visible {
 }
 
 @media (max-width: 900px) {
+  /* Moins de course sur petit ecran : les distances de la version large
+     y paraissent bien plus grandes, et le scroll au doigt est plus rapide. */
+  :root { --amp: 0.6; }
+
   .metric-band { grid-template-columns: repeat(2, 1fr); }
   .metric-cell:nth-child(2) { padding-right: 0; border-right: none; }
   .metric-cell:nth-child(-n+2) { border-bottom: 0.5px solid var(--border); }
