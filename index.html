@@ -92,6 +92,7 @@
     <div class="browser-chrome-dot browser-chrome-dot-accent"></div>
     <div class="browser-chrome-dot browser-chrome-dot-ok"></div>
     <div class="browser-chrome-url">https://labault.dev</div>
+    <span class="browser-chrome-live"><span class="browser-chrome-live-dot"></span>LIVE</span>
   </div>
 
   <div class="page">
@@ -150,6 +151,17 @@
         <p>Backend depuis sept ans. Quelques régressions, beaucoup de relectures, et jamais de déploiement le vendredi.</p>
         <p>Concrètement : sept ans sur le même produit métier, une migration de PHP 7.0 à 8.4 et de Symfony 2.8 à 7.4 menée sans casser la prod, et une chaîne que je tiens de la machine de dev au serveur. Le legacy ne me fait pas peur, je l'ai habité.</p>
       </div>
+
+      <!-- Journal de deploiement. Les valeurs entre les marqueurs sont
+           reecrites par build.php : ce bloc dit la verite ou il se tait. -->
+      <div class="deploy-log">
+        <!-- DEPLOY:START -->
+        <div class="deploy-log-line"><span class="deploy-log-arrow">&rarr;</span><span class="deploy-log-name">build  labault.dev</span><span class="deploy-log-ok">ok</span></div>
+        <div class="deploy-log-line"><span class="deploy-log-arrow">&rarr;</span><span class="deploy-log-name">commit main@54095aa</span><span class="deploy-log-ok">ok</span></div>
+        <div class="deploy-log-line"><span class="deploy-log-arrow">&rarr;</span><span class="deploy-log-name">journal 13 articles</span><span class="deploy-log-ok">ok</span></div>
+        <!-- DEPLOY:END -->
+      </div>
+
       <div class="stat-grid">
         <div class="stat">
           <span class="stat-label">depuis</span>
@@ -203,6 +215,31 @@
           <p>
             Avant ça : DUT Informatique puis Licence Pro Développement Web à l'IUT Clermont Auvergne, dont une année d'alternance déjà passée chez Quizzbox.
           </p>
+        </div>
+      </div>
+
+      <!-- Bande de metriques. Chaque chiffre vient du parcours ci-dessous
+           ou du depot : rien d'invente. -->
+      <div class="metric-band">
+        <div class="metric-cell">
+          <span class="metric-label">versions livrées</span>
+          <span class="metric-value">251</span>
+          <span class="metric-sub">sans jamais geler les livraisons</span>
+        </div>
+        <div class="metric-cell">
+          <span class="metric-label">migration</span>
+          <span class="metric-value">2.8 &rarr; 7.4</span>
+          <span class="metric-sub">Symfony, legacy en prod pendant la mue</span>
+        </div>
+        <div class="metric-cell">
+          <span class="metric-label">monolithe</span>
+          <span class="metric-value">112 000 lignes</span>
+          <span class="metric-sub">68 entités, 115 migrations</span>
+        </div>
+        <div class="metric-cell">
+          <span class="metric-label">vendredi</span>
+          <span class="metric-value">0 déploiement</span>
+          <span class="metric-sub">Par principe.</span>
         </div>
       </div>
     </section>
@@ -645,6 +682,16 @@
     </main>
 
   </div>
+</div>
+
+<div class="status-bar">
+  <div class="status-progress"></div>
+  <span><b>labault.dev</b></span>
+  <span class="status-sep status-opt">│</span>
+  <span class="status-opt"><b>stack</b> PHP · Symfony</span>
+  <span class="status-sep">│</span>
+  <span><b>scroll</b> <span class="status-pct"></span></span>
+  <span class="status-end"><span class="browser-chrome-live-dot"></span>en recherche d’un CDI</span>
 </div>
 
 </body>

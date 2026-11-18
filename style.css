@@ -139,7 +139,7 @@ body {
   background  : var(--cream-dark);
   color       : var(--ink);
   min-height  : 100vh;
-  padding     : 24px;
+  padding     : 24px 24px 64px;
   font-weight : 400;
   line-height : 1.6;
 }
@@ -1806,4 +1806,161 @@ a:not(.footer-duck):focus-visible {
   .article-title   { font-size: var(--text-3xl); }
   .article-body    { font-size: var(--text-base); }
   .article-body h2 { margin-top: 36px; }
+}
+
+
+/* ============================================================
+   14. v2 - La couche instrument
+   La fenetre de navigateur de la v1 devient une console : barre
+   de chrome habillee, barre d'etat fixe, journal de deploiement
+   et bande de metriques. Aucun JavaScript : la progression et le
+   pourcentage sont pilotes par animation-timeline: scroll().
+   ============================================================ */
+
+/* --- Barre de chrome --- */
+.browser-chrome {
+  gap           : 8px;
+  margin-bottom : 0;
+  padding       : 11px 14px;
+  background    : var(--surface);
+  border        : 0.5px solid var(--border);
+  border-bottom : none;
+  border-radius : 8px 8px 0 0;
+}
+.browser-chrome-url {
+  flex         : 0 1 auto;
+  margin-left  : 8px;
+  padding      : 3px 12px;
+  text-align   : left;
+  background   : var(--inset);
+  border       : 0.5px solid var(--border);
+  border-radius: var(--radius-sm);
+  color        : var(--ink-light);
+  font-family  : var(--font-mono);
+  letter-spacing: 0.02em;
+}
+.browser-chrome-live {
+  margin-left   : auto;
+  display       : flex;
+  align-items   : center;
+  gap           : 7px;
+  font-family   : var(--font-mono);
+  font-size     : var(--text-sm);
+  letter-spacing: 0.09em;
+  color         : var(--sage);
+}
+.browser-chrome-live-dot {
+  width        : 6px;
+  height       : 6px;
+  border-radius: 50%;
+  background   : var(--sage);
+}
+.page { border-radius: 0 0 8px 8px; }
+
+/* --- Barre d'etat --- */
+.status-bar {
+  position      : fixed;
+  left          : 0;
+  right         : 0;
+  bottom        : 0;
+  z-index       : 60;
+  display       : flex;
+  align-items   : center;
+  gap           : 18px;
+  padding       : 9px 20px;
+  background    : var(--surface);
+  border-top    : 0.5px solid var(--border-strong);
+  font-family   : var(--font-mono);
+  font-size     : var(--text-sm);
+  color         : var(--ink-faint);
+  white-space   : nowrap;
+  overflow      : hidden;
+}
+.status-bar b     { font-weight: 400; color: var(--ink-light); }
+.status-sep       { color: var(--border-strong); }
+.status-end       { margin-left: auto; display: flex; align-items: center; gap: 7px; color: var(--sage); }
+.status-progress {
+  position        : absolute;
+  left            : 0;
+  bottom          : 0;
+  height          : 2px;
+  width           : 100%;
+  background      : var(--accent);
+  transform       : scaleX(0);
+  transform-origin: 0 50%;
+}
+@property --scroll-pct { syntax: '<integer>'; initial-value: 0; inherits: true; }
+.status-pct { --scroll-pct: 0; }
+.status-pct::after {
+  content      : counter(pct) '%';
+  counter-reset: pct var(--scroll-pct);
+  color        : var(--ink-light);
+}
+
+/* --- Journal de deploiement --- */
+.deploy-log {
+  max-width    : 580px;
+  margin       : 40px auto 0;
+  padding      : 14px 22px;
+  background   : var(--inset);
+  border       : 0.5px solid var(--border);
+  border-left  : 2px solid var(--accent-deep);
+  border-radius: var(--radius-sm);
+  font-family  : var(--font-mono);
+  font-size    : var(--text-sm);
+  line-height  : 2;
+  color        : var(--ink-faint);
+  text-align   : left;
+}
+.deploy-log-line  { display: flex; gap: 14px; }
+.deploy-log-arrow { color: var(--border-strong); }
+.deploy-log-name  { flex: 1; color: var(--ink-light); }
+.deploy-log-ok    { color: var(--sage); }
+
+/* --- Bande de metriques --- */
+.metric-band {
+  display              : grid;
+  grid-template-columns: repeat(4, 1fr);
+  margin-top           : 56px;
+  border-top           : 0.5px solid var(--border);
+  border-bottom        : 0.5px solid var(--border);
+}
+.metric-cell {
+  padding      : var(--space-lg);
+  border-right : 0.5px solid var(--border);
+}
+.metric-cell:first-child { padding-left : 0; }
+.metric-cell:last-child  { padding-right: 0; border-right: none; }
+.metric-label {
+  display       : block;
+  font-size     : var(--text-xs);
+  color         : var(--accent);
+  letter-spacing: 0.22em;
+  margin-bottom : 9px;
+}
+.metric-value {
+  display    : block;
+  font-family: var(--font-serif);
+  font-size  : var(--text-xl);
+  color      : var(--ink);
+}
+.metric-sub {
+  display   : block;
+  font-size : var(--text-sm);
+  color     : var(--ink-faint);
+  margin-top: 3px;
+}
+
+@media (max-width: 900px) {
+  .metric-band { grid-template-columns: repeat(2, 1fr); }
+  .metric-cell:nth-child(2) { padding-right: 0; border-right: none; }
+  .metric-cell:nth-child(-n+2) { border-bottom: 0.5px solid var(--border); }
+}
+@media (max-width: 600px) {
+  .metric-band { grid-template-columns: 1fr; }
+  .metric-cell { padding: var(--space-md) 0; border-right: none; border-bottom: 0.5px solid var(--border); }
+  .metric-cell:last-child { border-bottom: none; }
+  .status-bar { gap: 12px; font-size: 10px; padding: 8px 14px; }
+  .status-opt { display: none; }
+  .deploy-log { padding: 12px 16px; }
 }
