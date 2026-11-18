@@ -17,6 +17,9 @@ declare(strict_types=1);
 
 require __DIR__ . '/vendor/autoload.php';
 
+/** Depart du build : sert a dater le journal de deploiement de l'accueil. */
+$startedAt = microtime(true);
+
 use League\CommonMark\CommonMarkConverter;
 
 const ROOT          = __DIR__;
@@ -624,6 +627,77 @@ if ($injected === 0) {
     exit(1);
 }
 file_put_contents(ROOT . '/index.html', $home);
+
+/* ---------- 4 bis. journal de deploiement de l'accueil -------------------
+   Le bloc sous le hero affiche trois lignes. Elles doivent dire la verite,
+   sinon autant les enlever : ce sont les valeurs que ce script connait de
+   premiere main, pas des latences decoratives. Si git est injoignable, la
+   ligne du commit est simplement omise plutot qu'inventee. */
+
+/**
+ * Lit une valeur git, ou null si le depot ou la commande est indisponible.
+ */
+function gitValue(string $args): ?string
+{
+    if (!function_exists('shell_exec')) {
+        return null;
+    }
+
+    $out = @shell_exec('git -C ' . escapeshellarg(ROOT) . ' ' . $args . ' 2>/dev/null');
+
+    if (!is_string($out)) {
+        return null;
+    }
+
+    $out = trim($out);
+
+    return '' === $out ? null : $out;
+}
+
+/**
+ * Une ligne du journal : fleche, libelle, verdict.
+ */
+function deployLine(string $name, string $verdict): string
+{
+    return '        <div class="deploy-log-line">'
+         . '<span class="deploy-log-arrow">&rarr;</span>'
+         . '<span class="deploy-log-name">' . esc($name) . '</span>'
+         . '<span class="deploy-log-ok">' . esc($verdict) . '</span>'
+         . "</div>\n";
+}
+
+$buildMs = (int) round((microtime(true) - $startedAt) * 1000);
+$commit  = gitValue('rev-parse --short HEAD');
+$branch  = gitValue('rev-parse --abbrev-ref HEAD');
+
+$lines = deployLine('build  labault.dev', $buildMs . 'ms');
+
+if (null !== $commit) {
+    $lines .= deployLine('commit ' . ($branch ?? 'HEAD') . '@' . $commit, 'ok');
+}
+
+$lines .= deployLine('journal ' . $total . ' article' . (1 === $total ? '' : 's'), 'ok');
+
+$deployBlock = "<!-- DEPLOY:START -->\n"
+             . $lines
+             . "        <!-- DEPLOY:END -->";
+
+$home = (string) file_get_contents(ROOT . '/index.html');
+$home = preg_replace(
+    '/<!-- DEPLOY:START -->.*?<!-- DEPLOY:END -->/s',
+    $deployBlock,
+    $home,
+    1,
+    $deployInjected
+);
+
+if (0 === $deployInjected) {
+    fwrite(STDERR, "Marqueurs DEPLOY:START/END absents de index.html : journal de deploiement non injecte.\n");
+    exit(1);
+}
+
+file_put_contents(ROOT . '/index.html', $home);
+echo "\u{2713} journal de deploiement (build {$buildMs}ms)\n";
 
 /* ---------- 5. sitemap --------------------------------------------------- */
 
