@@ -122,6 +122,11 @@
   --space-md : 16px;
   --space-lg : 24px;
   --space-xl : 32px;
+
+  /* Amplitude du mouvement. Un seul bouton pour toute la page :
+     1 = le reglage actuel, .5 = moitie moins de course partout,
+     0 = une page strictement immobile. */
+  --amp      : 1;
 }
 
 * {
@@ -1963,4 +1968,129 @@ a:not(.footer-duck):focus-visible {
   .status-bar { gap: 12px; font-size: 10px; padding: 8px 14px; }
   .status-opt { display: none; }
   .deploy-log { padding: 12px 16px; }
+}
+
+
+/* ============================================================
+   15. v2 - Le mouvement
+   Tout est en CSS : animation-timeline: scroll() pour ce qui suit
+   la position dans la page, view() pour ce qui reagit a l'entree
+   dans l'ecran. Zero JavaScript, @supports pour le repli, et une
+   regle : une revelation se termine pendant que l'element arrive,
+   jamais pendant qu'on est en train de le lire.
+   ============================================================ */
+
+@keyframes v2-arrive {
+  from { opacity: 0; transform: translateY(calc(var(--amp) * 64px)); }
+  to   { opacity: 1; transform: none; }
+}
+@keyframes v2-fill      { to { transform: scaleX(1); } }
+@keyframes v2-count     { from { --scroll-pct: 0; } to { --scroll-pct: 100; } }
+@keyframes v2-leave-far { to { opacity: 0.10; transform: translateY(calc(var(--amp) * -90px)); } }
+@keyframes v2-leave-near{ to { opacity: 0.30; transform: translateY(calc(var(--amp) * -36px)); } }
+@keyframes v2-breathe {
+  from { transform: scale(1); }
+  50%  { transform: scale(1.045); }
+  to   { transform: scale(1); }
+}
+
+@supports (animation-timeline: scroll()) {
+
+  /* --- Ce qui suit la position dans la page --- */
+  .status-progress {
+    animation         : v2-fill linear both;
+    animation-timeline: scroll(root block);
+  }
+  .status-pct {
+    animation         : v2-count linear both;
+    animation-timeline: scroll(root block);
+  }
+
+  /* --- Le hero sort a deux vitesses --- */
+  .hero-title {
+    animation         : v2-leave-far linear both;
+    animation-timeline: view();
+    animation-range   : exit -20% exit 100%;
+  }
+  .hero-standfirst {
+    animation         : v2-leave-near linear both;
+    animation-timeline: view();
+    animation-range   : exit -20% exit 100%;
+  }
+
+  /* --- Ce qui arrive par en dessous --- */
+  .stat,
+  .metric-cell,
+  .deploy-log-line,
+  .tech-card,
+  .xp-card,
+  .xp-points li,
+  .journal-card,
+  .journal-entry,
+  .project-index-entry,
+  .about-intro,
+  .about-content p {
+    animation         : v2-arrive linear both;
+    animation-timeline: view();
+    animation-range   : entry 0% entry 58%;
+  }
+
+  /* Decalage en vague. Les bornes restent sous entry 75% : passe ce
+     point l'element est lu, il doit etre a pleine opacite. */
+  .stat:nth-child(4n+2),
+  .metric-cell:nth-child(4n+2),
+  .tech-card:nth-child(4n+2),
+  .deploy-log-line:nth-child(2),
+  .xp-points li:nth-child(2),
+  .journal-card:nth-child(2),
+  .about-content p:nth-of-type(2)  { animation-range: entry 5% entry 63%; }
+
+  .stat:nth-child(4n+3),
+  .metric-cell:nth-child(4n+3),
+  .tech-card:nth-child(4n+3),
+  .deploy-log-line:nth-child(3),
+  .xp-points li:nth-child(3),
+  .journal-card:nth-child(3),
+  .about-content p:nth-of-type(3)  { animation-range: entry 10% entry 68%; }
+
+  .stat:nth-child(4n),
+  .metric-cell:nth-child(4n),
+  .tech-card:nth-child(4n)         { animation-range: entry 15% entry 73%; }
+
+  .journal-entry:nth-child(even),
+  .project-index-entry:nth-child(even) { animation-range: entry 6% entry 64%; }
+
+  /* --- Le portrait respire pendant sa traversee --- */
+  .portrait {
+    animation         : v2-breathe linear both;
+    animation-timeline: view();
+    animation-range   : cover 0% cover 100%;
+  }
+}
+
+/* Accessibilite : tout le mouvement du v2 se coupe d'un bloc, et les
+   deux barres pilotees par le scroll se figent a l'etat complet
+   plutot qu'a zero, sinon elles disparaissent. */
+@media (prefers-reduced-motion: reduce) {
+  .status-progress,
+  .status-pct,
+  .hero-title,
+  .hero-standfirst,
+  .stat,
+  .metric-cell,
+  .deploy-log-line,
+  .tech-card,
+  .xp-card,
+  .xp-points li,
+  .journal-card,
+  .journal-entry,
+  .project-index-entry,
+  .about-intro,
+  .about-content p,
+  .portrait {
+    animation: none !important;
+    opacity  : 1 !important;
+    transform: none !important;
+  }
+  .status-progress { transform: scaleX(1) !important; }
 }
