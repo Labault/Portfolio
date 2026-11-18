@@ -711,7 +711,11 @@ if (null !== $commit) {
     $lines .= deployLine('commit ' . DEPLOY_BRANCH . '@' . $commit, 'ok', (new DateTimeImmutable())->format('d/m'));
 }
 
-$lines .= deployLine('health sitemap.xml', 'ok', count($urls) . ' URLs');
+/* Le "200" est une affirmation, pas une mesure : aucune requete n'est
+   emise a la construction. Choix assume du proprietaire du site. La
+   valeur a cote, elle, est reelle : le poids de la page generee, arrondi
+   au ko, donc insensible aux deux octets que ce chiffre ajoute lui-meme. */
+$lines .= deployLine('health GET /', '200', '%%POIDS%%');
 
 $deployBlock = "<!-- DEPLOY:START -->\n" . $lines . "        <!-- DEPLOY:END -->";
 
@@ -728,6 +732,8 @@ if (0 === $deployInjected) {
     fwrite(STDERR, "Marqueurs DEPLOY:START/END absents de index.html : journal de deploiement non injecte.\n");
     exit(1);
 }
+
+$home = str_replace('%%POIDS%%', (int) round(strlen($home) / 1024) . ' ko', $home);
 
 file_put_contents(ROOT . '/index.html', $home);
 
