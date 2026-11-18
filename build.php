@@ -731,11 +731,14 @@ if (null !== $commit) {
     $lines .= deployLine('commit ' . DEPLOY_BRANCH . '@' . $commit, 'ok', $when);
 }
 
-/* Le "200" est une affirmation, pas une mesure : aucune requete n'est
-   emise a la construction. Choix assume du proprietaire du site. La
-   valeur a cote, elle, est reelle : le poids de la page generee, arrondi
-   au ko, donc insensible aux deux octets que ce chiffre ajoute lui-meme. */
-$lines .= deployLine('health GET /', '200', '%%POIDS%%');
+/* Pas de code HTTP ici : aucune requete n'est emise a la construction,
+   ce script tourne sur ma machine. La place est laissee en attente et
+   deploy.sh, qui curle vraiment l'URL de production apres livraison,
+   ecrit le code et le temps qu'il mesure. En local la ligne annonce
+   donc le poids de la page generee, la seule chose verifiable ici,
+   arrondi au ko pour rester insensible aux octets que ce chiffre
+   ajoute lui-meme. */
+$lines .= deployLine('health GET /', '…', '%%POIDS%%');
 
 $deployBlock = "<!-- DEPLOY:START -->\n" . $lines . "        <!-- DEPLOY:END -->";
 

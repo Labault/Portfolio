@@ -98,10 +98,13 @@ The commit line always says `main`, because `deploy.sh` resets hard onto
 `origin/main` and that is the ref the published page comes from whatever branch
 it was built on; if git is unreachable the line is dropped rather than faked.
 
-One caveat, because this file is not a brochure: the `200` on the health line is
-asserted, not measured. Nothing issues a request at build time. The honest
-version of it lives in `deploy.sh`, which already curls the live URL after
-shipping and could write its result back.
+The third line is the one the build cannot fill. No request is issued at build
+time, so `build.php` leaves the status pending and prints the only thing it can
+vouch for locally, the weight of the page it just wrote. `deploy.sh` finishes
+the sentence: it already curls the live URL after shipping, and now records the
+code and the response time it actually measured. The next deploy resets the file
+and fills it in again, so there is nothing to clean up, and a missing line or a
+missing file only logs a warning - a cosmetic line never fails a deploy.
 
 ## The journal
 
