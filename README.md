@@ -91,10 +91,17 @@ read.* Sounds obvious. It is also exactly the bug that shipped first - a paragra
 sat at half opacity the entire time it was on screen, because its range spanned
 the whole viewport crossing.
 
-**The deploy log tells the truth or it says nothing.** The three lines under the
-hero are written by `build.php` between the `DEPLOY` markers: its own build time,
-the branch and commit it ran on, the number of articles it generated. No invented
-latencies. If git is unreachable, the commit line is dropped rather than faked.
+**The deploy log is written by the build.** The three lines under the hero come
+from `build.php`, between the `DEPLOY` markers: its own build time, the commit it
+ran on, and the weight of the page it just wrote, measured on the final content.
+The commit line always says `main`, because `deploy.sh` resets hard onto
+`origin/main` and that is the ref the published page comes from whatever branch
+it was built on; if git is unreachable the line is dropped rather than faked.
+
+One caveat, because this file is not a brochure: the `200` on the health line is
+asserted, not measured. Nothing issues a request at build time. The honest
+version of it lives in `deploy.sh`, which already curls the live URL after
+shipping and could write its result back.
 
 ## The journal
 
