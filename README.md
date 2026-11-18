@@ -44,11 +44,57 @@ from the Markdown to the VPS.
 
 ## Philosophy, or: why no JavaScript
 
-The site ships **zero** JavaScript. The photo swap on hover? CSS. The blinking
-cursor, the pulsing "available" dot, the slow Ken Burns zoom? All CSS. The
-journal pages? Static HTML, generated once, then just sitting there. The old dev
-proverb says *if it works, don't touch it* - turns out a lot of things work
+The UI ships **zero** JavaScript. Not "a light framework". None.
+
+The photo swap on hover? CSS. The blinking cursor, the pulsing "available" dot?
+CSS. And since the v2, the parallax, the staggered reveals, the scroll progress
+rail and the percentage counting up in the status bar? Also CSS, through
+`animation-timeline: scroll()` and `view()`, with `@supports` for the browsers
+that do not have them yet. Scroll-driven animations went Baseline in October
+2026; the whole motion layer is 130 lines of stylesheet and not one byte of
+runtime.
+
+One honest caveat, since the claim deserves it: a 4 KB Umami tag does ship, for
+self-hosted analytics. Nothing on the page depends on it. Block it and the site
+behaves exactly the same, which is the actual point.
+
+The journal pages? Static HTML, generated once, then just sitting there. The old
+dev proverb says *if it works, don't touch it* - turns out a lot of things work
 without a 200 KB runtime.
+
+## The look, v2
+
+The first version was cream paper and terracotta: a printed page pretending to be
+a browser window. The second one keeps the window and turns it into a console.
+Cold slate field, one hot signal colour, a chrome bar that says `LIVE`, a status
+bar pinned to the bottom of the viewport with the scroll position in it, and a
+deploy log sitting under the hero.
+
+The point is not that dark mode looks technical. The point is that the site
+claims seven years of keeping production up, and a page that reads like something
+*under observation* argues that better than a paragraph about it does. The
+display serif stays, because the alternative is the four-thousandth green-on-black
+terminal portfolio.
+
+**Everything is a token.** `style.css` has exactly zero hardcoded colours outside
+`:root` - the v1 had seventeen, including five card rules rewriting `--surface`
+by hand while the token sat there unused. Change a value in `:root`, the whole
+site follows, journal included. Every text/background pair in there clears WCAG AA,
+and the ratio is written next to the value so the next person does not have to
+guess.
+
+**One knob for the motion.** `--amp` scales every travel on the page at once:
+`1` is the shipped setting, `.5` halves it everywhere, `0` freezes the site
+without breaking a layout. Mobile already runs lower. And one rule governs every
+reveal: *it finishes while the element is still arriving, never while it is being
+read.* Sounds obvious. It is also exactly the bug that shipped first - a paragraph
+sat at half opacity the entire time it was on screen, because its range spanned
+the whole viewport crossing.
+
+**The deploy log tells the truth or it says nothing.** The three lines under the
+hero are written by `build.php` between the `DEPLOY` markers: its own build time,
+the branch and commit it ran on, the number of articles it generated. No invented
+latencies. If git is unreachable, the commit line is dropped rather than faked.
 
 ## The journal
 
@@ -88,8 +134,9 @@ is its own front door for Google.
 
 Two warnings the code already gives you, repeated here for the people who read
 READMEs and not comments: don't hand-edit anything between the `JOURNAL:START`
-and `JOURNAL:END` markers in `index.html` (the build overwrites it), and don't
-edit the generated `journal/**/index.html` files (edit the Markdown instead).
+and `JOURNAL:END` markers in `index.html`, nor between `DEPLOY:START` and
+`DEPLOY:END` right under the hero (the build overwrites both), and don't edit the
+generated `journal/**/index.html` files (edit the Markdown instead).
 
 ### The covers
 
@@ -132,12 +179,13 @@ For a "no-dependency" site it has surprisingly strong opinions:
 - **CSS** - custom properties, grid, a handful of keyframe animations
 - **PHP** - `build.php`, the local journal generator, with one dependency:
   [league/commonmark](https://commonmark.thephpleague.com/) for Markdown
-- **Fonts** - [Inter](https://rsms.me/inter/) for the body, DM Serif Display for the drama, both via Google Fonts
+- **Fonts** - [Inter](https://rsms.me/inter/) for the body, DM Serif Display for
+  the drama. Both self-hosted in `assets/fonts/`, four woff2 files, no CDN
 - **Tech logos** - [devicon](https://devicon.dev/) served over jsDelivr
 
-The only things that touch the network in the browser are the fonts and the icon
-CDN. Pull the plug and the page still mostly stands - it just dresses down a
-little.
+The only things that touch the network in the browser are the icon CDN and the
+analytics tag. The fonts come from the same server as the page. Pull the plug and
+the page still stands - it just loses its tech logos.
 
 ## What's in the box
 
