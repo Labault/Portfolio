@@ -264,6 +264,21 @@ function dateShort(DateTimeImmutable $d): string
     return (int) $d->format('j') . ' ' . MONTHS_FR[(int) $d->format('n')];
 }
 
+/**
+ * Date compacte mais lisible comme une date : "18 nov.", pas "18/11".
+ * Les abreviations sont celles de l'usage, pas une troncature : mars,
+ * mai, juin et août s'ecrivent en entier, juillet fait "juil.".
+ */
+function dateCompact(DateTimeImmutable $d): string
+{
+    static $short = [
+        1 => 'janv.', 'févr.', 'mars', 'avr.', 'mai', 'juin',
+        'juil.', 'août', 'sept.', 'oct.', 'nov.', 'déc.',
+    ];
+
+    return (int) $d->format('j') . ' ' . $short[(int) $d->format('n')];
+}
+
 function readingTime(string $markdown): string
 {
     preg_match_all('/\p{L}+/u', $markdown, $m);
@@ -708,7 +723,12 @@ if (null !== $commit) {
        sur origin/main, donc c'est de cette reference que vient la page
        publiee. Travailler sur une branche n'y change rien, et le nom d'une
        branche de feature n'a rien a faire sur la page. */
-    $lines .= deployLine('commit ' . DEPLOY_BRANCH . '@' . $commit, 'ok', (new DateTimeImmutable())->format('d/m'));
+    $stamp = gitValue('log -1 --format=%ct');
+    $when  = null !== $stamp
+        ? dateCompact((new DateTimeImmutable())->setTimestamp((int) $stamp))
+        : dateCompact(new DateTimeImmutable());
+
+    $lines .= deployLine('commit ' . DEPLOY_BRANCH . '@' . $commit, 'ok', $when);
 }
 
 /* Le "200" est une affirmation, pas une mesure : aucune requete n'est
