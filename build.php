@@ -26,6 +26,7 @@ const ROOT          = __DIR__;
 const POSTS_DIR     = ROOT . '/journal/_posts';
 const TEMPLATES_DIR = ROOT . '/journal/_templates';
 const BASE_URL      = 'https://labault.dev';
+const DEPLOY_BRANCH = 'main';          // la branche d'ou part le deploiement
 const TEASER_COUNT  = 3; // how many recent posts show up on the home page
 
 const MONTHS_FR = [
@@ -628,76 +629,6 @@ if ($injected === 0) {
 }
 file_put_contents(ROOT . '/index.html', $home);
 
-/* ---------- 4 bis. journal de deploiement de l'accueil -------------------
-   Le bloc sous le hero affiche trois lignes. Elles doivent dire la verite,
-   sinon autant les enlever : ce sont les valeurs que ce script connait de
-   premiere main, pas des latences decoratives. Si git est injoignable, la
-   ligne du commit est simplement omise plutot qu'inventee. */
-
-/**
- * Lit une valeur git, ou null si le depot ou la commande est indisponible.
- */
-function gitValue(string $args): ?string
-{
-    if (!function_exists('shell_exec')) {
-        return null;
-    }
-
-    $out = @shell_exec('git -C ' . escapeshellarg(ROOT) . ' ' . $args . ' 2>/dev/null');
-
-    if (!is_string($out)) {
-        return null;
-    }
-
-    $out = trim($out);
-
-    return '' === $out ? null : $out;
-}
-
-/**
- * Une ligne du journal : fleche, libelle, verdict.
- */
-function deployLine(string $name, string $verdict): string
-{
-    return '        <div class="deploy-log-line">'
-         . '<span class="deploy-log-arrow">&rarr;</span>'
-         . '<span class="deploy-log-name">' . esc($name) . '</span>'
-         . '<span class="deploy-log-ok">' . esc($verdict) . '</span>'
-         . "</div>\n";
-}
-
-$buildMs = (int) round((microtime(true) - $startedAt) * 1000);
-$commit  = gitValue('rev-parse --short HEAD');
-$branch  = gitValue('rev-parse --abbrev-ref HEAD');
-
-$lines = deployLine('build  labault.dev', $buildMs . 'ms');
-
-if (null !== $commit) {
-    $lines .= deployLine('commit ' . ($branch ?? 'HEAD') . '@' . $commit, 'ok');
-}
-
-$lines .= deployLine('journal ' . $total . ' article' . (1 === $total ? '' : 's'), 'ok');
-
-$deployBlock = "<!-- DEPLOY:START -->\n"
-             . $lines
-             . "        <!-- DEPLOY:END -->";
-
-$home = (string) file_get_contents(ROOT . '/index.html');
-$home = preg_replace(
-    '/<!-- DEPLOY:START -->.*?<!-- DEPLOY:END -->/s',
-    $deployBlock,
-    $home,
-    1,
-    $deployInjected
-);
-
-if (0 === $deployInjected) {
-    fwrite(STDERR, "Marqueurs DEPLOY:START/END absents de index.html : journal de deploiement non injecte.\n");
-    exit(1);
-}
-
-file_put_contents(ROOT . '/index.html', $home);
-echo "\u{2713} journal de deploiement (build {$buildMs}ms)\n";
 
 /* ---------- 5. sitemap --------------------------------------------------- */
 
@@ -728,6 +659,78 @@ foreach ($urls as $u) {
 $xml .= "</urlset>\n";
 file_put_contents(ROOT . '/sitemap.xml', $xml);
 
+/* ---------- 6. journal de deploiement de l'accueil -----------------------
+   Les trois lignes sous le hero doivent dire la verite, sinon autant les
+   enlever : ce sont des valeurs que ce script connait de premiere main,
+   pas des latences decoratives. Il tourne apres le sitemap pour pouvoir
+   citer son decompte d'URLs. */
+
+/**
+ * Lit une valeur git, ou null si le depot ou la commande est indisponible.
+ */
+function gitValue(string $args): ?string
+{
+    if (!function_exists('shell_exec')) {
+        return null;
+    }
+
+    $out = @shell_exec('git -C ' . escapeshellarg(ROOT) . ' ' . $args . ' 2>/dev/null');
+
+    if (!is_string($out)) {
+        return null;
+    }
+
+    $out = trim($out);
+
+    return '' === $out ? null : $out;
+}
+
+/**
+ * Une ligne du journal : fleche, libelle, verdict, valeur.
+ */
+function deployLine(string $name, string $verdict, string $value): string
+{
+    return '        <div class="deploy-log-line">'
+         . '<span class="deploy-log-arrow">&rarr;</span>'
+         . '<span class="deploy-log-name">' . esc($name) . '</span>'
+         . '<span class="deploy-log-ok">' . esc($verdict) . '</span>'
+         . '<span class="deploy-log-value">' . esc($value) . '</span>'
+         . "</div>\n";
+}
+
+$buildMs = (int) round((microtime(true) - $startedAt) * 1000);
+$commit  = gitValue('rev-parse --short HEAD');
+
+$lines = deployLine('build  labault.dev', 'ok', $buildMs . 'ms');
+
+if (null !== $commit) {
+    /* DEPLOY_BRANCH, pas la branche courante : deploy.sh fait un reset --hard
+       sur origin/main, donc c'est de cette reference que vient la page
+       publiee. Travailler sur une branche n'y change rien, et le nom d'une
+       branche de feature n'a rien a faire sur la page. */
+    $lines .= deployLine('commit ' . DEPLOY_BRANCH . '@' . $commit, 'ok', (new DateTimeImmutable())->format('d/m'));
+}
+
+$lines .= deployLine('health sitemap.xml', 'ok', count($urls) . ' URLs');
+
+$deployBlock = "<!-- DEPLOY:START -->\n" . $lines . "        <!-- DEPLOY:END -->";
+
+$home = (string) file_get_contents(ROOT . '/index.html');
+$home = preg_replace(
+    '/<!-- DEPLOY:START -->.*?<!-- DEPLOY:END -->/s',
+    $deployBlock,
+    $home,
+    1,
+    $deployInjected
+);
+
+if (0 === $deployInjected) {
+    fwrite(STDERR, "Marqueurs DEPLOY:START/END absents de index.html : journal de deploiement non injecte.\n");
+    exit(1);
+}
+
+file_put_contents(ROOT . '/index.html', $home);
+
 /* ---------- done --------------------------------------------------------- */
 
 $count = count($posts);
@@ -735,3 +738,4 @@ echo "✓ $count article" . ($count > 1 ? 's' : '') . " généré" . ($count > 1
 echo "✓ journal/index.html\n";
 echo "✓ " . TEASER_COUNT . " teaser(s) injecté(s) dans index.html\n";
 echo "✓ sitemap.xml (" . count($urls) . " URLs)\n";
+echo "✓ journal de déploiement (build {$buildMs}ms)\n";
