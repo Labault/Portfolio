@@ -196,10 +196,15 @@ a {
 }
 
 /* Main content */
+/* Pas d'overflow:hidden ici : il ferait de .page un conteneur de
+   defilement, et toutes les animation-timeline: view() de la page se
+   resoudraient contre lui. Comme il ne defile jamais, tout serait
+   considere en vue en permanence et aucune revelation ne jouerait.
+   Les coins sont donc clippes par les blocs qui depassent, pas par
+   le parent. */
 .page {
   background    : var(--cream);
   border-radius : 8px;
-  overflow      : hidden;
 }
 
 /* Section separators */
@@ -969,8 +974,9 @@ section[id] {
    ============================================================ */
 
 .contact {
-  background: var(--inset);
-  position  : relative;
+  background   : var(--inset);
+  position     : relative;
+  border-radius: 0 0 8px 8px;
 }
 
 .contact-inner {
@@ -2112,4 +2118,63 @@ a:not(.footer-duck):focus-visible {
     transform: none !important;
   }
   .status-progress { transform: scaleX(1) !important; }
+}
+
+
+/* ============================================================
+   16. v2 - Tibec se reveille
+   Le canard etait fige a 28% d'opacite, immobile jusqu'a ce qu'on
+   le survole. Il se reveille maintenant quand la section contact
+   entre a l'ecran, et respire doucement en attendant.
+   Le reveil pilote une propriete personnalisee, pas l'opacite
+   directement : une animation l'emporte sur une declaration
+   ordinaire, et elle aurait mange le :hover.
+   ============================================================ */
+/* initial-value a 0, et c'est le point delicat : tant que la section
+   contact est hors de l'ecran, sa view-timeline est INACTIVE, donc
+   l'animation n'applique aucune valeur et la propriete retombe sur son
+   initial-value. C'est lui, et non la premiere image-cle, qui decrit
+   l'etat "pas encore arrive". Avec 1, le canard naissait reveille. */
+@property --duck-wake { syntax: '<number>'; initial-value: 0; inherits: false; }
+
+/* Repli sans scroll-driven animations : la valeur de repos d'avant. */
+.footer-duck { opacity: 0.28; }
+
+@keyframes duck-bob {
+  0%, 100% { transform: translateY(0); }
+  50%      { transform: translateY(-3px); }
+}
+@keyframes duck-wake {
+  from { --duck-wake: 0; }
+  to   { --duck-wake: 1; }
+}
+
+/* La respiration. Le survol remplace cette animation par le
+   frettillement existant, donc les deux ne se marchent pas dessus. */
+.footer-duck-img {
+  animation       : duck-bob 4.5s ease-in-out infinite;
+  transform-origin: 50% 80%;
+}
+
+/* La timeline est celle de la SECTION, pas celle du canard : avec ses
+   46px de haut, sa propre phase "entry" ne couvre que 46px de defilement,
+   soit une plage inexploitable qui se terminait avant d'avoir commence. */
+.contact { view-timeline-name: --contact-arrivee; }
+
+@supports (animation-timeline: view()) {
+  .footer-duck {
+    /* 0.12 endormi, 0.28 reveille */
+    opacity           : calc(0.12 + 0.16 * var(--duck-wake));
+    animation         : duck-wake linear both;
+    animation-timeline: --contact-arrivee;
+    animation-range   : entry 25% entry 85%;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .footer-duck,
+  .footer-duck-img {
+    animation: none !important;
+  }
+  .footer-duck { --duck-wake: 1; }
 }
